@@ -107,7 +107,7 @@ export const roadmap = [
   {
     id: "1",
     title: "User's ease to integrate ideas",
-    text: "We are working towards letting user change the website without contact the team.",
+    text: "We are working towards letting users change the website without contacting the team.",
     date: "July 2025",
     status: "progress",
     imageUrl: roadmap2,
@@ -211,31 +211,31 @@ export const collabApps = [
 export const pricing = [
   {
     id: "0",
-    title: "Basic",
-    description: "Basic Website (<10 pages)",
-    price: "29.99",
+    title: "Landing Pages",
+    description: "Just want a landing page?",
+    price: "499*",
     features: [
       "Website from Scratch",
-      "Shared Hosting",
-      "Chat support",
+      "Hosting and domain management",
+      "Priority Support via Call",
     ],
   },
   {
     id: "1",
-    title: "Premium",
-    description: "Complete Website (>10 pages and <25 pages)",
-    price: "39.99",
+    title: "E-Commerce Website",
+    description: "Just manage the inventory, let us handle the technicals",
+    price: "599*",
     features: [
-      "Website and Source Code",
+      "Website and Dashboard access",
       "Dedicated Hosting",
       "Priority support via Call",
     ],
   },
   {
     id: "2",
-    title: "Enterprise",
-    description: "Complex Websites (>50 pages), Custom domain",
-    price: "99.99",
+    title: "Custom",
+    description: "Something else? Contact us now",
+    price: "799*",
     features: [
       "Website with All assets and source code",
       "Cloud Hosting",
@@ -273,7 +273,7 @@ export const benefits = [
   {
     id: "3",
     title: "Fast responding",
-    text: "Lets users quickly find answers to their questions just a text or call away.",
+    text: "Let users quickly find answers to their questions, just a text or call away.",
     backgroundUrl: "./src/assets/benefits/card-4.svg",
     iconUrl: benefitIcon4,
     imageUrl: benefitImage2,
@@ -282,7 +282,7 @@ export const benefits = [
   {
     id: "4",
     title: "Free Website",
-    text: "If you want us to maintain it for you, the website is free and all you have to pay for is maintaince.",
+    text: "If you’d like us to maintain it for you, the website itself is free. You’ll only need to cover the maintenance cost.",
     backgroundUrl: "./src/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
@@ -290,13 +290,12 @@ export const benefits = [
   {
     id: "5",
     title: "Reasonable Pricing",
-    text: "We reply on customer success and provide the best responses.",
+    text: "We’re all about helping our customers succeed and giving the best support we can.",
     backgroundUrl: "./src/assets/benefits/card-6.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
   },
 ];
-
 export const socials = [
   // {
   //   id: "0",

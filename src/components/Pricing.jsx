@@ -29,7 +29,7 @@ const Pricing = () => {
 
         <Heading
           tag="Get started with KreativVantage"
-          title="Free website, only maintainance costs"
+          title="Turn your ideas into reality"
         />
 
         <div className="relative">
@@ -47,6 +47,9 @@ const Pricing = () => {
           </a>
         </div>
       </div>
+      <Heading
+          tag="* represents starting prices"
+        />
     </Section>
   );
 };

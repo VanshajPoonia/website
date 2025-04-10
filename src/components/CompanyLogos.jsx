@@ -4,7 +4,7 @@ const CompanyLogos = ({ className }) => {
   return (
     <div className={className}>
       <h5 className="tagline mb-6 text-center text-n-1/50">
-        Using these to transform ideas into reality
+      Using these tools to transform your ideas into reality
       </h5>
       <ul className="flex">
         {companyLogos.map((logo, index) => (

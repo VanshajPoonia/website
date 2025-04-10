@@ -35,7 +35,7 @@ const Services = () => {
             <div className="relative z-1 max-w-[17rem] ml-auto">
               <h4 className="h4 mb-4">Website Development</h4>
               <p className="body-2 mb-[3rem] text-n-3">
-                We develop custom websites as per your requirements
+              We create custom websites designed to meet your specific needs.
               </p>
               <ul className="body-2">
                 {brainwaveServices.map((item, index) => (
@@ -68,7 +68,7 @@ const Services = () => {
               <div className="absolute inset-0 flex flex-col justify-end p-8 bg-gradient-to-b from-n-8/0 to-n-8/90 lg:p-15">
                 <h4 className="h4 mb-4">Website Designing</h4>
                 <p className="body-2 mb-[3rem] text-n-3">
-                  Just let us know which all changes you wnat us to make and how you want yoru website to look like.
+                Just let us know the changes you’d like and how you envision your website. We’ll take it from there.
                 </p>
               </div>
 
