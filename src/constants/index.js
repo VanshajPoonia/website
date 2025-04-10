@@ -248,7 +248,7 @@ export const benefits = [
   {
     id: "0",
     title: "Creative Websites",
-    text: "It is our teams top prirority to make websites that are not only function but also look good.",
+    text: "It is our top prirority to make websites that are not only functional, but also look good to lure more customers.",
     backgroundUrl: "./src/assets/benefits/card-1.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
