@@ -213,7 +213,7 @@ export const pricing = [
     id: "0",
     title: "Landing Pages",
     description: "Just want a landing page?",
-    price: "499*",
+    price: "399*",
     features: [
       "Website from Scratch",
       "Hosting and domain management",
