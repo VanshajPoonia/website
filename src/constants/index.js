@@ -256,7 +256,7 @@ export const benefits = [
   {
     id: "1",
     title: "Improve everyday",
-    text: "We make continuous updates as per your demands.",
+    text: "We make continuous updates as per your demands starting at 100$/month.",
     backgroundUrl: "./src/assets/benefits/card-2.svg",
     iconUrl: benefitIcon2,
     imageUrl: benefitImage2,
@@ -281,8 +281,8 @@ export const benefits = [
   },
   {
     id: "4",
-    title: "Free Website",
-    text: "If you’d like us to maintain it for you, the website itself is free. You’ll only need to cover the maintenance cost.",
+    title: "Training for maintenance",
+    text: "We also provide training on how to maintain your website starting at 299$.",
     backgroundUrl: "./src/assets/benefits/card-5.svg",
     iconUrl: benefitIcon1,
     imageUrl: benefitImage2,
