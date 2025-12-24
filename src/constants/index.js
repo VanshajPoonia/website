@@ -213,7 +213,7 @@ export const pricing = [
     id: "0",
     title: "Landing Pages",
     description: "Just want a landing page?",
-    price: "399*",
+    price: "499*",
     features: [
       "Website from Scratch",
       "Hosting and domain management",
@@ -224,7 +224,7 @@ export const pricing = [
     id: "1",
     title: "E-Commerce Website",
     description: "Just manage the inventory, let us handle the technicals",
-    price: "599*",
+    price: "799*",
     features: [
       "Website and Dashboard access",
       "Dedicated Hosting",
@@ -235,9 +235,9 @@ export const pricing = [
     id: "2",
     title: "Custom",
     description: "Something else? Contact us now",
-    price: "799*",
+    price: "1499*",
     features: [
-      "Website with All assets and source code",
+      "Get a custom tailored solution",
       "Cloud Hosting",
       "Custom domain and Priority call support",
     ],
