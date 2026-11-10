@@ -1,8 +1,8 @@
 import Link from "next/link";
-import BeforeAfter from "@/components/BeforeAfter";
 import { CtaPanel, Faq, HandoverDoc, PriceList } from "@/components/Blocks";
 import Decode from "@/components/Decode";
 import Hero3D from "@/components/Hero3D";
+import HoursFlow from "@/components/HoursFlow";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PreparedFor from "@/components/PreparedFor";
@@ -96,18 +96,9 @@ export default function Home() {
         <div className="frame">
           <div className="sechead">
             <Decode as="h2" id="where-h" text="Where the hours go." />
-            <div>
-              <p>
-                Take one quote request. Done by hand, it passes through you four times before the job is even booked.
-                Automated, it reaches you once, as a summary.
-              </p>
-              <p className="where__key mono">
-                <span className="where__solid" aria-hidden="true" /> runs on its own
-                <span className="where__dashed" aria-hidden="true" /> done by hand
-              </p>
-            </div>
+            <p>One quote request. By hand, it runs through you four times. Automated, once.</p>
           </div>
-          <BeforeAfter />
+          <HoursFlow />
         </div>
       </section>
 

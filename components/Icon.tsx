@@ -52,7 +52,11 @@ const paths = {
     <path d="M6 16.5V11a6 6 0 0 1 12 0v5.5l1.5 2h-15ZM10 21h4" />
   ),
   external: <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />,
+  spark: <path d="M12 3c.6 5 3.9 8.4 9 9-5.1.6-8.4 4-9 9-.6-5-3.9-8.4-9-9 5.1-.6 8.4-4 9-9Z" />,
 } as const;
+
+/** The raw glyphs, for drawing an icon inside a larger SVG. */
+export const iconPaths = paths;
 
 export type IconName = keyof typeof paths;
 

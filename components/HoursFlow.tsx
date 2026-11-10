@@ -1,0 +1,380 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import { iconPaths, type IconName } from "./Icon";
+
+// One quote request, run two ways on two lanes: your tools on top, you
+// underneath. By hand, the request drops into your lane four times. With
+// automation it runs straight along the tools, through AI, and reaches you
+// once. Dashed is done by hand, solid runs on its own. Both rows start
+// together, so the automated one finishes while the manual one is still on
+// its first trip.
+
+type Lane = "tools" | "you";
+type Pt = [number, number];
+type Orient = { key: "h" | "v"; w: number; h: number; at: (f: number, lane: Lane) => Pt; r: number };
+
+// Positions are written once along the flow (f) and mapped to a wide layout
+// or a tall phone layout.
+const WIDE: Orient = { key: "h", w: 1040, h: 196, at: (f, l) => [f, l === "tools" ? 46 : 142], r: 12 };
+const TALL: Orient = { key: "v", w: 340, h: 456, at: (f, l) => [l === "tools" ? 78 : 222, 20 + f * 0.42], r: 8 };
+
+const TOOLS: { label: string; icon: IconName; f: number }[] = [
+  { label: "Website", icon: "website", f: 150 },
+  { label: "CRM", icon: "crm", f: 490 },
+  { label: "Inbox", icon: "inbox", f: 730 },
+  { label: "Calendar", icon: "calendar", f: 966 },
+];
+const AI_F = 320;
+const YOU_F = 36;
+/** Where the "you" lane stops drawing. */
+const wideEnd = (o: Orient) => (o.key === "h" ? 1010 : 985);
+
+type Row = {
+  id: "hand" | "auto";
+  name: string;
+  path: [number, Lane][];
+  stops: { f: number; label: string }[];
+  ai: boolean;
+  /** Seconds the token spends moving, whatever the layout. */
+  move: number;
+  pause: number;
+  tally: number;
+};
+
+const ROWS: Row[] = [
+  {
+    id: "hand",
+    name: "By hand",
+    path: [
+      [150, "tools"],
+      [236, "tools"],
+      [236, "you"],
+      [404, "you"],
+      [404, "tools"],
+      [578, "tools"],
+      [578, "you"],
+      [644, "you"],
+      [644, "tools"],
+      [818, "tools"],
+      [818, "you"],
+      [884, "you"],
+      [884, "tools"],
+      [966, "tools"],
+    ],
+    stops: [
+      { f: 262, label: "check email" },
+      { f: 380, label: "type it in" },
+      { f: 611, label: "write back" },
+      { f: 851, label: "call to book" },
+    ],
+    ai: false,
+    move: 4.2,
+    pause: 0.7,
+    tally: 4,
+  },
+  {
+    id: "auto",
+    name: "Automated",
+    path: [
+      [150, "tools"],
+      [966, "tools"],
+      [966, "you"],
+    ],
+    stops: [{ f: 966, label: "read summary" }],
+    ai: true,
+    move: 1.7,
+    pause: 0.45,
+    tally: 1,
+  },
+];
+
+// ---------- Path model: orthogonal lines with rounded corners ----------
+
+type Piece = { a: Pt; c?: Pt; b: Pt; len: number; start: number };
+type Model = { d: string; pieces: Piece[]; total: number };
+
+const dist = (a: Pt, b: Pt) => Math.hypot(b[0] - a[0], b[1] - a[1]);
+const quad = (a: Pt, c: Pt, b: Pt, t: number): Pt => {
+  const u = 1 - t;
+  return [u * u * a[0] + 2 * u * t * c[0] + t * t * b[0], u * u * a[1] + 2 * u * t * c[1] + t * t * b[1]];
+};
+
+function buildPath(pts: Pt[], radius = 12): Model {
+  const pieces: Piece[] = [];
+  let cursor = pts[0];
+  const push = (p: Omit<Piece, "len" | "start">) => {
+    let len = 0;
+    if (p.c) {
+      let prev = p.a;
+      for (let i = 1; i <= 16; i++) {
+        const q = quad(p.a, p.c, p.b, i / 16);
+        len += dist(prev, q);
+        prev = q;
+      }
+    } else len = dist(p.a, p.b);
+    pieces.push({ ...p, len, start: 0 });
+  };
+  for (let i = 1; i < pts.length - 1; i++) {
+    const p = pts[i];
+    const r = Math.min(radius, dist(pts[i - 1], p) / 2, dist(p, pts[i + 1]) / 2);
+    const inDir: Pt = [(p[0] - pts[i - 1][0]) / dist(pts[i - 1], p), (p[1] - pts[i - 1][1]) / dist(pts[i - 1], p)];
+    const outDir: Pt = [(pts[i + 1][0] - p[0]) / dist(p, pts[i + 1]), (pts[i + 1][1] - p[1]) / dist(p, pts[i + 1])];
+    const a: Pt = [p[0] - inDir[0] * r, p[1] - inDir[1] * r];
+    const b: Pt = [p[0] + outDir[0] * r, p[1] + outDir[1] * r];
+    push({ a: cursor, b: a });
+    push({ a, c: p, b });
+    cursor = b;
+  }
+  push({ a: cursor, b: pts[pts.length - 1] });
+  let total = 0;
+  pieces.forEach((p) => {
+    p.start = total;
+    total += p.len;
+  });
+  const f = (n: number) => Math.round(n * 10) / 10;
+  const d =
+    `M${f(pts[0][0])} ${f(pts[0][1])}` +
+    pieces.map((p) => (p.c ? `Q${f(p.c[0])} ${f(p.c[1])} ${f(p.b[0])} ${f(p.b[1])}` : `L${f(p.b[0])} ${f(p.b[1])}`)).join("");
+  return { d, pieces, total };
+}
+
+function pointAt(m: Model, L: number): Pt {
+  const l = Math.max(0, Math.min(m.total, L));
+  for (const p of m.pieces) {
+    if (l <= p.start + p.len || p === m.pieces[m.pieces.length - 1]) {
+      const t = p.len ? (l - p.start) / p.len : 0;
+      return p.c ? quad(p.a, p.c, p.b, t) : [p.a[0] + (p.b[0] - p.a[0]) * t, p.a[1] + (p.b[1] - p.a[1]) * t];
+    }
+  }
+  return m.pieces[m.pieces.length - 1].b;
+}
+
+/** Distance along the path to the straight stretch that passes through q. */
+function lengthTo(m: Model, q: Pt): number {
+  for (const p of m.pieces) {
+    if (p.c) continue;
+    const d = dist(p.a, q) + dist(q, p.b) - p.len;
+    if (Math.abs(d) < 0.01) return p.start + dist(p.a, q);
+  }
+  return m.total;
+}
+
+// ---------- Timeline ----------
+
+type Ev = { L: number; kind: "touch" | "ai"; stop: number };
+type Plan = { model: Model; events: Ev[]; speed: number; pause: number; duration: number };
+
+function plan(row: Row, o: Orient): Plan {
+  const model = buildPath(
+    row.path.map(([f, l]) => o.at(f, l)),
+    o.r,
+  );
+  const events: Ev[] = row.stops.map((s, i) => ({ L: lengthTo(model, o.at(s.f, "you")), kind: "touch" as const, stop: i }));
+  if (row.ai) events.push({ L: lengthTo(model, o.at(AI_F, "tools")), kind: "ai", stop: -1 });
+  events.sort((a, b) => a.L - b.L);
+  const speed = model.total / row.move;
+  return { model, events, speed, pause: row.pause, duration: row.move + events.length * row.pause };
+}
+
+type State = { L: number; touches: number; active: Ev | null; tagged: boolean; done: boolean };
+
+function stateAt(p: Plan, t: number): State {
+  let L = 0;
+  let time = 0;
+  let touches = 0;
+  let tagged = false;
+  for (const e of p.events) {
+    const travel = (e.L - L) / p.speed;
+    if (t < time + travel) return { L: L + (t - time) * p.speed, touches, active: null, tagged, done: false };
+    time += travel;
+    L = e.L;
+    if (e.kind === "touch") touches++;
+    else tagged = true;
+    if (t < time + p.pause) return { L, touches, active: e, tagged, done: false };
+    time += p.pause;
+  }
+  const travel = (p.model.total - L) / p.speed;
+  if (t < time + travel) return { L: L + (t - time) * p.speed, touches, active: null, tagged, done: false };
+  return { L: p.model.total, touches, active: null, tagged, done: true };
+}
+
+const LEAD = 0.5;
+const HOLD = 2.8;
+
+// ---------- Drawing ----------
+
+function Node({ o, f, label, icon, kind = "tool" }: { o: Orient; f: number; label: string; icon: IconName; kind?: "tool" | "ai" }) {
+  const [x, y] = o.at(f, "tools");
+  const w = kind === "ai" ? 76 : 120;
+  return (
+    <g className={`hf-node hf-node--${kind}`} transform={`translate(${x} ${y})`} data-ai={kind === "ai" || undefined}>
+      <g className="hf-node__body">
+        <rect x={-w / 2} y={-20} width={w} height={40} rx={3} />
+        <g transform={`translate(${-w / 2 + 12} -9) scale(0.75)`} className="hf-icon">
+          {iconPaths[icon]}
+        </g>
+        <text x={-w / 2 + 38} y={6}>
+          {label}
+        </text>
+      </g>
+    </g>
+  );
+}
+
+function Diagram({ row, o }: { row: Row; o: Orient }) {
+  const p = plan(row, o);
+  const you = o.at(YOU_F, "you");
+  const laneEnd = o.at(wideEnd(o), "you");
+  const wide = o.key === "h";
+  return (
+    <svg
+      className={`hf-svg hf-svg--${o.key}`}
+      viewBox={`0 0 ${o.w} ${o.h}`}
+      data-orient={o.key}
+      aria-hidden="true"
+      focusable="false"
+    >
+      <line className="hf-lane" x1={you[0]} y1={you[1]} x2={laneEnd[0]} y2={laneEnd[1]} />
+      <path className={`hf-path hf-path--${row.id}`} d={p.model.d} />
+      {row.stops.map((s, i) => {
+        const [x, y] = o.at(s.f, "you");
+        return (
+          <g key={s.label} className="hf-stop" data-stop={i} transform={`translate(${x} ${y})`}>
+            <circle className="hf-ring" r={8} />
+            <circle className="hf-dot" r={7} />
+            <text className="hf-label" x={wide ? 0 : 16} y={wide ? 32 : 5} textAnchor={wide ? "middle" : "start"}>
+              {s.label}
+            </text>
+          </g>
+        );
+      })}
+      <g className="hf-token" data-token>
+        <rect x={-10} y={-7} width={20} height={14} rx={2} />
+        <path d="M-6 -2.5h12M-6 1.5h7" />
+      </g>
+      {TOOLS.map((t) => (
+        <Node key={t.label} o={o} f={t.f} label={t.label} icon={t.icon} />
+      ))}
+      {row.ai ? <Node o={o} f={AI_F} label="AI" icon="spark" kind="ai" /> : null}
+      <g className="hf-you" transform={`translate(${you[0]} ${you[1]})`}>
+        <g className="hf-you__body">
+          <rect x={-31} y={-16} width={62} height={32} rx={3} />
+          <text y={5} textAnchor="middle">
+            You
+          </text>
+        </g>
+      </g>
+    </svg>
+  );
+}
+
+export default function HoursFlow() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = ref.current;
+    if (!root) return;
+
+    const views = ROWS.flatMap((row) =>
+      [WIDE, TALL].map((o) => {
+        const svg = root.querySelector<SVGSVGElement>(`[data-row="${row.id}"] svg[data-orient="${o.key}"]`)!;
+        return {
+          row,
+          plan: plan(row, o),
+          token: svg.querySelector<SVGGElement>("[data-token]")!,
+          stops: Array.from(svg.querySelectorAll<SVGGElement>(".hf-stop")),
+          you: svg.querySelector<SVGGElement>(".hf-you")!,
+          ai: svg.querySelector<SVGGElement>("[data-ai]"),
+        };
+      }),
+    );
+    const tallies = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-tally]`)!]));
+    const cycle = LEAD + Math.max(...views.map((v) => v.plan.duration)) + HOLD;
+
+    const paint = (t: number) => {
+      views.forEach((v) => {
+        const s = stateAt(v.plan, t);
+        const started = t > 0;
+        const [x, y] = pointAt(v.plan.model, s.L);
+        v.token.setAttribute("transform", `translate(${x.toFixed(1)} ${y.toFixed(1)})`);
+        v.token.dataset.on = String(started && !s.done);
+        v.token.dataset.tagged = String(s.tagged);
+        v.stops.forEach((el, i) => {
+          el.dataset.on = String(i < s.touches);
+          el.dataset.active = String(s.active?.kind === "touch" && s.active.stop === i);
+        });
+        v.you.dataset.active = String(s.active?.kind === "touch");
+        if (v.ai) v.ai.dataset.active = String(s.active?.kind === "ai");
+        tallies[v.row.id].textContent = String(s.touches);
+      });
+    };
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      paint(cycle);
+      return;
+    }
+
+    paint(0);
+    let raf = 0;
+    let clock = 0;
+    let prev = 0;
+    let visible = false;
+    const tick = (now: number) => {
+      raf = 0;
+      if (!visible || document.hidden) return;
+      clock = (clock + Math.min(0.05, (now - prev) / 1000)) % cycle;
+      prev = now;
+      paint(clock - LEAD);
+      raf = requestAnimationFrame(tick);
+    };
+    const start = () => {
+      if (raf || !visible) return;
+      prev = performance.now();
+      raf = requestAnimationFrame(tick);
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        visible = entries[0]?.isIntersecting ?? false;
+        start();
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(root);
+    const onVis = () => !document.hidden && start();
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      io.disconnect();
+      cancelAnimationFrame(raf);
+      document.removeEventListener("visibilitychange", onVis);
+    };
+  }, []);
+
+  return (
+    <div className="hours" ref={ref}>
+      {ROWS.map((row) => (
+        <figure key={row.id} className="hours__row" data-row={row.id}>
+          <figcaption className="hours__head">
+            <span className="hours__name">
+              <span className={`hours__key hours__key--${row.id}`} aria-hidden="true" />
+              {row.name}
+            </span>
+            <span className="hours__tally">
+              <span className="hours__n mono" data-tally aria-hidden="true">
+                {row.tally}
+              </span>
+              <span aria-hidden="true">× through you</span>
+              <span className="sr-only">
+                {row.id === "hand"
+                  ? "By hand, the request goes through you four times: you check email, type it into the CRM, write back, and call to book."
+                  : "Automated, the website, AI, CRM, inbox and calendar handle it, and it reaches you once, as a summary."}
+              </span>
+            </span>
+          </figcaption>
+          <Diagram row={row} o={WIDE} />
+          <Diagram row={row} o={TALL} />
+        </figure>
+      ))}
+    </div>
+  );
+}
