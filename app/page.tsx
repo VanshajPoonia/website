@@ -6,7 +6,6 @@ import Hero3D from "@/components/Hero3D";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PreparedFor from "@/components/PreparedFor";
-import RoutingLog from "@/components/RoutingLog";
 import { AutomationRecords, CaseFile, WorkStrip } from "@/components/Work";
 import { faq, process } from "@/lib/faq";
 import { faqLd, pageMetadata } from "@/lib/seo";
@@ -50,7 +49,6 @@ export default function Home() {
           </div>
           <div className="cover__stage">
             <Hero3D />
-            <RoutingLog />
           </div>
         </div>
       </section>
