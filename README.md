@@ -1,4 +1,4 @@
-# Kreativ Vantage website
+# KreativVantage website
 
 The marketing site for kreativvantage.com. Next.js (App Router), statically rendered, deployed on Vercel.
 
@@ -20,7 +20,7 @@ Node 22 or newer.
 | Business facts (phone, email, legal name, revision date) | `lib/site.ts` |
 | Services, one per chapter | `lib/services.ts` |
 | Client work and case files | `lib/work.ts`, screenshots in `public/work/` |
-| Prices | `lib/pricing.ts` |
+| Plans and prices (builds, automation, care plans, training) | `lib/pricing.ts` |
 | Home FAQ and project steps | `lib/faq.ts` |
 | Metadata and structured data helpers | `lib/seo.ts` |
 | 3D cover scene (three.js, loaded after the first interaction) | `lib/scene.ts`, `components/Hero3D.tsx` |
@@ -49,11 +49,13 @@ Without them the form tells visitors to email or call instead. Nothing is droppe
 - Security headers (CSP, HSTS, frame, referrer and permissions policies) in `next.config.ts`
 - Redirects from common legal URLs (`/privacy-policy`, `/terms-of-service`)
 
+## Deploying
+
+`vercel.json` sets `"framework": "nextjs"`, which overrides the Vercel project's framework preset (still Vite for the old site on `main`). Deployments from this code build as Next.js with no dashboard change, and older commits keep building as Vite. After the merge you can switch the preset in project settings to match, but nothing depends on it.
+
 ## Before this goes live
 
-1. Confirm the email address in `lib/site.ts` and `public/.well-known/security.txt` (currently `hello@kreativvantage.com`).
-2. Set the legal name and governing-law state in `lib/site.ts` (`legalName`, `jurisdiction`). The terms page shows a highlighted placeholder until then.
-3. Confirm the "from" prices in `lib/pricing.ts`. They are carried over from the old site.
-4. In Vercel, switch the `website` project's framework preset from Vite to Next.js, and clear any custom output directory, before merging to `main`.
-5. Add the Resend environment variables above.
-6. After launch, submit the sitemap in Google Search Console.
+1. Verify `kreativvantage.com` in Resend (it adds a few DNS records in Cloudflare) and add the three Resend variables above in Vercel.
+2. Open a preview deployment and send a test enquiry.
+3. Merge to `main`.
+4. Submit `https://www.kreativvantage.com/sitemap.xml` in Google Search Console.
