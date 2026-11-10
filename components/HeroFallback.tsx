@@ -4,7 +4,7 @@
 const trays = [
   { id: "website", x: 92, y: 190, label: "Website", fill: "var(--blue)" },
   { id: "crm", x: 300, y: 104, label: "CRM", fill: "var(--green)" },
-  { id: "inbox", x: 520, y: 92, label: "Inbox", fill: "var(--salmon)" },
+  { id: "inbox", x: 520, y: 92, label: "Inbox", fill: "var(--purple)" },
   { id: "calendar", x: 505, y: 250, label: "Calendar", fill: "var(--yellow)" },
 ];
 

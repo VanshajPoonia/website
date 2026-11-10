@@ -167,7 +167,7 @@ export const services: Service[] = [
   {
     slug: "care-and-training",
     chapter: 4,
-    color: "salmon",
+    color: "purple",
     title: "Care and training",
     tab: "Care & training",
     headline: "Someone to keep it running, and the know-how to run it yourself.",

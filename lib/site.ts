@@ -19,7 +19,7 @@ export const site = {
   updated: "2026-11-11",
 } as const;
 
-export type ChapterColor = "blue" | "green" | "yellow" | "salmon";
+export type ChapterColor = "blue" | "green" | "yellow" | "purple";
 
 export const nav = [
   { href: "/services", label: "Services" },

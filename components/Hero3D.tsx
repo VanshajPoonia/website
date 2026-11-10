@@ -38,7 +38,7 @@ export default function Hero3D() {
             blue: v("--blue"),
             green: v("--green"),
             yellow: v("--yellow"),
-            salmon: v("--salmon"),
+            purple: v("--purple"),
             font: v("--font-display") || "sans-serif",
           },
           onReady: () => !cancelled && setReady(true),

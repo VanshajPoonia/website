@@ -11,7 +11,7 @@ const NEEDS = [
   { value: "Website", color: "blue" },
   { value: "Online store or portal", color: "green" },
   { value: "Automation and AI", color: "yellow" },
-  { value: "Care and training", color: "salmon" },
+  { value: "Care and training", color: "purple" },
 ];
 const BUDGETS = ["Not sure yet", "Under $1,000", "$1,000 to $3,000", "$3,000 to $10,000", "$10,000 or more"];
 

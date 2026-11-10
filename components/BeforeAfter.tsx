@@ -11,7 +11,7 @@ type Mode = "hand" | "auto";
 const NODES = {
   website: { x: 150, y: 190, label: "Website", color: "var(--blue)" },
   crm: { x: 560, y: 72, label: "CRM", color: "var(--green)" },
-  inbox: { x: 600, y: 190, label: "Inbox", color: "var(--salmon)" },
+  inbox: { x: 600, y: 190, label: "Inbox", color: "var(--purple)" },
   calendar: { x: 560, y: 308, label: "Calendar", color: "var(--yellow)" },
 };
 const YOU = { hand: { x: 360, y: 190 }, auto: { x: 360, y: 330 } };

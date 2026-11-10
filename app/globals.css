@@ -13,16 +13,18 @@
   --rule-2: #c7ccd3;
 
   /* Index-tab stock, one per chapter. Deep variants carry text on paper. */
-  --blue: #a9ccf0;
-  --blue-deep: #1d5ca3;
-  --green: #a8ddb5;
-  --green-deep: #1c7442;
-  --yellow: #f5d66b;
-  --yellow-deep: #7a5c00;
-  --salmon: #f4ae95;
-  --salmon-deep: #ab3f27;
+  /* Tints of the logo's own colours: cyan-blue, leaf green, lime and plum. */
+  --blue: #a8d6f0;
+  --blue-deep: #24589f;
+  --green: #b4dda0;
+  --green-deep: #2f7a1f;
+  --yellow: #e2e87a;
+  --yellow-deep: #5c6300;
+  --purple: #d8c0e4;
+  --purple-deep: #6e2c86;
+  --error: #b3261e;
 
-  --focus: #1d5ca3;
+  --focus: #24589f;
   --display: var(--font-display), "Arial Narrow", sans-serif;
   --text: var(--font-text), system-ui, sans-serif;
   --mono: var(--font-mono), ui-monospace, "SF Mono", Menlo, monospace;
@@ -43,7 +45,7 @@
 [data-color="blue"] { --tab: var(--blue); --tab-deep: var(--blue-deep); }
 [data-color="green"] { --tab: var(--green); --tab-deep: var(--green-deep); }
 [data-color="yellow"] { --tab: var(--yellow); --tab-deep: var(--yellow-deep); }
-[data-color="salmon"] { --tab: var(--salmon); --tab-deep: var(--salmon-deep); }
+[data-color="purple"] { --tab: var(--purple); --tab-deep: var(--purple-deep); }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -292,7 +294,7 @@ html.menu-open { overflow: hidden; }
 .log__chip { padding: 1px 7px; border-radius: 2px; font-size: 0.6875rem; }
 .log__chip[data-station="website"] { background: var(--blue); }
 .log__chip[data-station="crm"] { background: var(--green); }
-.log__chip[data-station="inbox"] { background: var(--salmon); }
+.log__chip[data-station="inbox"] { background: var(--purple); }
 .log__chip[data-station="calendar"] { background: var(--yellow); }
 .log__yours {
   margin: 0 12px 10px; padding-top: 8px; border-top: 1px dashed var(--rule-2);
@@ -573,14 +575,14 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .care__table tbody th { font-weight: 500; color: var(--ink); }
 .care__table tbody td { color: var(--ink-2); }
 .care__table tbody tr:last-child > * { border-bottom: 0; }
-.care__table [data-featured] { background: color-mix(in oklab, var(--salmon) 26%, var(--paper)); }
-.care__table thead th[data-featured] { background: var(--salmon); border-radius: var(--tab-radius) var(--tab-radius) 0 0; }
+.care__table [data-featured] { background: color-mix(in oklab, var(--purple) 30%, var(--paper)); }
+.care__table thead th[data-featured] { background: var(--purple); border-radius: var(--tab-radius) var(--tab-radius) 0 0; }
 .care__name { display: block; font-family: var(--display); font-weight: 680; font-stretch: 110%; font-size: 1.375rem; letter-spacing: -0.02em; }
 .care__price { display: flex; align-items: baseline; gap: 4px; margin-top: 6px; }
 .care__price .mono { font-size: 1.75rem; color: var(--ink); }
 .care__price small { color: var(--ink-3); font-size: 0.875rem; }
 .care__for { display: block; margin-top: 8px; font-weight: 400; color: var(--ink-2); font-size: 0.875rem; line-height: 1.45; }
-.care__table thead th[data-featured] .care__for { color: color-mix(in oklab, var(--ink) 86%, var(--salmon)); }
+.care__table thead th[data-featured] .care__for { color: color-mix(in oklab, var(--ink) 86%, var(--purple)); }
 .care__no { color: var(--ink-3); }
 .addons__price { color: var(--ink); }
 .addons__body { color: var(--ink-2); font-size: 0.9375rem; }
@@ -611,7 +613,7 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .cta__side p { color: color-mix(in oklab, var(--paper) 78%, var(--ink)); max-width: 46ch; }
 .cta__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
 .cta .btn--ink { background: var(--yellow); color: var(--ink); }
-.cta .btn--ink:hover { background: #f8df85; box-shadow: none; }
+.cta .btn--ink:hover { background: #ecf09c; box-shadow: none; }
 .cta .btn--line { border-color: var(--paper); color: var(--paper); }
 .cta .btn--line:hover { background: color-mix(in oklab, var(--paper) 10%, transparent); }
 .cta ::selection { background: var(--yellow); color: var(--ink); }
@@ -727,8 +729,8 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 }
 .field textarea { min-height: 150px; resize: vertical; line-height: 1.5; }
 .field input:focus, .field select:focus, .field textarea:focus { outline: none; box-shadow: 0 0 0 3px color-mix(in oklab, var(--focus) 28%, transparent); border-color: var(--focus); }
-.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--salmon-deep); }
-.field__err { color: var(--salmon-deep); font-size: 0.875rem; }
+.field input[aria-invalid="true"], .field textarea[aria-invalid="true"] { border-color: var(--error); }
+.field__err { color: var(--error); font-size: 0.875rem; }
 fieldset.field { border: 0; padding: 0; margin: 0; }
 .picks { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
 @media (max-width: 560px) { .picks { grid-template-columns: 1fr; } }
@@ -749,7 +751,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 .form__note { color: var(--ink-3); font-size: 0.875rem; max-width: 46ch; }
 .form__status { padding: 16px 18px; border-radius: 3px; border: 1.5px solid var(--ink); }
 .form__status[data-kind="ok"] { background: var(--green); }
-.form__status[data-kind="err"] { background: color-mix(in oklab, var(--salmon) 60%, var(--paper)); }
+.form__status[data-kind="err"] { background: color-mix(in oklab, var(--error) 14%, var(--paper)); border-color: var(--error); }
 .form__status strong { display: block; font-family: var(--display); font-size: 1.125rem; margin-bottom: 4px; }
 .btn[disabled] { opacity: 0.6; cursor: progress; transform: none; }
 

@@ -33,12 +33,12 @@ import {
 import { RoundedBoxGeometry } from "three/examples/jsm/geometries/RoundedBoxGeometry.js";
 import { ROUTE_EVENT, type RouteDetail, type StationId } from "./route";
 
-type Tokens = { ink: string; paper: string; blue: string; green: string; yellow: string; salmon: string; font: string };
+type Tokens = { ink: string; paper: string; blue: string; green: string; yellow: string; purple: string; font: string };
 
 const LAYOUT: Record<StationId, { pos: [number, number]; label: string; color: keyof Tokens; icon: StationId }> = {
   website: { pos: [-3.55, -0.35], label: "Website", color: "blue", icon: "website" },
   crm: { pos: [-0.2, -1.75], label: "CRM", color: "green", icon: "crm" },
-  inbox: { pos: [3.4, -1.95], label: "Inbox", color: "salmon", icon: "inbox" },
+  inbox: { pos: [3.4, -1.95], label: "Inbox", color: "purple", icon: "inbox" },
   calendar: { pos: [3.45, 0.7], label: "Calendar", color: "yellow", icon: "calendar" },
 };
 const LINKS: [StationId, StationId][] = [

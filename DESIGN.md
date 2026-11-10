@@ -10,14 +10,15 @@ colors:
   ink-muted: "#626873"
   rule: "#dcdfe4"
   rule-strong: "#c7ccd3"
-  tab-blue: "#a9ccf0"
-  tab-blue-deep: "#1d5ca3"
-  tab-green: "#a8ddb5"
-  tab-green-deep: "#1c7442"
-  tab-yellow: "#f5d66b"
-  tab-yellow-deep: "#7a5c00"
-  tab-salmon: "#f4ae95"
-  tab-salmon-deep: "#ab3f27"
+  tab-blue: "#a8d6f0"
+  tab-blue-deep: "#24589f"
+  tab-green: "#b4dda0"
+  tab-green-deep: "#2f7a1f"
+  tab-yellow: "#e2e87a"
+  tab-yellow-deep: "#5c6300"
+  tab-purple: "#d8c0e4"
+  tab-purple-deep: "#6e2c86"
+  error: "#b3261e"
 typography:
   display:
     fontFamily: "Archivo, Arial Narrow, sans-serif"
@@ -113,7 +114,7 @@ The previous dark, neon, gradient "agency" look is the anti-reference.
 
 **Key Characteristics:**
 - Paper on a desk: white page bands alternate with grey desk bands.
-- Four index-tab colours, one per service chapter, never decorative.
+- Four index-tab colours, tinted from the logo, one per service chapter, never decorative.
 - Expanded grotesk display type with tight tracking; plain workhorse body.
 - Mono only for data: times, prices, phone numbers, revisions, field and spec labels.
 - Solid lines mean automated; dashed lines mean done by hand.
@@ -126,10 +127,12 @@ A restrained neutral system with a full four-colour palette of index-tab stock, 
 - **Ink** (#15171c): body text, primary buttons, rules that carry structure (1.5px), the closing panel ground.
 
 ### Secondary
-- **Website Blue** (#a9ccf0): chapter 1, Websites. Deep variant (#1d5ca3) for text and focus rings on paper.
-- **Platform Green** (#a8ddb5): chapter 2, Online stores and portals. Deep #1c7442.
-- **Automation Yellow** (#f5d66b): chapter 3, Automation and AI. Also text selection and the primary button on the ink panel. Deep #7a5c00.
-- **Care Salmon** (#f4ae95): chapter 4, Care and training. Deep #ab3f27, also the error colour.
+The four stocks are tints of the KreativVantage K itself: the cyan-blue of its diagonal, the leaf green and lime of its arch, and the plum of its bar.
+- **Website Blue** (#a8d6f0): chapter 1, Websites. Deep variant (#24589f) for text and focus rings on paper.
+- **Platform Green** (#b4dda0): chapter 2, Online stores and portals. Deep #2f7a1f.
+- **Automation Lime** (#e2e87a): chapter 3, Automation and AI. Also text selection and the primary button on the ink panel. Deep #5c6300.
+- **Care Plum** (#d8c0e4): chapter 4, Care and training. Deep #6e2c86.
+- **Error Red** (#b3261e): form errors only. Never a chapter colour.
 
 ### Neutral
 - **Paper** (#fcfcfd): the page. Cool, never cream.
@@ -139,6 +142,8 @@ A restrained neutral system with a full four-colour palette of index-tab stock, 
 - **Rule** (#dcdfe4) and **Strong Rule** (#c7ccd3): hairlines and image borders.
 
 ### Named Rules
+**The Logo Palette Rule.** New colour comes from the K or it does not come in. The tab stocks are tints of the logo; the logo itself is never recoloured, outlined or flattened to one colour.
+
 **The One Tab, One Chapter Rule.** A tab colour appears only where its chapter is meant: its divider, its service page header, its chips, its log chip, its 3D tray. Never as decoration or emphasis.
 
 **The Tinted Secondary Rule.** Secondary text on a tab colour is ink mixed toward that tab (`color-mix(in oklab, ink 84%, tab)`), never grey.
@@ -203,11 +208,11 @@ Square-shouldered paper: 2 to 4px corners on sheets, inputs and buttons. The onl
 ### Inputs / Fields
 - **Style:** white field, 1.5px ink border, 2px corners, 50px tall, mono uppercase label above.
 - **Focus:** border turns Website Blue Deep with a 3px tinted ring.
-- **Error:** Care Salmon Deep border and message. Errors say what is wrong and how to fix it.
+- **Error:** Error Red border and message. Errors say what is wrong and how to fix it.
 - **Picks:** checkbox tiles that fill with their chapter's tab colour when checked.
 
 ### Navigation
-- Header: brand mark and wordmark, four text links (current page underlined 2px), mono phone, ink "Start a project". The mobile menu lists chapters as tab-coloured rows, then links, then a full-width call button.
+- Header: the original K logo (vector, gradients intact) and the wordmark, four text links (current page underlined 2px), mono phone, ink "Start a project". The mobile menu lists chapters as tab-coloured rows, then links, then a full-width call button.
 
 ### Example log and 3D trays (signature)
 - The cover's routing log is a ruled paper slip: mono time, event, and a station chip in that station's tab colour. A clerk made of characters changes expression as steps complete. It drives the WebGL scene: four rounded trays (Website, CRM, Inbox, Calendar) on transparent ground with soft shadows, joined by solid ink tubes, with paper cards arcing between them. The scene loads after the first interaction or 6 seconds, pauses off screen, and shows one still frame under reduced motion. A flat SVG drawing stands in until then.
