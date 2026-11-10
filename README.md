@@ -53,9 +53,11 @@ Without them the form tells visitors to email or call instead. Nothing is droppe
 
 `vercel.json` sets `"framework": "nextjs"`, which overrides the Vercel project's framework preset (still Vite for the old site on `main`). Deployments from this code build as Next.js with no dashboard change, and older commits keep building as Vite. After the merge you can switch the preset in project settings to match, but nothing depends on it.
 
-## Before this goes live
+## Legacy site
 
-1. Verify `kreativvantage.com` in Resend (it adds a few DNS records in Cloudflare) and add the three Resend variables above in Vercel.
-2. Open a preview deployment and send a test enquiry.
-3. Merge to `main`.
-4. Submit `https://www.kreativvantage.com/sitemap.xml` in Google Search Console.
+The previous Vite site is archived on the `legacy` branch and served by the separate Vercel project `kreativvantage-legacy` at legacywebsite.kreativvantage.com. It sends `X-Robots-Tag: noindex` so it never competes with this site in search. That project is not connected to Git. To redeploy it, check out `legacy`, run `vercel link --project kreativvantage-legacy`, then `vercel deploy --prod`.
+
+## After launch
+
+1. Submit `https://www.kreativvantage.com/sitemap.xml` in Google Search Console.
+2. Keep `site.updated` in `lib/site.ts` current when content changes.
