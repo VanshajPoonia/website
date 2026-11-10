@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T00:00:00.000Z",
+  "title": "Design System: Kreativ Vantage",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Ink" },
+      "tab-blue": { "role": "secondary", "displayName": "Website Blue" },
+      "tab-green": { "role": "secondary", "displayName": "Platform Green" },
+      "tab-yellow": { "role": "secondary", "displayName": "Automation Yellow" },
+      "tab-salmon": { "role": "secondary", "displayName": "Care Salmon" },
+      "paper": { "role": "neutral", "displayName": "Paper" },
+      "desk": { "role": "neutral", "displayName": "Desk" }
+    },
+    "shadows": [
+      { "name": "sheet", "value": "0 1px 1px rgb(21 23 28 / 0.04), 0 14px 34px -16px rgb(21 23 28 / 0.24)", "purpose": "Paper resting on the desk: screenshots, log, price table, documents." },
+      { "name": "divider-stack", "value": "0 -1px 0 rgb(21 23 28 / 0.05), 0 -18px 40px -28px rgb(21 23 28 / 0.45), 0 24px 40px -30px rgb(21 23 28 / 0.4)", "purpose": "Divider sheets lying on the one before." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default exponential ease-out for state changes." },
+      { "name": "ease-io", "value": "cubic-bezier(0.65, 0, 0.35, 1)", "purpose": "Line drawing in the before/after diagram." }
+    ],
+    "breakpoints": [
+      { "name": "menu", "value": "900px" },
+      { "name": "cover-split", "value": "1100px" },
+      { "name": "rail", "value": "1280px" }
+    ]
+  },
+  "components": [
+    { "name": "Primary Button", "kind": "button", "refersTo": "button-primary", "description": "Every primary action.", "html": "<button class=\"ds-btn\">Start a project <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></button>", "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;background:#15171c;color:#fcfcfd;border:0;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:16px;transition:background .25s,transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:#000;transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid #1d5ca3;outline-offset:3px}" },
+    { "name": "Line Button", "kind": "button", "refersTo": "button-line", "description": "Secondary action, usually the phone number.", "html": "<button class=\"ds-btn-line\">(314) 780-2331</button>", "css": ".ds-btn-line{min-height:50px;padding:0 22px;background:transparent;color:#15171c;border:1.5px solid #15171c;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-size:16px;transition:background .25s}.ds-btn-line:hover{background:rgb(21 23 28 / .06)}.ds-btn-line:focus-visible{outline:2px solid #1d5ca3;outline-offset:3px}" },
+    { "name": "Field", "kind": "input", "refersTo": "input", "description": "Form field with a printed-form label.", "html": "<label class=\"ds-field\"><span>Your name</span><input placeholder=\"Jane Owner\"></label>", "css": ".ds-field{display:grid;gap:6px}.ds-field span{font-family:'Fragment Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#444a55}.ds-field input{min-height:50px;padding:12px 14px;background:#fff;border:1.5px solid #15171c;border-radius:2px;font:16px 'Public Sans',sans-serif}.ds-field input:focus{outline:none;border-color:#1d5ca3;box-shadow:0 0 0 3px rgb(29 92 163 / .28)}" },
+    { "name": "Chapter Chip", "kind": "chip", "refersTo": "chip", "description": "Which chapters a project used.", "html": "<span class=\"ds-chip\"><b>3</b>Automation &amp; AI</span>", "css": ".ds-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 10px 4px 4px;border-radius:3px;background:color-mix(in oklab,#f5d66b 55%,#fcfcfd);font:550 13px 'Public Sans',sans-serif;color:#15171c}.ds-chip b{display:grid;place-items:center;width:20px;height:20px;border-radius:2px;background:#f5d66b;font:750 12px Archivo,sans-serif;font-stretch:125%}" },
+    { "name": "Index Tab", "kind": "custom", "description": "Chapter tab standing off a divider sheet.", "html": "<div class=\"ds-tab\"><b>2</b>Stores &amp; portals</div><div class=\"ds-sheet\">Online stores and portals</div>", "css": ".ds-tab{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;background:#a8ddb5;border-radius:12px 12px 0 0;font:600 15px Archivo,sans-serif}.ds-tab b{font-weight:750;font-stretch:125%;font-size:18px}.ds-sheet{background:#a8ddb5;padding:32px;border-radius:0 4px 4px 4px;font:750 44px/0.9 Archivo,sans-serif;font-stretch:122%;letter-spacing:-.045em}" }
+  ],
+  "narrative": {
+    "northStar": "The Operating Manual",
+    "overview": "The site reads like a well-made company operations manual for a small business. Paper-white pages sit on a cool grey desk. Each service is a chapter, marked by a coloured index tab the way real divider stock is, and the cover shows work routing itself between the tools a business already has.",
+    "keyCharacteristics": [
+      "Paper on a desk: white page bands alternate with grey desk bands.",
+      "Four index-tab colours, one per service chapter, never decorative.",
+      "Expanded grotesk display type with tight tracking; plain workhorse body.",
+      "Mono only for data: times, prices, phone numbers, revisions, field and spec labels.",
+      "Solid lines mean automated; dashed lines mean done by hand."
+    ],
+    "rules": [
+      { "name": "The One Tab, One Chapter Rule", "body": "A tab colour appears only where its chapter is meant. Never as decoration or emphasis.", "section": "colors" },
+      { "name": "The Tinted Secondary Rule", "body": "Secondary text on a tab colour is ink mixed toward that tab, never grey.", "section": "colors" },
+      { "name": "The Assembling Letters Rule", "body": "Display and headline text may decode into place once; real text is always in the HTML first and reduced motion skips it.", "section": "typography" },
+      { "name": "The Data-Only Mono Rule", "body": "Fragment Mono is for times, prices, phone numbers, revisions, counts and labels.", "section": "typography" },
+      { "name": "The Real Paper Rule", "body": "Depth comes from soft offset shadows and real 3D only. No bevels, embossing or faked materials.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do give each service its tab colour everywhere it appears, and nowhere else.",
+      "Do draw automated paths solid and manual paths dashed.",
+      "Do render real text first and animate on top of it. Every effect has a static state.",
+      "Do keep primary actions ink, or yellow on the ink panel.",
+      "Do label demonstration data as an example, and keep client facts to what was actually built."
+    ],
+    "donts": [
+      "Don't use cream or warm paper. The page is cool white (#fcfcfd) on a cool desk (#e9ebef).",
+      "Don't add eyebrow labels above headings, gradient text, glass, or neon glows.",
+      "Don't fake material with bevels, embossing or inset shadows.",
+      "Don't set headings or paragraphs in mono.",
+      "Don't build sections out of equal grids of icon cards. Use contents lists, spec sheets, divider sheets and case files."
+    ]
+  }
+}

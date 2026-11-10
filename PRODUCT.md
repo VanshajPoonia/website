@@ -1,0 +1,71 @@
+# Product
+
+<!-- impeccable:product-schema 1 -->
+
+## Platform
+
+web
+
+## Stack
+
+Next.js (App Router), statically rendered, deployed on Vercel. Chosen by the user on 2026-11-10 to replace the Vite single-page app for SEO. The Vercel project `website` must switch its framework preset from Vite to Next.js before this branch merges to `main`.
+
+## Users
+
+Owners of US small businesses, mostly around St. Louis, MO: trades, home services, retail, e-commerce, fitness, hospitality, real estate. They need a site that brings in calls and leads, and they lose hours every week to manual work (copying leads between tools, re-keying orders, chasing quotes). They are not technical. They want to know what they will get, roughly what it costs, and who they will be talking to. (Audience confirmed by the user 2026-11-10.)
+
+## Product Purpose
+
+Kreativ Vantage is a website and automation development agency with a focus on AI and saving time. It designs and builds websites, e-commerce and custom platforms, connects the tools a business already uses, and automates repetitive work. Success for this site: a qualified small business owner sends the project form or calls.
+
+## Positioning
+
+Every build is documented and AI-ready, so the client owns and controls it: organised code, written docs, no vendor lock-in, and training so the client (or any developer or AI coding agent) can keep it running. Websites are wired to the rest of the business, so a lead, an order or a booking lands where it needs to go without anyone re-typing it.
+
+## Operating Context
+
+- Engagements are fixed-scope proposals. Example: the signed Viro proposal (e-commerce and dealer platform) priced a standard project at $3,800, or $3,300 with a monthly hosting and maintenance plan.
+- Deliverables named in proposals: build, testing, standard technical SEO, security testing, documentation, admin training, and "AI development and management" training (working with Claude/Codex, giving agents context, source control, reviewing AI changes).
+- Third-party costs (domains, payment fees, email, APIs) are separate and discussed up front.
+- Client owns the custom code after final payment.
+- Out of scope unless added: ongoing SEO campaigns, backlinks, guaranteed rankings.
+
+## Capabilities and Constraints
+
+- Marketing and lead-generation websites (Next.js, Vercel).
+- E-commerce and dealer portals: catalog, cart, checkout, dealer pricing tiers, admin dashboard (Viro).
+- Member portals with auth and admin (Adventure Unknown).
+- Integrations and automation: CRM sync (Reevo, HubSpot), POS to CRM (Toast to HubSpot), lead routing to email, SMS, Zapier and Supabase (Atlas), booking tools, n8n workflows with AI models (comic script to Canva layouts).
+- Hosting, maintenance and care plans.
+- Contact: phone +1 (314) 780-2331 (from the live site). Domain mail runs on Cloudflare Email Routing.
+- Undecided, never invent: contact email address, legal entity name and state, business address, final pricing, response-time promises.
+
+## Brand Commitments
+
+- Name: written "Kreativ Vantage" in the signed proposal, "KreativVantage" on the old site and domain (kreativvantage.com).
+- User-pinned direction for this rebuild (2026-11-10): light, professional theme. Reference: covingtonplacepartners.com. Craft reference: oddballink.vercel.app (rich motion, a character-built face that morphs, embedded 3D), but not its dark neon theme.
+- Performance- and SEO-first. Custom 404, privacy policy, terms of service and the rest of a professional site's legal and technical SEO set.
+
+## Evidence on Hand
+
+Live client work the user approved showing by name with links (2026-11-10):
+- VIRO Design & Finishes (virostl.com): St. Louis cabinetry and flooring store with dealer pricing, online payments, CRM sync and booking.
+- Adventure Unknown (adventure-unknown.com): private club in St. Louis, marketing site plus member portal.
+- ATLAS General Contracting (goatlasgo.us): roofing and construction lead-gen site, service-area pages, lead forms wired to email, SMS, Zapier and Supabase.
+- Healthy Mechanical Services (healthymechanical.com): HVAC, Charlotte metro.
+- Charla Wewers Personal Training (charlawewers.com): St. Louis trainer.
+- Oddball Ink (oddballink.vercel.app): Arnold, MO print shop redesign.
+Automation work (anonymised): Toast POS to HubSpot sync for a restaurant group; n8n pipeline turning comic scripts into Canva layouts with AI models.
+
+Absent, never fabricate: testimonials, client metrics (hours saved, revenue, rankings), team bios, years in business, client counts.
+
+## Product Principles
+
+1. Show the work. Real sites, real integrations, no invented numbers.
+2. Plain words for non-technical owners. Explain what they get and what it saves them.
+3. The client owns it. Documentation, training and no lock-in are part of every build.
+4. Fast and findable by default. The agency's own site is the first proof.
+
+## Accessibility & Inclusion
+
+WCAG 2.2 AA. Respect reduced motion. Every effect has a static fallback.
