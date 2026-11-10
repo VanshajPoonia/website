@@ -24,8 +24,55 @@ export type Service = {
 
 export const services: Service[] = [
   {
-    slug: "websites",
+    slug: "automation-and-ai",
     chapter: 1,
+    color: "yellow",
+    title: "Automation and AI",
+    tab: "Automation & AI",
+    headline: "Stop copying things from one tool into another.",
+    summary:
+      "We connect your website, CRM, point of sale, inbox and calendar, and use AI where it helps, so the repetitive steps happen on their own.",
+    intro: [
+      "Every small business has a list of jobs that are just moving information around. Copy the lead into the CRM. Export the sales and import them somewhere else. Write the same reply again. Build the same layout again.",
+      "We map those steps with you, then automate the ones that are safe to automate. Where a judgment call is needed, AI drafts and a person approves. Every automation logs what it did, so nothing happens in the dark.",
+    ],
+    included: [
+      { title: "AI drafting and sorting", body: "AI that drafts replies, sorts enquiries, summarises calls or pulls details from documents, with a person in the loop." },
+      { title: "Lead routing", body: "Form submissions go to your CRM, email and phone at once, tagged with where they came from." },
+      { title: "Tool-to-tool sync", body: "Point of sale, CRM, accounting, booking and email tools kept in step, with checks before anything is overwritten." },
+      { title: "Content pipelines", body: "Repeatable production work, from a script or a spreadsheet to a finished layout, run as one workflow." },
+      { title: "Workflow tools", body: "n8n, Zapier or custom code, whichever fits your volume and budget. We recommend the simplest one that works." },
+      { title: "Logs and alerts", body: "Every run is logged, failures alert a person, and nothing is deleted without a review step." },
+    ],
+    changes: [
+      "The busywork runs on its own, every day.",
+      "Fewer mistakes from re-typing.",
+      "A clear record of what ran and when.",
+    ],
+    work: ["restaurant-group-pos-sync", "comic-production-pipeline", "atlas-general-contracting"],
+    priceNote: startingAt.automation,
+    fromPrice: 399,
+    faq: [
+      {
+        q: "Which tools can you connect?",
+        a: "Anything with an API or a reliable export: CRMs like HubSpot, point of sale like Toast, email, calendars, spreadsheets, Canva, Supabase and more. If a tool has no API, we tell you up front.",
+      },
+      {
+        q: "Is AI going to send things to my customers without me?",
+        a: "Only if you want it to. Our default is that AI drafts and a person approves anything customer-facing.",
+      },
+      {
+        q: "What happens when an automation fails?",
+        a: "It stops, logs why, and alerts a person. We design the steps so a failure never half-writes your data.",
+      },
+    ],
+    metaTitle: "Business automation and AI integration for small businesses",
+    metaDescription:
+      "Automate lead routing, CRM and point-of-sale sync, AI drafting and content pipelines with n8n, Zapier or custom code. Logged, reviewed and built to save time.",
+  },
+  {
+    slug: "websites",
+    chapter: 2,
     color: "blue",
     title: "Websites",
     tab: "Websites",
@@ -72,7 +119,7 @@ export const services: Service[] = [
   },
   {
     slug: "online-stores-and-portals",
-    chapter: 2,
+    chapter: 3,
     color: "green",
     title: "Online stores and portals",
     tab: "Stores & portals",
@@ -116,53 +163,6 @@ export const services: Service[] = [
     metaTitle: "E-commerce, dealer ordering and member portal development",
     metaDescription:
       "Custom online stores from $2,499 and dealer, wholesale and member portals from $3,800, with admin dashboards and payments through Stripe or Authorize.Net.",
-  },
-  {
-    slug: "automation-and-ai",
-    chapter: 3,
-    color: "yellow",
-    title: "Automation and AI",
-    tab: "Automation & AI",
-    headline: "Stop copying things from one tool into another.",
-    summary:
-      "We connect your website, CRM, point of sale, inbox and calendar, and use AI where it helps, so the repetitive steps happen on their own.",
-    intro: [
-      "Every small business has a list of jobs that are just moving information around. Copy the lead into the CRM. Export the sales and import them somewhere else. Write the same reply again. Build the same layout again.",
-      "We map those steps with you, then automate the ones that are safe to automate. Where a judgment call is needed, AI drafts and a person approves. Every automation logs what it did, so nothing happens in the dark.",
-    ],
-    included: [
-      { title: "Lead routing", body: "Form submissions go to your CRM, email and phone at once, tagged with where they came from." },
-      { title: "Tool-to-tool sync", body: "Point of sale, CRM, accounting, booking and email tools kept in step, with checks before anything is overwritten." },
-      { title: "AI drafting and sorting", body: "AI that drafts replies, sorts enquiries, summarises calls or pulls details from documents, with a person in the loop." },
-      { title: "Content pipelines", body: "Repeatable production work, from a script or a spreadsheet to a finished layout, run as one workflow." },
-      { title: "Workflow tools", body: "n8n, Zapier or custom code, whichever fits your volume and budget. We recommend the simplest one that works." },
-      { title: "Logs and alerts", body: "Every run is logged, failures alert a person, and nothing is deleted without a review step." },
-    ],
-    changes: [
-      "The busywork runs on its own, every day.",
-      "Fewer mistakes from re-typing.",
-      "A clear record of what ran and when.",
-    ],
-    work: ["restaurant-group-pos-sync", "comic-production-pipeline", "atlas-general-contracting"],
-    priceNote: startingAt.automation,
-    fromPrice: 399,
-    faq: [
-      {
-        q: "Which tools can you connect?",
-        a: "Anything with an API or a reliable export: CRMs like HubSpot, point of sale like Toast, email, calendars, spreadsheets, Canva, Supabase and more. If a tool has no API, we tell you up front.",
-      },
-      {
-        q: "Is AI going to send things to my customers without me?",
-        a: "Only if you want it to. Our default is that AI drafts and a person approves anything customer-facing.",
-      },
-      {
-        q: "What happens when an automation fails?",
-        a: "It stops, logs why, and alerts a person. We design the steps so a failure never half-writes your data.",
-      },
-    ],
-    metaTitle: "Business automation and AI integration for small businesses",
-    metaDescription:
-      "Automate lead routing, CRM and point-of-sale sync, AI drafting and content pipelines with n8n, Zapier or custom code. Logged, reviewed and built to save time.",
   },
   {
     slug: "care-and-training",

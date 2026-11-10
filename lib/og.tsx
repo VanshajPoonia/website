@@ -8,9 +8,9 @@ export const ogSize = { width: 1200, height: 630 };
 
 const STOCK: Record<ChapterColor, string> = { blue: "#a8d6f0", green: "#b4dda0", yellow: "#e2e87a", purple: "#d8c0e4" };
 const TABS: { n: number; label: string; color: ChapterColor }[] = [
-  { n: 1, label: "Websites", color: "blue" },
-  { n: 2, label: "Stores & portals", color: "green" },
-  { n: 3, label: "Automation & AI", color: "yellow" },
+  { n: 1, label: "Automation & AI", color: "yellow" },
+  { n: 2, label: "Websites", color: "blue" },
+  { n: 3, label: "Stores & portals", color: "green" },
   { n: 4, label: "Care & training", color: "purple" },
 ];
 

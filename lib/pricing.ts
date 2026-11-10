@@ -18,7 +18,7 @@ export const builds: Plan[] = [
     name: "Landing page",
     from: "$599",
     min: 599,
-    chapter: 1,
+    chapter: 2,
     for: "One focused page for a service, an offer or a new business.",
     includes: [
       "Custom design, built from scratch",
@@ -32,7 +32,7 @@ export const builds: Plan[] = [
     name: "Business website",
     from: "$1,499",
     min: 1499,
-    chapter: 1,
+    chapter: 2,
     for: "A full site for an established local business, up to 8 pages.",
     includes: [
       "Everything in a landing page",
@@ -46,7 +46,7 @@ export const builds: Plan[] = [
     name: "Online store",
     from: "$2,499",
     min: 2499,
-    chapter: 2,
+    chapter: 3,
     for: "Sell online and run products, orders and payments yourself.",
     includes: [
       "Catalog, cart and checkout",
@@ -60,7 +60,7 @@ export const builds: Plan[] = [
     name: "Portal or custom platform",
     from: "$3,800",
     min: 3800,
-    chapter: 2,
+    chapter: 3,
     for: "Dealer ordering, member areas, bookings and the admin behind them.",
     includes: [
       "Accounts, approvals and role-based access",
@@ -77,7 +77,7 @@ export const automation: Plan[] = [
     name: "Single workflow",
     from: "$399",
     min: 399,
-    chapter: 3,
+    chapter: 1,
     for: "One job automated, such as a form that lands in your CRM, inbox and phone at once.",
     includes: ["One connected workflow", "Logging and failure alerts", "A short written runbook"],
   },
@@ -85,7 +85,7 @@ export const automation: Plan[] = [
     name: "Automation package",
     from: "$1,499",
     min: 1499,
-    chapter: 3,
+    chapter: 1,
     for: "We map your week together and automate the biggest time sinks.",
     includes: [
       "A mapping session on how work moves today",

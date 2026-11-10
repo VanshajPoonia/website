@@ -32,7 +32,7 @@ export const work: WorkItem[] = [
     url: "https://virodesignandfinishes.com",
     urlLabel: "virodesignandfinishes.com",
     status: "Launching",
-    services: [2, 3, 4],
+    services: [1, 3, 4],
     featured: true,
     summary:
       "One online store for cabinets, flooring and surfaces, with dealer accounts, tiered pricing, online payments and every customer synced to the CRM.",
@@ -63,7 +63,7 @@ export const work: WorkItem[] = [
     url: "https://www.adventure-unknown.com",
     urlLabel: "adventure-unknown.com",
     status: "Live",
-    services: [1, 2],
+    services: [2, 3],
     featured: true,
     summary:
       "A public site for a private club and a member portal behind it: bookings, messages, clubs, events, a member directory and a front-desk check-in.",
@@ -93,7 +93,7 @@ export const work: WorkItem[] = [
     url: "https://goatlasgo.us",
     urlLabel: "goatlasgo.us",
     status: "Live",
-    services: [1, 3],
+    services: [1, 2],
     featured: true,
     summary:
       "A lead-generation site with service and service-area pages, a project gallery and a blog, and lead forms that reach the team by email and text.",
@@ -124,7 +124,7 @@ export const work: WorkItem[] = [
     url: "https://www.healthymechanical.com",
     urlLabel: "healthymechanical.com",
     status: "Live",
-    services: [1],
+    services: [2],
     summary:
       "A website for an HVAC company built around healthy indoor air, with services, financing, projects and a content admin.",
     problem:
@@ -153,7 +153,7 @@ export const work: WorkItem[] = [
     url: "https://charlawewers.com",
     urlLabel: "charlawewers.com",
     status: "Live",
-    services: [1],
+    services: [2],
     summary:
       "A site for a women-focused training studio, with programs, testimonials, booking and a contact form that reaches her inbox.",
     problem:
@@ -181,7 +181,7 @@ export const work: WorkItem[] = [
     url: "https://oddballink.vercel.app",
     urlLabel: "oddballink.vercel.app",
     status: "Redesign preview",
-    services: [1],
+    services: [2],
     summary:
       "A redesign for a family-run print shop that leans into its alien mascot: 3D ships, a face made of letters, and the real work up front.",
     problem:
@@ -209,7 +209,7 @@ export const work: WorkItem[] = [
     location: "United States",
     year: "2026",
     status: "Automation",
-    services: [3],
+    services: [1],
     summary:
       "Guest data from Toast point of sale reconciled into HubSpot for two restaurant brands, with daily imports and safety checks before any write.",
     problem:
@@ -231,7 +231,7 @@ export const work: WorkItem[] = [
     location: "Remote",
     year: "2026",
     status: "Automation",
-    services: [3],
+    services: [1],
     summary:
       "A workflow that turns a plain comic script into a near-finished Canva layout: frames, image prompts, generated art and dialogue placed in a template.",
     problem:
