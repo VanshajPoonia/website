@@ -144,7 +144,7 @@ The four stocks are tints of the KreativVantage K itself: the cyan-blue of its d
 ### Named Rules
 **The Logo Palette Rule.** New colour comes from the K or it does not come in. The tab stocks are tints of the logo; the logo itself is never recoloured, outlined or flattened to one colour.
 
-**The One Tab, One Chapter Rule.** A tab colour appears only where its chapter is meant: its divider, its service page header, its chips, its log chip, its 3D tray. Never as decoration or emphasis.
+**The One Tab, One Chapter Rule.** A tab colour appears only where its chapter is meant: its divider, its service page header, its chips, its 3D tray. Never as decoration or emphasis.
 
 **The Tinted Secondary Rule.** Secondary text on a tab colour is ink mixed toward that tab (`color-mix(in oklab, ink 84%, tab)`), never grey.
 
