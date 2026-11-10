@@ -106,9 +106,9 @@ components:
 
 **Creative North Star: "The Operating Manual"**
 
-The site reads like a well-made company operations manual for a small business. Paper-white pages sit on a cool grey desk. Each service is a chapter, marked by a coloured index tab the way real divider stock is, and the cover shows work routing itself between the tools a business already has. The tone is calm, exact and plain-spoken: owners should feel they are reading something organised by people who document everything.
+The site reads like a well-made company operations manual for a small business. Paper-white pages sit on a cool grey desk. Each service is a chapter, marked by a coloured index tab the way real divider stock is, and the cover shows AI sorting incoming work into the tools a business already has. The tone is calm, exact and plain-spoken: owners should feel they are reading something organised by people who document everything.
 
-Colour is functional. The four tab stocks are the only colours on the page and each belongs to exactly one chapter, so colour always answers "which service is this?". Ink black carries every primary action. Motion is physical and damped: letters assemble into headings, paper cards fly between trays and land with a squash, divider sheets stack as you scroll. Everything still reads with motion turned off.
+Colour is functional. The four tab stocks are the only colours on the page and each belongs to exactly one chapter, so colour always answers "which service is this?". Ink black carries every primary action. Motion is physical and damped: letters assemble into headings, requests ride a belt through the AI gate and a robot arm files them into trays that give a little on landing, divider sheets stack as you scroll. Everything still reads with motion turned off.
 
 The previous dark, neon, gradient "agency" look is the anti-reference.
 
@@ -128,9 +128,9 @@ A restrained neutral system with a full four-colour palette of index-tab stock, 
 
 ### Secondary
 The four stocks are tints of the KreativVantage K itself: the cyan-blue of its diagonal, the leaf green and lime of its arch, and the plum of its bar.
-- **Website Blue** (#a8d6f0): chapter 1, Websites. Deep variant (#24589f) for text and focus rings on paper.
-- **Platform Green** (#b4dda0): chapter 2, Online stores and portals. Deep #2f7a1f.
-- **Automation Lime** (#e2e87a): chapter 3, Automation and AI. Also text selection and the primary button on the ink panel. Deep #5c6300.
+- **Automation Lime** (#e2e87a): chapter 1, Automation and AI. Also text selection, the primary button on the ink panel, the AI gate and AI node in diagrams. Deep #5c6300.
+- **Website Blue** (#a8d6f0): chapter 2, Websites. Deep variant (#24589f) for text and focus rings on paper.
+- **Platform Green** (#b4dda0): chapter 3, Online stores and portals. Deep #2f7a1f.
 - **Care Plum** (#d8c0e4): chapter 4, Care and training. Deep #6e2c86.
 - **Error Red** (#b3261e): form errors only. Never a chapter colour.
 
@@ -178,7 +178,7 @@ A 1240px container with a fluid gutter (16 to 44px). Sections alternate paper an
 Mostly flat paper with one soft sheet shadow for anything that sits on the desk.
 
 ### Shadow Vocabulary
-- **Sheet** (`box-shadow: 0 1px 1px rgb(21 23 28 / 0.04), 0 14px 34px -16px rgb(21 23 28 / 0.24)`): screenshots, the example log, the price table, the before/after panel, the handover document.
+- **Sheet** (`box-shadow: 0 1px 1px rgb(21 23 28 / 0.04), 0 14px 34px -16px rgb(21 23 28 / 0.24)`): screenshots, the price table, the hours diagram, the handover document.
 - **Divider stack** (`box-shadow: 0 -1px 0 rgb(21 23 28 / 0.05), 0 -18px 40px -28px rgb(21 23 28 / 0.45), 0 24px 40px -30px rgb(21 23 28 / 0.4)`): divider sheets, so each reads as lying on the one before.
 
 ### Named Rules
@@ -214,8 +214,12 @@ Square-shouldered paper: 2 to 4px corners on sheets, inputs and buttons. The onl
 ### Navigation
 - Header: the original K logo (vector, gradients intact) and the wordmark, four text links (current page underlined 2px), mono phone, ink "Start a project". The mobile menu lists chapters as tab-coloured rows, then links, then a full-width call button.
 
-### Example log and 3D trays (signature)
-- The cover's routing log is a ruled paper slip: mono time, event, and a station chip in that station's tab colour. A clerk made of characters changes expression as steps complete. It drives the WebGL scene: four rounded trays (Website, CRM, Inbox, Calendar) on transparent ground with soft shadows, joined by solid ink tubes, with paper cards arcing between them. The scene loads after the first interaction or 6 seconds, pauses off screen, and shows one still frame under reduced motion. A flat SVG drawing stands in until then.
+### Sorting line (signature)
+- The cover is a WebGL sorting line on transparent ground with soft shadows. Requests drop onto an ink belt as paper objects (an email, a web form, a text, an order), pass through the lime AI gate (three dots bounce while it reads) and come out as uniform record cards with a coloured strip. A paper tag pops over each record ("Quote request → CRM"). A paper-white robot arm with ink joints and a lime cup files each record into an open tray with an index tab: CRM (green), Calendar (blue), Replies (purple). Trays give a little when a card lands; old cards sink out of sight.
+- Everything is a pure function of the scene clock, so `public/hero/sorting-line.webp` is an exact frame (`POSTER_T` in `lib/scene.ts`). The poster paints first; the scene loads after the first interaction or 5 seconds and cross-fades in. Reduced motion, Save-Data and no WebGL keep the poster. The scene pauses off screen.
+
+### Hours lanes
+- "Where the hours go" draws one quote request twice, on two lanes: tools on top, You underneath. By hand is a dashed square wave that drops into your lane four times (check email, type it in, write back, call to book). Automated is one solid line through Website, AI, CRM, Inbox and Calendar with a single drop to read the summary. Both tokens start together, so the automated run finishes first. Tool boxes are neutral paper; only the AI node is lime. Below 640px the lanes turn vertical. Reduced motion shows the finished state.
 
 ## Do's and Don'ts
 

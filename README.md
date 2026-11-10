@@ -23,11 +23,16 @@ Node 22 or newer.
 | Plans and prices (builds, automation, care plans, training) | `lib/pricing.ts` |
 | Home FAQ and project steps | `lib/faq.ts` |
 | Metadata and structured data helpers | `lib/seo.ts` |
-| 3D cover scene (three.js, loaded after the first interaction) | `lib/scene.ts`, `components/Hero3D.tsx` |
+| 3D cover scene (three.js, loaded after the first interaction) | `lib/scene.ts`, `components/Hero3D.tsx`, poster `public/hero/sorting-line.webp` |
+| "Where the hours go" diagram | `components/HoursFlow.tsx` |
 | Styles and design tokens | `app/globals.css`, documented in `DESIGN.md` |
 | Product facts and what must never be invented | `PRODUCT.md` |
 
 Change copy in the `lib/` files and the pages pick it up. Bump `site.updated` and `site.revision` when content changes; the footer, sitemap and legal pages read them.
+
+## Cover poster
+
+The cover shows `public/hero/sorting-line.webp` until three.js loads, and for good under reduced motion. It is an exact frame of the scene at `POSTER_T` in `lib/scene.ts`. If you change the scene, capture a new one: run the site, block the scene's own animation frames so it stays on its first frame, screenshot the canvas at 2x with a transparent page background and the tab rail hidden, and save it as WebP with alpha. Keep the image's width and height in `components/Hero3D.tsx` in step.
 
 ## Contact form
 
