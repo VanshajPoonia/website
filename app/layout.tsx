@@ -38,10 +38,10 @@ export const viewport: Viewport = {
 };
 
 const CONTRACT = `<!--
-THESIS: KreativVantage as a small business's operating manual. Chapters are the services, and the cover shows work routing itself. Refuses the agency default of gradient hero, device mockup and three icon cards.
+THESIS: KreativVantage as a small business's operating manual. Chapters are the services, led by Automation and AI, and the cover shows AI sorting the work. Refuses the agency default of gradient hero, device mockup and three icon cards.
 OWN-WORLD: paper-white pages on a cool grey desk; index-tab stock in blue, green, yellow, purple, one colour per service chapter, never decoration; ink-black actions; Archivo expanded display, Public Sans text, Fragment Mono for data; title blocks, dotted-leader contents; solid lines automated, dashed lines by hand.
-STORY: watch a request route itself; scan the chapters; check real client work and prices; start a project.
-FIRST VIEWPORT: left, H1 assembling from letters, offer, Start a project (ink) and phone, title block "Operating manual for ___". Right, 3D trays (Website, CRM, Inbox, Calendar) with flying cards and the example log with its character clerk. Tab rail on the right edge.
+STORY: watch AI sort the requests; see where the hours go; scan the chapters; check real client work and prices; start a project.
+FIRST VIEWPORT: left, H1 assembling from letters, offer, Start a project (ink) and phone, title block "Operating manual for ___". Right, the 3D sorting line: requests drop onto a belt, pass the AI gate as tagged records, and a robot arm files them into CRM, Calendar and Replies trays. Tab rail on the right edge.
 FORM: grounded candidate 4 of 7, operations manual with index dividers; raised by Bauhaus colour-by-role, jackfield line state, six-pack damped motion, alphabet-storm assembling type; seed bcf81bbf.
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 -->`;

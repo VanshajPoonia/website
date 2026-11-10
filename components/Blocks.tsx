@@ -149,7 +149,7 @@ export function Faq({ items, id }: { items: { q: string; a: string }[]; id?: str
 
 export function CtaPanel({
   title = "Tell us what eats your week.",
-  body = "Send a few lines about your business and the work you would rather not do by hand. We reply with questions, then a fixed-scope proposal.",
+  body = "Tell us which jobs you would rather not do by hand. You get questions back, then a fixed-scope proposal.",
 }: {
   title?: string;
   body?: string;

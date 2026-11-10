@@ -14,7 +14,7 @@ import { site } from "@/lib/site";
 import { namedWork, work } from "@/lib/work";
 
 export const metadata = pageMetadata({
-  title: `${site.name} | Websites and automation for small businesses`,
+  title: `${site.name} | AI automation and websites for small businesses`,
   description: site.description,
   path: "/",
   absoluteTitle: true,
@@ -31,10 +31,9 @@ export default function Home() {
       <section className="cover" aria-labelledby="cover-h">
         <div className="frame cover__grid">
           <div className="cover__copy">
-            <Decode as="h1" id="cover-h" text="Websites that do the busywork." trigger="mount" duration={1150} className="cover__h" />
+            <Decode as="h1" id="cover-h" text="AI that does the busywork." trigger="mount" duration={1150} className="cover__h" />
             <p className="cover__lede">
-              We build websites, online stores and automations for small businesses. When a customer sends a form, places an
-              order or books a visit, it lands in the right place on its own.
+              AI automation and websites for small businesses. Leads, orders and bookings, filed on their own.
             </p>
             <div className="cover__actions">
               <Link href="/contact" className="btn btn--ink">
@@ -72,7 +71,7 @@ export default function Home() {
         <div className="frame">
           <div className="sechead">
             <Decode as="h2" id="contents-h" text="Four ways we give you hours back." />
-            <p>Each chapter is a service. Most clients start with one and add the next when it makes sense.</p>
+            <p>Start with one. Add the next when it pays off.</p>
           </div>
           <ol className="toc">
             {services.map((s) => (
@@ -83,7 +82,7 @@ export default function Home() {
                   </span>
                   <span className="toc__title">{s.title}</span>
                   <span className="toc__leader" aria-hidden="true" />
-                  <span className="toc__summary">{s.summary}</span>
+                  <span className="toc__summary">{s.keywords.join(" · ")}</span>
                   <Icon name="arrow" size={20} className="toc__arrow" />
                 </Link>
               </li>
@@ -113,7 +112,6 @@ export default function Home() {
               <div className="divider__main">
                 <h2 className="divider__h">{s.title}</h2>
                 <p className="divider__lead">{s.headline}</p>
-                <p className="divider__summary">{s.summary}</p>
                 <Link href={`/services/${s.slug}`} className="btn btn--ink">
                   Read chapter {s.chapter} <Icon name="arrow" size={18} />
                 </Link>
@@ -147,7 +145,7 @@ export default function Home() {
         <div className="frame">
           <div className="sechead">
             <Decode as="h2" id="work-h" text="Work you can visit." />
-            <p>Real businesses with live sites. Open them, click around, send a test enquiry.</p>
+            <p>Live sites for real businesses. Click around.</p>
           </div>
           <div className="cases">
             {featured.map((w) => (
@@ -157,8 +155,8 @@ export default function Home() {
           <WorkStrip items={more} />
           <div className="worksec__auto">
             <div className="sechead sechead--small">
-              <h3>Behind the scenes</h3>
-              <p>Automation work has no homepage to show. Client names are left out.</p>
+              <h3>Automation and AI work</h3>
+              <p>No homepage to show, so client names are left out.</p>
             </div>
             <AutomationRecords items={automations} />
           </div>
@@ -172,19 +170,16 @@ export default function Home() {
         <div className="frame own__grid">
           <div className="sechead sechead--stack">
             <Decode as="h2" id="own-h" text="You own it. All of it." />
-            <p>
-              When the project is paid, the code is yours. It comes with written documentation, so you can keep working with us,
-              hire someone else, or have an AI coding agent pick it up.
-            </p>
+            <p>Once it is paid, it is yours. Stay with us, hire someone else, or hand it to an AI coding agent.</p>
             <ul className="own__list">
               <li>
-                <strong>Your code.</strong> No page builder subscription, no hostage hosting.
+                <strong>Your code.</strong> No builder subscription, no hostage hosting.
               </li>
               <li>
-                <strong>Your docs.</strong> How it works, how to change it, how to deploy it.
+                <strong>Your docs.</strong> How it works and how to change it.
               </li>
               <li>
-                <strong>Your team, trained.</strong> On the admin, and on working safely with AI tools like Claude and Codex.
+                <strong>Your team, trained.</strong> On the admin and on AI tools like Claude and Codex.
               </li>
             </ul>
           </div>
@@ -196,7 +191,7 @@ export default function Home() {
         <div className="frame">
           <div className="sechead">
             <Decode as="h2" id="process-h" text="How a project runs." />
-            <p>Five steps, in this order, every time.</p>
+            <p>Five steps, every time.</p>
           </div>
           <ol className="steps">
             {process.map((p, i) => (
@@ -214,7 +209,7 @@ export default function Home() {
         <div className="frame">
           <div className="sechead">
             <Decode as="h2" id="prices-h" text="Prices start here." />
-            <p>Every project gets a written, fixed-scope proposal before any work starts. These are the starting points.</p>
+            <p>A fixed-scope proposal comes first. These are starting prices.</p>
           </div>
           <PriceList />
           <Link href="/pricing" className="textlink">

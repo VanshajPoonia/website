@@ -9,6 +9,8 @@ export type Service = {
   /** Short label for tabs and menus. */
   tab: string;
   headline: string;
+  /** Three keyword phrases for the contents list. */
+  keywords: string[];
   summary: string;
   intro: string[];
   included: { title: string; body: string }[];
@@ -30,6 +32,7 @@ export const services: Service[] = [
     title: "Automation and AI",
     tab: "Automation & AI",
     headline: "Stop copying things from one tool into another.",
+    keywords: ["AI drafting and sorting", "Lead routing", "CRM and POS sync"],
     summary:
       "We connect your website, CRM, point of sale, inbox and calendar, and use AI where it helps, so the repetitive steps happen on their own.",
     intro: [
@@ -77,6 +80,7 @@ export const services: Service[] = [
     title: "Websites",
     tab: "Websites",
     headline: "A website that brings in work and sends it to the right place.",
+    keywords: ["Custom design", "Technical SEO", "Forms wired to your CRM"],
     summary:
       "Fast, findable websites for local businesses, with every form wired to your inbox, phone or CRM so no lead sits unread.",
     intro: [
@@ -124,6 +128,7 @@ export const services: Service[] = [
     title: "Online stores and portals",
     tab: "Stores & portals",
     headline: "Stores, dealer ordering and member portals that run the day-to-day.",
+    keywords: ["E-commerce", "Dealer pricing", "Member portals"],
     summary:
       "E-commerce, wholesale and dealer ordering, member areas and admin dashboards, so customers serve themselves and your team stops re-keying orders.",
     intro: [
@@ -171,6 +176,7 @@ export const services: Service[] = [
     title: "Care and training",
     tab: "Care & training",
     headline: "Someone to keep it running, and the know-how to run it yourself.",
+    keywords: ["Hosting and updates", "Monthly changes", "AI coding training"],
     summary:
       "Hosting, updates and changes on a monthly plan, plus hands-on training for your team on the admin, the docs and working with AI coding tools.",
     intro: [

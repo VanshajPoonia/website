@@ -2,27 +2,27 @@ export const process = [
   {
     step: "Call",
     title: "A call about your business",
-    body: "We talk about how you get customers, how work moves through your day, and where the time goes. No jargon required.",
+    body: "How you get customers, and where your time goes. No jargon.",
   },
   {
     step: "Proposal",
     title: "A fixed-scope proposal",
-    body: "You get a written proposal with what we will build, what it costs, what it connects to and what is not included.",
+    body: "What we build, what it costs and what it connects to, in writing.",
   },
   {
     step: "Build",
     title: "Build with previews",
-    body: "You see the work on a private preview link as it comes together, and send feedback in plain words.",
+    body: "Watch it come together on a private preview link.",
   },
   {
     step: "Launch",
     title: "Launch and training",
-    body: "We test on real phones and browsers, launch, and walk your team through the admin and the documentation.",
+    body: "Tested on real phones, launched, and your team trained.",
   },
   {
     step: "Care",
     title: "Care, if you want it",
-    body: "Stay on a care plan for hosting, updates and changes, or take the code and docs and run it yourself.",
+    body: "Stay on a care plan, or take the code and docs and run it yourself.",
   },
 ];
 

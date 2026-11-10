@@ -379,7 +379,6 @@ html.menu-open { overflow: hidden; }
 .divider__body { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 32px clamp(32px, 5vw, 80px); padding-block: clamp(36px, 5vw, 64px); max-width: none; }
 .divider__h { font-size: clamp(2.75rem, 1.4rem + 4.6vw, 6rem); font-weight: 750; font-stretch: 122%; letter-spacing: -0.045em; line-height: 0.9; }
 .divider__lead { margin-top: 20px; font-family: var(--display); font-weight: 600; font-stretch: 104%; font-size: clamp(1.25rem, 1rem + 0.8vw, 1.75rem); line-height: 1.2; letter-spacing: -0.02em; max-width: 26ch; }
-.divider__summary { margin-top: 14px; max-width: 52ch; color: color-mix(in oklab, var(--ink) 84%, var(--tab)); }
 .divider__main .btn { margin-top: 28px; }
 .divider__side { border-left: 1.5px solid var(--ink); padding-left: clamp(18px, 2.4vw, 32px); align-self: stretch; display: flex; flex-direction: column; }
 .divider__k { font-family: var(--mono); font-weight: 400; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
