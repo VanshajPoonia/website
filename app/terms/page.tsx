@@ -10,7 +10,6 @@ export const metadata = pageMetadata({
 });
 
 export default function TermsPage() {
-  const placeholder = site.jurisdiction.startsWith("[");
   return (
     <Legal
       title="Terms of service"
@@ -23,8 +22,8 @@ export default function TermsPage() {
           title: "Using this site",
           body: (
             <p>
-              These terms apply to {site.url.replace("https://", "")} and its pages. By using the site you agree to them. If you
-              do not agree, please do not use the site.
+              These terms apply to {site.url.replace("https://", "")} and its pages, run by {site.legalName}, {site.entity}. By
+              using the site you agree to them. If you do not agree, please do not use the site.
             </p>
           ),
         },
@@ -101,8 +100,8 @@ export default function TermsPage() {
           title: "Governing law",
           body: (
             <p>
-              These terms are governed by the laws of{" "}
-              {placeholder ? <span className="placeholder">{site.jurisdiction}</span> : site.jurisdiction}, United States.
+              These terms are governed by the laws of {site.jurisdiction}, United States, without regard to its conflict of
+              law rules.
             </p>
           ),
         },

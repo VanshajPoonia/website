@@ -17,7 +17,7 @@ export default function Footer() {
             </span>
             <span className="sr-only"> home</span>
           </Link>
-          <p>Websites, online stores and automations for small businesses across the US.</p>
+          <p>Websites, online stores and automations for small businesses. Based in St. Louis, Missouri, working across the US.</p>
           <ul className="footer__contact">
             <li>
               <a href={site.phone.href}>

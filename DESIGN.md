@@ -1,5 +1,5 @@
 ---
-name: Kreativ Vantage
+name: KreativVantage
 description: An operating manual for a small business, set on paper with index-tab chapters.
 colors:
   paper: "#fcfcfd"
@@ -99,7 +99,7 @@ components:
     padding: "4px 10px 4px 4px"
 ---
 
-# Design System: Kreativ Vantage
+# Design System: KreativVantage
 
 ## Overview
 

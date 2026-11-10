@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: site.name,
-    short_name: "Kreativ Vantage",
+    short_name: "KreativVantage",
     description: site.description,
     start_url: "/",
     display: "browser",

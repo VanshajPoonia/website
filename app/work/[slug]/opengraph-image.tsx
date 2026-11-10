@@ -1,7 +1,7 @@
 import { ogImage, ogSize } from "@/lib/og";
 import { getWork, work } from "@/lib/work";
 
-export const alt = "Kreativ Vantage case file";
+export const alt = "KreativVantage case file";
 export const size = ogSize;
 export const contentType = "image/png";
 

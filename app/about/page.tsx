@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "About: a website and automation agency for small businesses",
   description:
-    "Kreativ Vantage is a website and automation development agency focused on AI and saving time. We build, document and hand over, so you stay in control.",
+    "KreativVantage is a website and automation development agency focused on AI and saving time. We build, document and hand over, so you stay in control.",
   path: "/about",
 });
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
     <>
       <PageHead
         title="We build the systems small businesses run on."
-        lede="Kreativ Vantage is a website and automation development agency with a focus on AI and saving time."
+        lede="KreativVantage is a website and automation development agency in St. Louis, Missouri, with a focus on AI and saving time."
         trail={[{ name: "About", path: "/about" }]}
       />
       <section className="band">
@@ -49,7 +49,8 @@ export default function AboutPage() {
             </p>
             <p>
               Most of our clients are US small businesses: contractors, home services, retail and wholesale, fitness,
-              hospitality and real estate. Many are around St. Louis. Some are across the country.
+              hospitality and real estate. We are based in St. Louis, and many of our clients are nearby. Others are across the
+              country.
             </p>
             <p>
               The thread through all of it is time. A good site brings in work. A connected one stops you re-typing it. A

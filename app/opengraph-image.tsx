@@ -1,6 +1,6 @@
 import { ogImage, ogSize } from "@/lib/og";
 
-export const alt = "Kreativ Vantage: websites that do the busywork";
+export const alt = "KreativVantage: websites that do the busywork";
 export const size = ogSize;
 export const contentType = "image/png";
 

@@ -38,7 +38,7 @@ export const viewport: Viewport = {
 };
 
 const CONTRACT = `<!--
-THESIS: Kreativ Vantage as a small business's operating manual. Chapters are the services, and the cover shows work routing itself. Refuses the agency default of gradient hero, device mockup and three icon cards.
+THESIS: KreativVantage as a small business's operating manual. Chapters are the services, and the cover shows work routing itself. Refuses the agency default of gradient hero, device mockup and three icon cards.
 OWN-WORLD: paper-white pages on a cool grey desk; index-tab stock in blue, green, yellow, salmon, one colour per service chapter, never decoration; ink-black actions; Archivo expanded display, Public Sans text, Fragment Mono for data; title blocks, dotted-leader contents; solid lines automated, dashed lines by hand.
 STORY: watch a request route itself; scan the chapters; check real client work and prices; start a project.
 FIRST VIEWPORT: left, H1 assembling from letters, offer, Start a project (ink) and phone, title block "Operating manual for ___". Right, 3D trays (Website, CRM, Inbox, Calendar) with flying cards and the example log with its character clerk. Tab rail on the right edge.

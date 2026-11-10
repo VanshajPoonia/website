@@ -23,7 +23,8 @@ export default function PrivacyPage() {
           title: "Who we are",
           body: (
             <p>
-              {site.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a website and automation development agency. We run{" "}
+              {site.legalName} (&ldquo;we&rdquo;, &ldquo;us&rdquo;) is a website and automation development agency, {site.entity} based in{" "}
+              {site.location.city}, {site.location.regionName}. We run{" "}
               {site.url.replace("https://", "")}. Questions about this policy go to {mail} or{" "}
               <a href={site.phone.href}>{site.phone.display}</a>.
             </p>

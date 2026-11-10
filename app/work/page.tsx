@@ -7,7 +7,7 @@ import { namedWork, work } from "@/lib/work";
 export const metadata = pageMetadata({
   title: "Work: websites, stores, portals and automations",
   description:
-    "Client work by Kreativ Vantage: VIRO Design & Finishes, Adventure Unknown, ATLAS General Contracting, Healthy Mechanical Services, Charla Wewers Personal Training and Oddball Ink.",
+    "Client work by KreativVantage: VIRO Design & Finishes, Adventure Unknown, ATLAS General Contracting, Healthy Mechanical Services, Charla Wewers Personal Training and Oddball Ink.",
   path: "/work",
 });
 

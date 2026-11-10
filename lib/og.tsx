@@ -58,7 +58,7 @@ export async function ogImage({ title, kicker, chapter }: { title: string; kicke
         </div>
         <div style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between", background: ground, padding: "52px 60px 44px", borderRadius: "0 6px 0 0" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
-            <div style={{ fontFamily: "Fragment Mono", fontSize: 24, color: "#444a55" }}>{kicker ?? "Kreativ Vantage"}</div>
+            <div style={{ fontFamily: "Fragment Mono", fontSize: 24, color: "#444a55" }}>{kicker ?? "KreativVantage"}</div>
             <div style={{ fontFamily: "Archivo Expanded", fontSize: title.length > 48 ? 58 : 70, lineHeight: 1.02, letterSpacing: -2.5, color: "#15171c", maxWidth: 1000 }}>
               {title}
             </div>
