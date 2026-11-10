@@ -1,4 +1,4 @@
-/* Kreativ Vantage. An operating manual for a small business: paper pages on
+/* KreativVantage. An operating manual for a small business: paper pages on
    a grey desk, index-tab stock for each service chapter, ink for actions. */
 
 /* ---------- Tokens ---------- */
@@ -561,7 +561,27 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .addons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 28px; }
 @media (max-width: 860px) { .addons { grid-template-columns: 1fr; } }
 .addons li { display: grid; gap: 4px; border-top: 1.5px solid var(--ink); padding-top: 14px; }
+.addons--two { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 0; }
+@media (max-width: 640px) { .addons--two { grid-template-columns: 1fr; } }
 .addons__name { font-family: var(--display); font-weight: 650; font-size: 1.125rem; }
+
+/* Care plans: a comparison sheet in the care chapter's colour */
+.care { overflow-x: auto; background: var(--paper); border-radius: var(--radius); box-shadow: var(--sheet-shadow); -webkit-overflow-scrolling: touch; }
+.care__table { width: 100%; min-width: 680px; border-collapse: collapse; }
+.care__table th, .care__table td { padding: 14px 20px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.9688rem; }
+.care__table thead th { vertical-align: bottom; padding-block: 24px 18px; border-bottom: 1.5px solid var(--ink); width: 23%; }
+.care__table tbody th { font-weight: 500; color: var(--ink); }
+.care__table tbody td { color: var(--ink-2); }
+.care__table tbody tr:last-child > * { border-bottom: 0; }
+.care__table [data-featured] { background: color-mix(in oklab, var(--salmon) 26%, var(--paper)); }
+.care__table thead th[data-featured] { background: var(--salmon); border-radius: var(--tab-radius) var(--tab-radius) 0 0; }
+.care__name { display: block; font-family: var(--display); font-weight: 680; font-stretch: 110%; font-size: 1.375rem; letter-spacing: -0.02em; }
+.care__price { display: flex; align-items: baseline; gap: 4px; margin-top: 6px; }
+.care__price .mono { font-size: 1.75rem; color: var(--ink); }
+.care__price small { color: var(--ink-3); font-size: 0.875rem; }
+.care__for { display: block; margin-top: 8px; font-weight: 400; color: var(--ink-2); font-size: 0.875rem; line-height: 1.45; }
+.care__table thead th[data-featured] .care__for { color: color-mix(in oklab, var(--ink) 86%, var(--salmon)); }
+.care__no { color: var(--ink-3); }
 .addons__price { color: var(--ink); }
 .addons__body { color: var(--ink-2); font-size: 0.9375rem; }
 

@@ -50,6 +50,13 @@ export function organizationLd() {
         "@id": orgId,
         name: site.name,
         alternateName: site.alternateName,
+        legalName: site.legalName,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: site.location.city,
+          addressRegion: site.location.region,
+          addressCountry: site.location.country,
+        },
         url: site.url,
         logo: absoluteUrl("/icon.svg"),
         description: site.description,
@@ -112,6 +119,15 @@ export function serviceLd(s: Service) {
     url: absoluteUrl(`/services/${s.slug}`),
     provider: { "@id": orgId },
     areaServed: { "@type": "Country", name: site.areaServed },
+    offers: {
+      "@type": "Offer",
+      priceCurrency: "USD",
+      url: absoluteUrl("/pricing"),
+      priceSpecification:
+        s.slug === "care-and-training"
+          ? { "@type": "UnitPriceSpecification", price: s.fromPrice, priceCurrency: "USD", unitCode: "MON" }
+          : { "@type": "PriceSpecification", minPrice: s.fromPrice, priceCurrency: "USD" },
+    },
   };
 }
 

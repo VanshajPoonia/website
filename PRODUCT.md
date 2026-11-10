@@ -16,7 +16,7 @@ Owners of US small businesses, mostly around St. Louis, MO: trades, home service
 
 ## Product Purpose
 
-Kreativ Vantage is a website and automation development agency with a focus on AI and saving time. It designs and builds websites, e-commerce and custom platforms, connects the tools a business already uses, and automates repetitive work. Success for this site: a qualified small business owner sends the project form or calls.
+KreativVantage (KreativVantage LLC, St. Louis, Missouri) is a website and automation development agency with a focus on AI and saving time. It designs and builds websites, e-commerce and custom platforms, connects the tools a business already uses, and automates repetitive work. Success for this site: a qualified small business owner sends the project form or calls.
 
 ## Positioning
 
@@ -37,12 +37,14 @@ Every build is documented and AI-ready, so the client owns and controls it: orga
 - Member portals with auth and admin (Adventure Unknown).
 - Integrations and automation: CRM sync (Reevo, HubSpot), POS to CRM (Toast to HubSpot), lead routing to email, SMS, Zapier and Supabase (Atlas), booking tools, n8n workflows with AI models (comic script to Canva layouts).
 - Hosting, maintenance and care plans.
-- Contact: phone +1 (314) 780-2331 (from the live site). Domain mail runs on Cloudflare Email Routing.
-- Undecided, never invent: contact email address, legal entity name and state, business address, final pricing, response-time promises.
+- Contact: phone +1 (314) 780-2331, email hello@kreativvantage.com (confirmed 2026-11-11). Domain mail runs on Cloudflare Email Routing.
+- Legal entity: KreativVantage LLC, a Missouri LLC based in St. Louis (confirmed 2026-11-11). Terms are governed by Missouri law.
+- Pricing: set on 2026-11-11 under the owner's delegation ("introduce plans and pricing as you see fit"), anchored on the old site's prices and the $3,800 Viro proposal. Source of truth is `lib/pricing.ts`. Builds from $599 / $1,499 / $2,499 / $3,800; automation from $399 / $1,499; care plans $99 / $249 / $599 a month with 1 / 4 / 10 hours; AI training $299 a session; 10% off a build with a 12-month care plan; care plans monthly, cancel any time.
+- Undecided, never invent: street address, project timelines.
 
 ## Brand Commitments
 
-- Name: written "Kreativ Vantage" in the signed proposal, "KreativVantage" on the old site and domain (kreativvantage.com).
+- Name: KreativVantage, one word, as on the legal entity and domain. The signed Viro proposal spelled it "Kreativ Vantage"; that spelling is only an alternate name.
 - User-pinned direction for this rebuild (2026-11-10): light, professional theme. Reference: covingtonplacepartners.com. Craft reference: oddballink.vercel.app (rich motion, a character-built face that morphs, embedded 3D), but not its dark neon theme.
 - Performance- and SEO-first. Custom 404, privacy policy, terms of service and the rest of a professional site's legal and technical SEO set.
 

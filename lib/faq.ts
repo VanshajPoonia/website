@@ -29,11 +29,11 @@ export const process = [
 export const faq = [
   {
     q: "What kind of businesses do you work with?",
-    a: "Mostly US small businesses: contractors, home services, retail, wholesale, fitness, hospitality and real estate. Many of our clients are around St. Louis, and we work with businesses anywhere in the US.",
+    a: "Mostly US small businesses: contractors, home services, retail, wholesale, fitness, hospitality and real estate. We are based in St. Louis, Missouri, where many of our clients are, and we work with businesses anywhere in the US.",
   },
   {
     q: "How much does a website cost?",
-    a: "Landing pages start at $499, online stores at $799 and custom builds at $1,499. Every project gets a fixed-scope proposal first, so you know the price before work starts.",
+    a: "Landing pages start at $599, business websites at $1,499, online stores at $2,499 and portals at $3,800. Care plans start at $99 a month. Every project gets a fixed-scope proposal first, so you know the price before work starts.",
   },
   {
     q: "How long does a project take?",

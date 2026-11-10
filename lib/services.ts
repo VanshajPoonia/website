@@ -1,3 +1,4 @@
+import { startingAt } from "./pricing";
 import type { ChapterColor } from "./site";
 
 export type Service = {
@@ -14,6 +15,8 @@ export type Service = {
   changes: string[];
   work: string[];
   priceNote: string;
+  /** Lowest starting price in USD, for structured data. Monthly for care. */
+  fromPrice: number;
   faq: { q: string; a: string }[];
   metaTitle: string;
   metaDescription: string;
@@ -47,7 +50,8 @@ export const services: Service[] = [
       "You can update the site yourself, or ask us to.",
     ],
     work: ["atlas-general-contracting", "healthy-mechanical", "charla-wewers", "oddball-ink"],
-    priceNote: "Landing pages from $499. Multi-page sites are quoted after a call.",
+    priceNote: startingAt.websites,
+    fromPrice: 599,
     faq: [
       {
         q: "Do you use templates or website builders?",
@@ -64,7 +68,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Website design and development for small businesses",
     metaDescription:
-      "Custom websites for small businesses with technical SEO, phone-first design and forms wired to your inbox, phone or CRM. Landing pages from $499.",
+      "Custom websites for small businesses with technical SEO, phone-first design and forms wired to your inbox, phone or CRM. Landing pages from $599.",
   },
   {
     slug: "online-stores-and-portals",
@@ -93,7 +97,8 @@ export const services: Service[] = [
       "Your staff manage it from one place.",
     ],
     work: ["viro-design-and-finishes", "adventure-unknown"],
-    priceNote: "Online stores from $799. Dealer platforms and portals are quoted per scope.",
+    priceNote: startingAt.stores,
+    fromPrice: 2499,
     faq: [
       {
         q: "Which payment processors do you work with?",
@@ -110,7 +115,7 @@ export const services: Service[] = [
     ],
     metaTitle: "E-commerce, dealer ordering and member portal development",
     metaDescription:
-      "Custom online stores, dealer and wholesale ordering, member portals and admin dashboards for small businesses. Payments through Stripe or Authorize.Net.",
+      "Custom online stores from $2,499 and dealer, wholesale and member portals from $3,800, with admin dashboards and payments through Stripe or Authorize.Net.",
   },
   {
     slug: "automation-and-ai",
@@ -139,7 +144,8 @@ export const services: Service[] = [
       "A clear record of what ran and when.",
     ],
     work: ["restaurant-group-pos-sync", "comic-production-pipeline", "atlas-general-contracting"],
-    priceNote: "Quoted per workflow after we map it with you on a call.",
+    priceNote: startingAt.automation,
+    fromPrice: 399,
     faq: [
       {
         q: "Which tools can you connect?",
@@ -185,7 +191,8 @@ export const services: Service[] = [
       "Your team can handle the routine work.",
     ],
     work: ["viro-design-and-finishes", "adventure-unknown"],
-    priceNote: "Care plans from $100 a month. Training from $299.",
+    priceNote: startingAt.care,
+    fromPrice: 99,
     faq: [
       {
         q: "Do I have to be on a care plan?",
@@ -198,7 +205,7 @@ export const services: Service[] = [
     ],
     metaTitle: "Website care plans, hosting and AI development training",
     metaDescription:
-      "Monthly website care plans with hosting, updates and changes from $100 a month, plus admin and AI development training for your team from $299.",
+      "Monthly website care plans with hosting, updates and changes from $99 a month, plus admin and AI development training for your team from $299 a session.",
   },
 ];
 
