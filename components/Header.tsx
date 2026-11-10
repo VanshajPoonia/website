@@ -11,7 +11,7 @@ export default function Header() {
     <header className="header">
       <div className="header__inner frame">
         <Link href="/" className="brand">
-          <Mark />
+          <Mark id="mk-head" />
           <span className="brand__name">
             Kreativ<span>Vantage</span>
           </span>

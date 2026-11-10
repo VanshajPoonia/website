@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="frame footer__grid">
         <div className="footer__about">
           <Link href="/" className="brand">
-            <Mark />
+            <Mark id="mk-foot" />
             <span className="brand__name">
               Kreativ<span>Vantage</span>
             </span>

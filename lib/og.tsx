@@ -1,16 +1,17 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { ImageResponse } from "next/og";
+import { MARK_SVG, markDataUri } from "./mark-svg";
 import type { ChapterColor } from "./site";
 
 export const ogSize = { width: 1200, height: 630 };
 
-const STOCK: Record<ChapterColor, string> = { blue: "#a9ccf0", green: "#a8ddb5", yellow: "#f5d66b", salmon: "#f4ae95" };
+const STOCK: Record<ChapterColor, string> = { blue: "#a8d6f0", green: "#b4dda0", yellow: "#e2e87a", purple: "#d8c0e4" };
 const TABS: { n: number; label: string; color: ChapterColor }[] = [
   { n: 1, label: "Websites", color: "blue" },
   { n: 2, label: "Stores & portals", color: "green" },
   { n: 3, label: "Automation & AI", color: "yellow" },
-  { n: 4, label: "Care & training", color: "salmon" },
+  { n: 4, label: "Care & training", color: "purple" },
 ];
 
 async function fonts() {
@@ -65,11 +66,8 @@ export async function ogImage({ title, kicker, chapter }: { title: string; kicke
           </div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "Fragment Mono", fontSize: 22, color: "#15171c" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-              <svg width="40" height="40" viewBox="0 0 32 32">
-                <path d="M25 6h3.2a1.8 1.8 0 0 1 1.8 1.8v6.4a1.8 1.8 0 0 1-1.8 1.8H25Z" fill="#f5d66b" />
-                <rect x="2" y="2" width="24" height="28" rx="3" fill="#15171c" />
-                <path d="M9 8.5v15M9 17.2 18.5 8.5M12.6 14l6.4 9.5" stroke="#fff" strokeWidth="2.6" strokeLinecap="square" fill="none" />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={markDataUri(MARK_SVG)} width={34} height={43} alt="" />
               <span style={{ fontFamily: "Archivo", fontSize: 28 }}>KreativVantage</span>
             </div>
             <span>kreativvantage.com · (314) 780-2331</span>

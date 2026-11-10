@@ -1,0 +1,10 @@
+// The K as a standalone SVG string, for the favicon, the Apple touch icon and
+// share images. Keep in step with components/Mark.tsx.
+const BODY = `<defs><linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#28bae6"/><stop offset="1" stop-color="#2f86c5"/></linearGradient><linearGradient id="n" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a53a4"/><stop offset="1" stop-color="#2f86c5"/></linearGradient><linearGradient id="l" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9d4189"/><stop offset="1" stop-color="#7c3291"/></linearGradient><linearGradient id="r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#742f92"/><stop offset="1" stop-color="#95418a"/></linearGradient><linearGradient id="o" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#5ead3f"/><stop offset=".45" stop-color="#79b839"/><stop offset=".75" stop-color="#abcd2d"/><stop offset="1" stop-color="#d9e123"/></linearGradient><linearGradient id="i" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c5d827"/><stop offset=".5" stop-color="#abcd2d"/><stop offset="1" stop-color="#5dac3f"/></linearGradient></defs><path d="M124.4 0H182L98 200H48Z" fill="url(#c)"/><path d="M182 0h73.5L138 200H98Z" fill="url(#n)"/><rect width="37.5" height="323" fill="url(#l)"/><rect x="37" width="38" height="323" fill="url(#r)"/><path fill-rule="evenodd" d="M0 323C23 226 63 158 116 158c62 0 107 73 135 165ZM37 323c13-67 46-102 85-102 41 0 78 40 93 102Z" fill="url(#o)"/><path fill-rule="evenodd" d="M37 323c13-67 46-102 85-102 41 0 78 40 93 102ZM76 323c7-32 24-46 47-46s38 16 44 46Z" fill="url(#i)"/>`;
+
+/** Tight to the letter, 256 x 323. */
+export const MARK_SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 323">${BODY}</svg>`;
+/** Square, for icons. */
+export const MARK_SVG_SQUARE = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-33.5 0 323 323">${BODY}</svg>`;
+
+export const markDataUri = (svg = MARK_SVG) => `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`;
