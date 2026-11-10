@@ -1,70 +1,329 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-11T00:00:00.000Z",
+  "generatedAt": "2026-11-10T21:59:52.906Z",
   "title": "Design System: KreativVantage",
   "extensions": {
     "colorMeta": {
-      "ink": {
-        "role": "primary",
-        "displayName": "Ink"
-      },
-      "tab-blue": {
-        "role": "secondary",
-        "displayName": "Website Blue"
-      },
-      "tab-green": {
-        "role": "secondary",
-        "displayName": "Platform Green"
-      },
-      "tab-yellow": {
-        "role": "secondary",
-        "displayName": "Automation Lime"
-      },
       "paper": {
         "role": "neutral",
-        "displayName": "Paper"
+        "displayName": "Paper",
+        "tonalRamp": [
+          "#0b0b0c",
+          "#252526",
+          "#424243",
+          "#616162",
+          "#828283",
+          "#a5a5a6",
+          "#c9c9ca",
+          "#eeeeef"
+        ]
       },
       "desk": {
         "role": "neutral",
-        "displayName": "Desk"
+        "displayName": "Desk",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#242528",
+          "#404245",
+          "#5f6165",
+          "#808286",
+          "#a3a5a9",
+          "#c7c9cd",
+          "#eceef2"
+        ]
+      },
+      "desk-deep": {
+        "role": "neutral",
+        "displayName": "Deep Desk",
+        "tonalRamp": [
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#eceff4"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Ink",
+        "tonalRamp": [
+          "#090b10",
+          "#23252a",
+          "#404248",
+          "#5f6167",
+          "#808289",
+          "#a2a5ac",
+          "#c6c9d0",
+          "#ebeef6"
+        ]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Secondary Ink",
+        "tonalRamp": [
+          "#070b14",
+          "#20252f",
+          "#3c424d",
+          "#5b616d",
+          "#7c838f",
+          "#9ea5b2",
+          "#c2c9d7",
+          "#e7effc"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "tonalRamp": [
+          "#070b13",
+          "#20252e",
+          "#3d424c",
+          "#5c616c",
+          "#7c838e",
+          "#9fa5b1",
+          "#c3c9d6",
+          "#e8effc"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "tonalRamp": [
+          "#090b0e",
+          "#232529",
+          "#404246",
+          "#5f6166",
+          "#808287",
+          "#a2a5aa",
+          "#c6c9ce",
+          "#eceff4"
+        ]
+      },
+      "rule-strong": {
+        "role": "neutral",
+        "displayName": "Strong Rule",
+        "tonalRamp": [
+          "#080b10",
+          "#22252b",
+          "#3e4248",
+          "#5d6268",
+          "#7e8389",
+          "#a1a5ac",
+          "#c5cad1",
+          "#eaeff6"
+        ]
+      },
+      "tab-blue": {
+        "role": "secondary",
+        "displayName": "Website Blue",
+        "tonalRamp": [
+          "#000d16",
+          "#00293b",
+          "#1c475d",
+          "#3c677e",
+          "#5d89a1",
+          "#7facc5",
+          "#a3d1ea",
+          "#ddf2ff"
+        ]
+      },
+      "tab-blue-deep": {
+        "role": "secondary",
+        "displayName": "Website Blue Deep",
+        "tonalRamp": [
+          "#000a22",
+          "#002352",
+          "#073f84",
+          "#2c60a8",
+          "#4e83ce",
+          "#70a7f4",
+          "#a7ccff",
+          "#e5efff"
+        ]
+      },
+      "tab-green": {
+        "role": "secondary",
+        "displayName": "Platform Green",
+        "tonalRamp": [
+          "#030f00",
+          "#112d00",
+          "#2a4c14",
+          "#496d35",
+          "#698f56",
+          "#8bb378",
+          "#afd79b",
+          "#d3fdbf"
+        ]
+      },
+      "tab-green-deep": {
+        "role": "secondary",
+        "displayName": "Platform Green Deep",
+        "tonalRamp": [
+          "#011000",
+          "#062e00",
+          "#105100",
+          "#287417",
+          "#4c973e",
+          "#6fbb61",
+          "#93e085",
+          "#cdffc3"
+        ]
+      },
+      "tab-yellow": {
+        "role": "secondary",
+        "displayName": "Automation Lime",
+        "tonalRamp": [
+          "#0c0c00",
+          "#262700",
+          "#444600",
+          "#646600",
+          "#868900",
+          "#a8ad3c",
+          "#ccd263",
+          "#f1f889"
+        ]
+      },
+      "tab-yellow-deep": {
+        "role": "secondary",
+        "displayName": "Automation Lime Deep",
+        "tonalRamp": [
+          "#0b0d00",
+          "#252800",
+          "#414700",
+          "#606809",
+          "#818936",
+          "#a3ad5a",
+          "#c7d27e",
+          "#ecf7a2"
+        ]
       },
       "tab-purple": {
         "role": "secondary",
-        "displayName": "Care Plum"
+        "displayName": "Care Plum",
+        "tonalRamp": [
+          "#13031b",
+          "#2f1c38",
+          "#4d3957",
+          "#6d5877",
+          "#8f799a",
+          "#b29bbe",
+          "#d7bfe3",
+          "#f7e8ff"
+        ]
+      },
+      "tab-purple-deep": {
+        "role": "secondary",
+        "displayName": "Care Plum Deep",
+        "tonalRamp": [
+          "#170020",
+          "#3c004e",
+          "#601c77",
+          "#81409a",
+          "#a562bf",
+          "#c985e5",
+          "#e8b0ff",
+          "#f8e8ff"
+        ]
       },
       "error": {
-        "role": "neutral",
-        "displayName": "Error Red"
+        "role": "secondary",
+        "displayName": "Error Red",
+        "tonalRamp": [
+          "#1f0000",
+          "#4d0001",
+          "#810002",
+          "#b0221b",
+          "#d84c3f",
+          "#ff7363",
+          "#ffb3a8",
+          "#ffe9e5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The cover H1 and page H1s, max about 16ch."
+      },
+      "chapter": {
+        "displayName": "Chapter",
+        "purpose": "Divider sheet titles and chapter numerals."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Case files, FAQ questions, list heads."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Copy at 44 to 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Spec terms, field labels, table heads, footer headings."
       }
     },
     "shadows": [
       {
         "name": "sheet",
         "value": "0 1px 1px rgb(21 23 28 / 0.04), 0 14px 34px -16px rgb(21 23 28 / 0.24)",
-        "purpose": "Paper resting on the desk: screenshots, log, price table, documents."
+        "purpose": "Paper resting on the desk: screenshots, the price table, the hours diagram, the handover document."
       },
       {
         "name": "divider-stack",
         "value": "0 -1px 0 rgb(21 23 28 / 0.05), 0 -18px 40px -28px rgb(21 23 28 / 0.45), 0 24px 40px -30px rgb(21 23 28 / 0.4)",
-        "purpose": "Divider sheets lying on the one before."
+        "purpose": "Divider sheets, so each reads as lying on the one before."
+      },
+      {
+        "name": "lift",
+        "value": "0 10px 20px -12px rgb(21 23 28 / 0.6)",
+        "purpose": "Under the primary button while it lifts 1px on hover."
       }
     ],
     "motion": [
       {
         "name": "ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Default exponential ease-out for state changes."
+        "purpose": "Default damped ease-out for every state change, lift and reveal."
       },
       {
-        "name": "ease-io",
-        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
-        "purpose": "Line drawing in the before/after diagram."
+        "name": "duration-state",
+        "value": "250ms",
+        "purpose": "Colour and background changes: buttons, links, dots filling in the hours lanes."
+      },
+      {
+        "name": "duration-move",
+        "value": "350ms",
+        "purpose": "Small physical moves: button lift, arrow slide, rail tabs and AI node pulses (up to 450ms)."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "600ms",
+        "purpose": "Larger reveals: the contents-row tab wash and the 3D scene cross-fading over its poster."
       }
     ],
     "breakpoints": [
       {
+        "name": "hours-vertical",
+        "value": "640px"
+      },
+      {
+        "name": "sechead-stack",
+        "value": "820px"
+      },
+      {
         "name": "menu",
         "value": "900px"
+      },
+      {
+        "name": "dividers-sticky",
+        "value": "1000px"
       },
       {
         "name": "cover-split",
@@ -81,45 +340,82 @@
       "name": "Primary Button",
       "kind": "button",
       "refersTo": "button-primary",
-      "description": "Every primary action.",
-      "html": "<button class=\"ds-btn\">Start a project <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></button>",
-      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;background:#15171c;color:#fcfcfd;border:0;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-stretch:106%;font-size:16px;transition:background .25s,transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:#000;transform:translateY(-1px)}.ds-btn:focus-visible{outline:2px solid #24589f;outline-offset:3px}"
+      "description": "Every primary action, usually Start a project. Ink with paper type; the arrow slides on hover.",
+      "html": "<button class=\"ds-btn\">Start a project <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></button>",
+      "css": ".ds-btn{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;background:var(--ink, #15171c);color:var(--paper, #fcfcfd);border:0;border-radius:3px;font:600 16px Archivo, 'Arial Narrow', sans-serif;font-stretch:106%;letter-spacing:-.005em;cursor:pointer;transition:background-color .25s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s cubic-bezier(.16,1,.3,1)}.ds-btn svg{transition:transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn:hover{background:#000;transform:translateY(-1px);box-shadow:0 10px 20px -12px rgb(21 23 28 / .6)}.ds-btn:hover svg{transform:translateX(3px)}.ds-btn:active{transform:none}.ds-btn:focus-visible{outline:2px solid var(--blue-deep, #24589f);outline-offset:3px}"
     },
     {
       "name": "Line Button",
       "kind": "button",
       "refersTo": "button-line",
-      "description": "Secondary action, usually the phone number.",
-      "html": "<button class=\"ds-btn-line\">(314) 780-2331</button>",
-      "css": ".ds-btn-line{min-height:50px;padding:0 22px;background:transparent;color:#15171c;border:1.5px solid #15171c;border-radius:3px;font-family:Archivo,sans-serif;font-weight:600;font-size:16px;transition:background .25s}.ds-btn-line:hover{background:rgb(21 23 28 / .06)}.ds-btn-line:focus-visible{outline:2px solid #24589f;outline-offset:3px}"
+      "description": "The secondary action beside a primary one, usually the phone number.",
+      "html": "<button class=\"ds-btn-line\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6.5 3.5h3l1.5 4-2 1.2a11 11 0 0 0 6.3 6.3l1.2-2 4 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2Z\"/></svg>(314) 780-2331</button>",
+      "css": ".ds-btn-line{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;background:transparent;color:var(--ink, #15171c);border:1.5px solid var(--ink, #15171c);border-radius:3px;font:600 16px Archivo, 'Arial Narrow', sans-serif;font-stretch:106%;cursor:pointer;transition:background-color .25s cubic-bezier(.16,1,.3,1)}.ds-btn-line:hover{background:rgb(21 23 28 / .06)}.ds-btn-line:focus-visible{outline:2px solid var(--blue-deep, #24589f);outline-offset:3px}"
+    },
+    {
+      "name": "Button on the Ink Panel",
+      "kind": "button",
+      "refersTo": "button-on-ink",
+      "description": "On the closing ink panel the primary action turns Automation Lime and the line button takes a paper border.",
+      "html": "<div class=\"ds-ink\"><button class=\"ds-btn-lime\">Start a project <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></button><button class=\"ds-btn-ghost\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" aria-hidden=\"true\"><path d=\"M6.5 3.5h3l1.5 4-2 1.2a11 11 0 0 0 6.3 6.3l1.2-2 4 1.5v3a2 2 0 0 1-2 2A16.5 16.5 0 0 1 4.5 5.5a2 2 0 0 1 2-2Z\"/></svg>(314) 780-2331</button></div>",
+      "css": ".ds-ink{display:flex;flex-wrap:wrap;gap:12px;padding:28px;background:var(--ink, #15171c);border-radius:4px}.ds-btn-lime,.ds-btn-ghost{display:inline-flex;align-items:center;gap:10px;min-height:50px;padding:0 22px;border-radius:3px;font:600 16px Archivo, 'Arial Narrow', sans-serif;font-stretch:106%;cursor:pointer;transition:background-color .25s cubic-bezier(.16,1,.3,1),transform .35s cubic-bezier(.16,1,.3,1)}.ds-btn-lime{background:var(--yellow, #e2e87a);color:var(--ink, #15171c);border:0}.ds-btn-lime:hover{transform:translateY(-1px);background:#eef28f}.ds-btn-ghost{background:transparent;color:var(--paper, #fcfcfd);border:1.5px solid var(--paper, #fcfcfd)}.ds-btn-ghost:hover{background:rgb(252 252 253 / .1)}.ds-btn-lime:focus-visible,.ds-btn-ghost:focus-visible{outline:2px solid var(--yellow, #e2e87a);outline-offset:3px}"
     },
     {
       "name": "Field",
       "kind": "input",
       "refersTo": "input",
-      "description": "Form field with a printed-form label.",
+      "description": "A printed-form field: mono uppercase label above a white box with an ink border.",
       "html": "<label class=\"ds-field\"><span>Your name</span><input placeholder=\"Jane Owner\"></label>",
-      "css": ".ds-field{display:grid;gap:6px}.ds-field span{font-family:'Fragment Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:#444a55}.ds-field input{min-height:50px;padding:12px 14px;background:#fff;border:1.5px solid #15171c;border-radius:2px;font:16px 'Public Sans',sans-serif}.ds-field input:focus{outline:none;border-color:#24589f;box-shadow:0 0 0 3px rgb(29 92 163 / .28)}"
+      "css": ".ds-field{display:grid;gap:6px;max-width:360px}.ds-field span{font:400 12px 'Fragment Mono', ui-monospace, monospace;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-2, #444a55)}.ds-field input{min-height:50px;padding:12px 14px;background:#fff;color:var(--ink, #15171c);border:1.5px solid var(--ink, #15171c);border-radius:2px;font:400 16px 'Public Sans', system-ui, sans-serif;transition:border-color .25s cubic-bezier(.16,1,.3,1),box-shadow .25s cubic-bezier(.16,1,.3,1)}.ds-field input::placeholder{color:var(--ink-3, #626873)}.ds-field input:focus{outline:none;border-color:var(--blue-deep, #24589f);box-shadow:0 0 0 3px color-mix(in oklab, var(--blue-deep, #24589f) 28%, transparent)}"
     },
     {
       "name": "Chapter Chip",
       "kind": "chip",
       "refersTo": "chip",
-      "description": "Which chapters a project used.",
-      "html": "<span class=\"ds-chip\"><b>3</b>Automation &amp; AI</span>",
-      "css": ".ds-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 10px 4px 4px;border-radius:3px;background:color-mix(in oklab,#e2e87a 55%,#fcfcfd);font:550 13px 'Public Sans',sans-serif;color:#15171c}.ds-chip b{display:grid;place-items:center;width:20px;height:20px;border-radius:2px;background:#e2e87a;font:750 12px Archivo,sans-serif;font-stretch:125%}"
+      "description": "Lists the chapters a project used: the tab colour at 55% into paper, with a solid numeral square.",
+      "html": "<span class=\"ds-chips\"><span class=\"ds-chip\" style=\"--t:#e2e87a\"><b>1</b>Automation &amp; AI</span><span class=\"ds-chip\" style=\"--t:#b4dda0\"><b>3</b>Stores &amp; portals</span><span class=\"ds-chip\" style=\"--t:#d8c0e4\"><b>4</b>Care &amp; training</span></span>",
+      "css": ".ds-chips{display:flex;flex-wrap:wrap;gap:6px}.ds-chip{display:inline-flex;align-items:center;gap:7px;padding:4px 10px 4px 4px;border-radius:3px;background:color-mix(in oklab,var(--t) 55%,#fcfcfd);color:var(--ink, #15171c);font:550 13px 'Public Sans', system-ui, sans-serif}.ds-chip b{display:grid;place-items:center;width:20px;height:20px;border-radius:2px;background:var(--t);font:750 12px Archivo, 'Arial Narrow', sans-serif;font-stretch:125%}"
     },
     {
-      "name": "Index Tab",
+      "name": "Divider Sheet",
+      "kind": "card",
+      "refersTo": "divider",
+      "description": "A chapter's divider: an index tab with rounded top corners on a sheet of the same stock, chapter title in the widest cut.",
+      "html": "<div class=\"ds-divider\"><div class=\"ds-tab\"><b>1</b>Automation &amp; AI</div><div class=\"ds-sheet\"><h3>Automation and AI</h3><p>Stop copying things from one tool into another.</p></div></div>",
+      "css": ".ds-divider{--t:#e2e87a;padding-top:46px;position:relative;max-width:560px}.ds-tab{position:absolute;top:0;left:0;display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;background:var(--t);border-radius:12px 12px 0 0;font:600 15px Archivo, 'Arial Narrow', sans-serif}.ds-tab b{font-weight:750;font-stretch:125%;font-size:18px}.ds-sheet{background:var(--t);padding:32px;border-radius:0 4px 4px 4px;box-shadow:0 -1px 0 rgb(21 23 28 / .05),0 -18px 40px -28px rgb(21 23 28 / .45),0 24px 40px -30px rgb(21 23 28 / .4)}.ds-sheet h3{margin:0;font:750 44px/.9 Archivo, 'Arial Narrow', sans-serif;font-stretch:122%;letter-spacing:-.045em}.ds-sheet p{margin:16px 0 0;font:600 20px/1.2 Archivo, 'Arial Narrow', sans-serif;font-stretch:104%;letter-spacing:-.02em;max-width:26ch}"
+    },
+    {
+      "name": "Contents Row",
       "kind": "custom",
-      "description": "Chapter tab standing off a divider sheet.",
-      "html": "<div class=\"ds-tab\"><b>2</b>Stores &amp; portals</div><div class=\"ds-sheet\">Online stores and portals</div>",
-      "css": ".ds-tab{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 20px;background:#b4dda0;border-radius:12px 12px 0 0;font:600 15px Archivo,sans-serif}.ds-tab b{font-weight:750;font-stretch:125%;font-size:18px}.ds-sheet{background:#b4dda0;padding:32px;border-radius:0 4px 4px 4px;font:750 44px/0.9 Archivo,sans-serif;font-stretch:122%;letter-spacing:-.045em}"
+      "description": "One chapter in the table of contents: square-topped tab, title, dotted leader, three keywords. The tab colour washes in from the left on hover.",
+      "html": "<a class=\"ds-toc\" href=\"#\"><span class=\"ds-toc__tab\">1</span><span class=\"ds-toc__title\">Automation and AI</span><span class=\"ds-toc__leader\"></span><span class=\"ds-toc__kw\">AI drafting and sorting · Lead routing · CRM and POS sync</span><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M5 12h13M13 6l6 6-6 6\"/></svg></a>",
+      "css": ".ds-toc{--t:#e2e87a;position:relative;isolation:isolate;display:grid;grid-template-columns:48px auto minmax(32px,1fr) minmax(0,30ch) 20px;align-items:center;gap:18px;padding:22px 8px;color:var(--ink, #15171c);text-decoration:none;border-top:1.5px solid var(--ink, #15171c);border-bottom:1px solid var(--rule, #dcdfe4)}.ds-toc::before{content:\"\";position:absolute;inset:0;z-index:-1;background:var(--t);transform:scaleX(0);transform-origin:left;transition:transform .6s cubic-bezier(.16,1,.3,1)}.ds-toc:hover::before{transform:scaleX(1)}.ds-toc__tab{display:grid;place-items:center;width:44px;height:44px;border-radius:10px 10px 2px 2px;background:var(--t);font:750 21px Archivo, 'Arial Narrow', sans-serif;font-stretch:125%;transition:background-color .4s}.ds-toc:hover .ds-toc__tab{background:var(--paper, #fcfcfd)}.ds-toc__title{font:650 30px/1 Archivo, 'Arial Narrow', sans-serif;font-stretch:110%;letter-spacing:-.03em}.ds-toc__leader{height:2px;margin-top:10px;background-image:radial-gradient(circle,var(--ink, #15171c) 1px,transparent 1.3px);background-size:8px 2px;background-repeat:repeat-x;opacity:.55}.ds-toc__kw{font:400 15px/1.5 'Public Sans', system-ui, sans-serif;color:var(--ink-2, #444a55)}.ds-toc svg{transition:transform .45s cubic-bezier(.16,1,.3,1)}.ds-toc:hover svg{transform:translateX(4px)}.ds-toc:focus-visible{outline:2px solid var(--blue-deep, #24589f);outline-offset:3px}"
+    },
+    {
+      "name": "Spec Sheet",
+      "kind": "card",
+      "description": "A paper sheet on the desk carrying a spec table: 1.5px ink rule on top, mono terms, hairline rows.",
+      "html": "<div class=\"ds-desk\"><div class=\"ds-paper\"><h4>VIRO Design &amp; Finishes</h4><dl class=\"ds-spec\"><div><dt>Built</dt><dd>Store, dealer pricing, CRM sync</dd></div><div><dt>Where</dt><dd>St. Louis, MO</dd></div><div><dt>Live</dt><dd>virostl.com</dd></div></dl></div></div>",
+      "css": ".ds-desk{background:var(--desk, #e9ebef);padding:28px}.ds-paper{background:var(--paper, #fcfcfd);border-radius:4px;padding:24px;max-width:420px;box-shadow:0 1px 1px rgb(21 23 28 / .04),0 14px 34px -16px rgb(21 23 28 / .24)}.ds-paper h4{margin:0;font:680 24px Archivo, 'Arial Narrow', sans-serif;font-stretch:108%;letter-spacing:-.03em}.ds-spec{margin:16px 0 0;border-top:1.5px solid var(--ink, #15171c)}.ds-spec div{display:grid;grid-template-columns:90px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--rule, #dcdfe4)}.ds-spec dt{font:400 12px 'Fragment Mono', ui-monospace, monospace;color:var(--ink-3, #626873);text-transform:uppercase;letter-spacing:.05em;padding-top:3px}.ds-spec dd{margin:0;font:400 15px 'Public Sans', system-ui, sans-serif}"
+    },
+    {
+      "name": "Hours Lanes",
+      "kind": "custom",
+      "description": "One request drawn twice on two lanes, tools above and You below: dashed by hand drops into your lane, solid automated runs through AI and drops once.",
+      "html": "<svg class=\"ds-lanes\" viewBox=\"0 0 520 250\" role=\"img\" aria-label=\"By hand the request drops into your lane twice; automated it reaches you once.\"><g class=\"ds-l-row\"><text x=\"0\" y=\"16\" class=\"ds-l-name\">By hand</text><line x1=\"10\" y1=\"96\" x2=\"510\" y2=\"96\" class=\"ds-l-lane\"/><path d=\"M60 50H118Q130 50 130 62V84Q130 96 142 96H198Q210 96 210 84V62Q210 50 222 50H298Q310 50 310 62V84Q310 96 322 96H368Q380 96 380 84V62Q380 50 392 50H460\" class=\"ds-l-path ds-l-hand\"/><circle cx=\"160\" cy=\"96\" r=\"6\" class=\"ds-l-dot\"/><circle cx=\"345\" cy=\"96\" r=\"6\" class=\"ds-l-dot\"/><g class=\"ds-l-node\" transform=\"translate(60 50)\"><rect x=\"-46\" y=\"-16\" width=\"92\" height=\"32\" rx=\"3\"/><text y=\"5\">Website</text></g><g class=\"ds-l-node\" transform=\"translate(260 50)\"><rect x=\"-38\" y=\"-16\" width=\"76\" height=\"32\" rx=\"3\"/><text y=\"5\">CRM</text></g><g class=\"ds-l-node\" transform=\"translate(460 50)\"><rect x=\"-46\" y=\"-16\" width=\"92\" height=\"32\" rx=\"3\"/><text y=\"5\">Calendar</text></g><g class=\"ds-l-you\" transform=\"translate(28 96)\"><rect x=\"-24\" y=\"-13\" width=\"48\" height=\"26\" rx=\"3\"/><text y=\"4\">You</text></g></g><g class=\"ds-l-row\" transform=\"translate(0 130)\"><text x=\"0\" y=\"16\" class=\"ds-l-name\">Automated</text><line x1=\"10\" y1=\"96\" x2=\"510\" y2=\"96\" class=\"ds-l-lane\"/><path d=\"M60 50H460V96\" class=\"ds-l-path\"/><circle cx=\"460\" cy=\"96\" r=\"6\" class=\"ds-l-dot\"/><g class=\"ds-l-node\" transform=\"translate(60 50)\"><rect x=\"-46\" y=\"-16\" width=\"92\" height=\"32\" rx=\"3\"/><text y=\"5\">Website</text></g><g class=\"ds-l-node ds-l-ai\" transform=\"translate(160 50)\"><rect x=\"-26\" y=\"-16\" width=\"52\" height=\"32\" rx=\"3\"/><text y=\"5\">AI</text></g><g class=\"ds-l-node\" transform=\"translate(260 50)\"><rect x=\"-38\" y=\"-16\" width=\"76\" height=\"32\" rx=\"3\"/><text y=\"5\">CRM</text></g><g class=\"ds-l-node\" transform=\"translate(460 50)\"><rect x=\"-46\" y=\"-16\" width=\"92\" height=\"32\" rx=\"3\"/><text y=\"5\">Calendar</text></g><g class=\"ds-l-you\" transform=\"translate(28 96)\"><rect x=\"-24\" y=\"-13\" width=\"48\" height=\"26\" rx=\"3\"/><text y=\"4\">You</text></g></g></svg>",
+      "css": ".ds-lanes{width:100%;max-width:560px;background:var(--paper, #fcfcfd);padding:16px;box-sizing:border-box;border-radius:4px;box-shadow:0 1px 1px rgb(21 23 28 / .04),0 14px 34px -16px rgb(21 23 28 / .24)}.ds-l-name{font:650 15px Archivo, 'Arial Narrow', sans-serif;fill:var(--ink, #15171c)}.ds-l-lane{stroke:#c7ccd3;stroke-width:1.5}.ds-l-path{fill:none;stroke:var(--ink, #15171c);stroke-width:2.4;stroke-linecap:round}.ds-l-hand{stroke-dasharray:2 8;stroke-width:3}.ds-l-dot{fill:var(--ink, #15171c);stroke:var(--ink, #15171c);stroke-width:2}.ds-l-node rect{fill:var(--paper, #fcfcfd);stroke:var(--ink, #15171c);stroke-width:1.5}.ds-l-node text{font:600 14px Archivo, 'Arial Narrow', sans-serif;fill:var(--ink, #15171c);text-anchor:middle}.ds-l-ai rect{fill:var(--yellow, #e2e87a)}.ds-l-you rect{fill:var(--ink, #15171c)}.ds-l-you text{font:650 12px Archivo, 'Arial Narrow', sans-serif;fill:var(--paper, #fcfcfd);text-anchor:middle}"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "description": "The sticky 68px header: the original K (gradients intact), wordmark, four text links with the current page underlined, mono phone and the ink action.",
+      "html": "<header class=\"ds-nav\"><a class=\"ds-brand\" href=\"#\"><svg viewBox=\"0 0 256 323\" width=\"22\" height=\"28\" aria-hidden=\"true\"><defs><linearGradient id=\"c\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#28bae6\"/><stop offset=\"1\" stop-color=\"#2f86c5\"/></linearGradient><linearGradient id=\"n\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a53a4\"/><stop offset=\"1\" stop-color=\"#2f86c5\"/></linearGradient><linearGradient id=\"l\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#9d4189\"/><stop offset=\"1\" stop-color=\"#7c3291\"/></linearGradient><linearGradient id=\"r\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#742f92\"/><stop offset=\"1\" stop-color=\"#95418a\"/></linearGradient><linearGradient id=\"o\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#5ead3f\"/><stop offset=\".45\" stop-color=\"#79b839\"/><stop offset=\".75\" stop-color=\"#abcd2d\"/><stop offset=\"1\" stop-color=\"#d9e123\"/></linearGradient><linearGradient id=\"i\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"0\"><stop offset=\"0\" stop-color=\"#c5d827\"/><stop offset=\".5\" stop-color=\"#abcd2d\"/><stop offset=\"1\" stop-color=\"#5dac3f\"/></linearGradient></defs><path d=\"M124.4 0H182L98 200H48Z\" fill=\"url(#c)\"/><path d=\"M182 0h73.5L138 200H98Z\" fill=\"url(#n)\"/><rect width=\"37.5\" height=\"323\" fill=\"url(#l)\"/><rect x=\"37\" width=\"38\" height=\"323\" fill=\"url(#r)\"/><path fill-rule=\"evenodd\" d=\"M0 323C23 226 63 158 116 158c62 0 107 73 135 165ZM37 323c13-67 46-102 85-102 41 0 78 40 93 102Z\" fill=\"url(#o)\"/><path fill-rule=\"evenodd\" d=\"M37 323c13-67 46-102 85-102 41 0 78 40 93 102ZM76 323c7-32 24-46 47-46s38 16 44 46Z\" fill=\"url(#i)\"/></svg><span>Kreativ<i>Vantage</i></span></a><nav><a href=\"#\" aria-current=\"page\">Services</a><a href=\"#\">Work</a><a href=\"#\">Pricing</a><a href=\"#\">About</a></nav><a class=\"ds-nav__phone\" href=\"#\">(314) 780-2331</a><a class=\"ds-nav__cta\" href=\"#\">Start a project</a></header>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:24px;height:68px;padding:0 24px;background:var(--paper, #fcfcfd);border-bottom:1px solid var(--rule, #dcdfe4)}.ds-brand{display:inline-flex;align-items:center;gap:10px;color:var(--ink, #15171c);text-decoration:none;font:750 19px Archivo, 'Arial Narrow', sans-serif;font-stretch:112%;letter-spacing:-.03em}.ds-brand i{font-style:normal;font-weight:450}.ds-nav nav{display:flex;gap:4px}.ds-nav nav a{padding:8px 12px;border-radius:3px;color:var(--ink-2, #444a55);text-decoration:none;font:500 15.5px 'Public Sans', system-ui, sans-serif;transition:color .2s,background-color .2s}.ds-nav nav a:hover{color:var(--ink, #15171c);background:rgb(21 23 28 / .05)}.ds-nav nav a[aria-current=\"page\"]{color:var(--ink, #15171c);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}.ds-nav__phone{margin-left:auto;white-space:nowrap;color:var(--ink-2, #444a55);text-decoration:none;font:400 14px 'Fragment Mono', ui-monospace, monospace}.ds-nav__cta{white-space:nowrap;display:inline-flex;align-items:center;min-height:40px;padding:0 16px;border-radius:3px;background:var(--ink, #15171c);color:var(--paper, #fcfcfd);text-decoration:none;font:600 15px Archivo, 'Arial Narrow', sans-serif;font-stretch:106%}.ds-nav__cta:hover{background:#000}.ds-nav a:focus-visible{outline:2px solid var(--blue-deep, #24589f);outline-offset:3px}"
     }
   ],
   "narrative": {
     "northStar": "The Operating Manual",
-    "overview": "The site reads like a well-made company operations manual for a small business. Paper-white pages sit on a cool grey desk. Each service is a chapter, marked by a coloured index tab the way real divider stock is, and the cover shows work routing itself between the tools a business already has.",
+    "overview": "The site reads like a well-made company operations manual for a small business. Paper-white pages sit on a cool grey desk. Each service is a chapter, marked by a coloured index tab the way real divider stock is, and the cover shows AI sorting incoming work into the tools a business already has. The tone is calm, exact and plain-spoken: owners should feel they are reading something organised by people who document everything.\n\nColour is functional. The four tab stocks are the only colours on the page and each belongs to exactly one chapter, so colour always answers \"which service is this?\". Ink black carries every primary action. Motion is physical and damped: letters assemble into headings, requests ride a belt through the AI gate and a robot arm files them into trays that give a little on landing, divider sheets stack as you scroll. Everything still reads with motion turned off.\n\nThe previous dark, neon, gradient \"agency\" look is the anti-reference.",
     "keyCharacteristics": [
       "Paper on a desk: white page bands alternate with grey desk bands.",
       "Four index-tab colours, tinted from the logo, one per service chapter, never decorative.",
@@ -135,27 +431,27 @@
       },
       {
         "name": "The One Tab, One Chapter Rule",
-        "body": "A tab colour appears only where its chapter is meant. Never as decoration or emphasis.",
+        "body": "A tab colour appears only where its chapter is meant: its divider, its service page header, its chips, its 3D tray. Never as decoration or emphasis.",
         "section": "colors"
       },
       {
         "name": "The Tinted Secondary Rule",
-        "body": "Secondary text on a tab colour is ink mixed toward that tab, never grey.",
+        "body": "Secondary text on a tab colour is ink mixed toward that tab (`color-mix(in oklab, ink 84%, tab)`), never grey.",
         "section": "colors"
       },
       {
         "name": "The Assembling Letters Rule",
-        "body": "Display and headline text may decode into place once; real text is always in the HTML first and reduced motion skips it.",
+        "body": "Display and headline text may decode from noise into place once, on load or on first view. The real text is always in the HTML first, glyph widths are locked so nothing reflows, and reduced motion skips it.",
         "section": "typography"
       },
       {
         "name": "The Data-Only Mono Rule",
-        "body": "Fragment Mono is for times, prices, phone numbers, revisions, counts and labels.",
+        "body": "Fragment Mono is for times, prices, phone numbers, revisions, counts and labels. Never for headings or paragraphs.",
         "section": "typography"
       },
       {
         "name": "The Real Paper Rule",
-        "body": "Depth comes from soft offset shadows and real 3D only. No bevels, embossing or faked materials.",
+        "body": "Depth comes from soft offset shadows and real 3D only. No bevels, embossing, inset \"punched\" effects or faked materials.",
         "section": "elevation"
       }
     ],
