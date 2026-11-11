@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Archivo, Fragment_Mono, Public_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -61,6 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </main>
         <Footer />
         <JsonLd data={organizationLd()} />
+        <Analytics />
       </body>
     </html>
   );
