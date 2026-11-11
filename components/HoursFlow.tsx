@@ -361,6 +361,10 @@ function Diagram({ row, o }: { row: Row; o: Orient }) {
             You
           </text>
         </g>
+        {/* Your time so far: under the box when wide, beside it when tall. */}
+        <text className="hf-yourtime" data-mins x={wide ? 0 : 41} y={wide ? 34 : 5} textAnchor={wide ? "middle" : "start"}>
+          {minutes(row)} min
+        </text>
       </g>
     </svg>
   );
@@ -387,6 +391,7 @@ export default function HoursFlow() {
           token: svg.querySelector<SVGGElement>("[data-token]")!,
           stops: Array.from(svg.querySelectorAll<SVGGElement>(".hf-stop")),
           you: svg.querySelector<SVGGElement>(".hf-you")!,
+          mins: svg.querySelector<SVGTextElement>("[data-mins]")!,
           ai,
           mark: svg.querySelector<SVGGElement>("[data-mark]"),
           jobs: row.jobs.map((j, i) => {
@@ -404,7 +409,6 @@ export default function HoursFlow() {
       }),
     );
     const tallies = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-tally]`)!]));
-    const mins = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-mins]`)!]));
     const counters = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-n]`)!]));
     const toggleBtn = root.querySelector<HTMLButtonElement>("[data-ctl='toggle']")!;
     const longest = Math.max(...views.map((v) => v.plan.duration));
@@ -431,7 +435,7 @@ export default function HoursFlow() {
         if (v.mark) v.mark.dataset.on = String(t >= AUTO_DONE);
         tallies[v.row.id].textContent = String(s.touches);
         counters[v.row.id].dataset.done = String(s.touches >= v.row.tally);
-        mins[v.row.id].textContent = String(minutes(v.row, s.touches));
+        v.mins.textContent = `${minutes(v.row, s.touches)} min`;
       });
     };
 
@@ -523,9 +527,6 @@ export default function HoursFlow() {
                 <span className="hours__total">{row.tally}</span>
               </span>
               <span aria-hidden="true">× through you</span>
-              <span className="hours__mins" aria-hidden="true">
-                · <span className="mono" data-mins>{minutes(row)}</span> min
-              </span>
               <span className="sr-only">
                 {row.id === "hand"
                   ? `By hand, the request goes through you four times, about ${minutes(row)} minutes in all: you check email, type it into the CRM, write back, and call to book. The automated run is done before this one reaches the CRM.`
