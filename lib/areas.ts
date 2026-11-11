@@ -4,6 +4,7 @@
 // so none of them reads as a copy of another with the town swapped.
 
 import { builds, carePlans } from "./pricing";
+import { site } from "./site";
 
 export type Place = { name: string; type: "City" | "AdministrativeArea" };
 
@@ -29,6 +30,11 @@ export type Area = {
 };
 
 const [landing, website, store, portal] = builds;
+
+const meetFaq = (where: string) => ({
+  q: "Can we meet in person?",
+  a: `Yes, if you prefer. We meet clients in person anywhere in ${site.inPerson}, including at your business in ${where}. Video calls work too. We go with whatever suits you.`,
+});
 
 const costFaq = {
   q: "What does a website cost?",
@@ -82,6 +88,7 @@ export const areas: Area[] = [
         q: "Are you based in St. Louis?",
         a: "Yes. KreativVantage LLC is a Missouri company based in St. Louis. Most of our clients are in the St. Louis area, and we also work with businesses across the US.",
       },
+      meetFaq("St. Louis"),
       costFaq,
       {
         q: "Can you help my business show up on Google Maps?",
@@ -133,8 +140,9 @@ export const areas: Area[] = [
     faq: [
       {
         q: "Do you work with businesses in Fenton?",
-        a: "Yes. We are based in St. Louis and build for businesses across St. Louis County and Jefferson County. It starts with a call about your business, then a fixed-scope proposal.",
+        a: "Yes. We are based in St. Louis and build for businesses across St. Louis County and Jefferson County. It starts with a conversation about your business, then a fixed-scope proposal.",
       },
+      meetFaq("Fenton"),
       {
         q: "Can my site show up in nearby towns too?",
         a: "Yes, for the towns you really work in. We build a page for each one with real details about your work there. The ATLAS General Contracting site in Imperial has pages like this for the towns it covers.",
@@ -195,6 +203,7 @@ export const areas: Area[] = [
         q: "Have you worked with Jefferson County businesses?",
         a: "Yes. ATLAS General Contracting in Imperial and Oddball Ink in Arnold. Both projects are on our work page with what we built.",
       },
+      meetFaq("Jefferson County"),
       {
         q: "Can you build pages for each town I serve?",
         a: "Yes. A town page works when it has something real to say about your work there. We help you write them, and we don't make pages for places you don't serve.",
@@ -247,6 +256,7 @@ export const areas: Area[] = [
         q: "Which parts of South County do you cover?",
         a: "All of it, including Oakville, Mehlville, Affton, Lemay, Concord, Sappington, Crestwood and Sunset Hills. We are based in St. Louis.",
       },
+      meetFaq("South County"),
       {
         q: "I already have a website. Can you redesign it?",
         a: "Yes. Our Oddball Ink project in Arnold is a redesign. We keep what works, bring forward what customers were looking for, and move your content across.",
@@ -298,6 +308,7 @@ export const areas: Area[] = [
         q: "Do you work with businesses in Chesterfield and Ballwin?",
         a: "Yes. We are based in St. Louis and build for businesses across West County, including Chesterfield, Ballwin, Manchester, Des Peres, Town and Country and Wildwood.",
       },
+      meetFaq("West County"),
       {
         q: "Can you build an online store with dealer or wholesale pricing?",
         a: `Yes. The VIRO store has dealer sign-up, staff approval, pricing tiers and per-dealer overrides. Online stores start at ${store.from} and portals at ${portal.from}.`,

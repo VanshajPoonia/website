@@ -61,6 +61,7 @@ export default async function AreaPage({ params }: Params) {
             {a.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
+            <p>We can meet at your business in {a.name} or on a video call, whichever suits you.</p>
           </div>
         </div>
       </section>
