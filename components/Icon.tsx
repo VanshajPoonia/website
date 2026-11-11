@@ -53,6 +53,9 @@ const paths = {
   ),
   external: <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />,
   spark: <path d="M12 3c.6 5 3.9 8.4 9 9-5.1.6-8.4 4-9 9-.6-5-3.9-8.4-9-9 5.1-.6 8.4-4 9-9Z" />,
+  pause: <path d="M9 5.5v13M15 5.5v13" />,
+  play: <path d="M7.5 5v14l11-7Z" />,
+  replay: <path d="M4.5 12a7.5 7.5 0 1 0 2.2-5.3L4.5 9M4.5 4.5V9H9" />,
 } as const;
 
 /** The raw glyphs, for drawing an icon inside a larger SVG. */

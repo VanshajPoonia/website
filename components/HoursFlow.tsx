@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { iconPaths, type IconName } from "./Icon";
+import Icon, { iconPaths, type IconName } from "./Icon";
 
 // One quote request, run two ways on two lanes: your tools on top, you
 // underneath. By hand, the request drops into your lane four times. With
@@ -343,8 +343,11 @@ function Diagram({ row, o }: { row: Row; o: Orient }) {
   );
 }
 
+type Controls = { toggle: () => void; replay: () => void };
+
 export default function HoursFlow() {
   const ref = useRef<HTMLDivElement>(null);
+  const ctl = useRef<Controls | null>(null);
 
   useEffect(() => {
     const root = ref.current;
@@ -378,7 +381,9 @@ export default function HoursFlow() {
       }),
     );
     const tallies = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-tally]`)!]));
-    const cycle = LEAD + Math.max(...views.map((v) => v.plan.duration)) + HOLD;
+    const toggleBtn = root.querySelector<HTMLButtonElement>("[data-ctl='toggle']")!;
+    const longest = Math.max(...views.map((v) => v.plan.duration));
+    const cycle = LEAD + longest + HOLD;
 
     const paint = (t: number) => {
       views.forEach((v) => {
@@ -403,29 +408,53 @@ export default function HoursFlow() {
       });
     };
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      paint(cycle);
-      return;
-    }
-
-    paint(0);
+    // Reduced motion opens on the finished state, paused. Play still runs it.
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let playing = !reduce;
+    let clock = reduce ? LEAD + longest : 0;
     let raf = 0;
-    let clock = 0;
     let prev = 0;
     let visible = false;
+
     const tick = (now: number) => {
       raf = 0;
-      if (!visible || document.hidden) return;
+      if (!playing || !visible || document.hidden) return;
       clock = (clock + Math.min(0.05, (now - prev) / 1000)) % cycle;
       prev = now;
       paint(clock - LEAD);
       raf = requestAnimationFrame(tick);
     };
     const start = () => {
-      if (raf || !visible) return;
+      if (raf || !visible || !playing) return;
       prev = performance.now();
       raf = requestAnimationFrame(tick);
     };
+    const setPlaying = (on: boolean) => {
+      playing = on;
+      toggleBtn.dataset.playing = String(on);
+      if (on) start();
+      else {
+        cancelAnimationFrame(raf);
+        raf = 0;
+      }
+    };
+
+    ctl.current = {
+      toggle() {
+        // Paused on the finished state: play from the top.
+        if (!playing && clock - LEAD >= longest) clock = 0;
+        setPlaying(!playing);
+      },
+      replay() {
+        clock = 0;
+        paint(-LEAD);
+        setPlaying(true);
+      },
+    };
+
+    toggleBtn.dataset.playing = String(playing);
+    paint(clock - LEAD);
+
     const io = new IntersectionObserver(
       (entries) => {
         visible = entries[0]?.isIntersecting ?? false;
@@ -437,6 +466,7 @@ export default function HoursFlow() {
     const onVis = () => !document.hidden && start();
     document.addEventListener("visibilitychange", onVis);
     return () => {
+      ctl.current = null;
       io.disconnect();
       cancelAnimationFrame(raf);
       document.removeEventListener("visibilitychange", onVis);
@@ -468,6 +498,22 @@ export default function HoursFlow() {
           <Diagram row={row} o={TALL} />
         </figure>
       ))}
+      <div className="hours__foot">
+        <button type="button" className="hours__ctl" data-ctl="toggle" data-playing="true" onClick={() => ctl.current?.toggle()}>
+          <span className="hours__ctl-pause">
+            <Icon name="pause" size={16} />
+            Pause<span className="sr-only"> animation</span>
+          </span>
+          <span className="hours__ctl-play">
+            <Icon name="play" size={16} />
+            Play<span className="sr-only"> animation</span>
+          </span>
+        </button>
+        <button type="button" className="hours__ctl" onClick={() => ctl.current?.replay()}>
+          <Icon name="replay" size={16} />
+          Replay
+        </button>
+      </div>
     </div>
   );
 }

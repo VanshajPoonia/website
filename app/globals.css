@@ -324,6 +324,16 @@ html.menu-open { overflow: hidden; }
 .hours__tally { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink-2); font-size: 0.9375rem; }
 .hours__n { font-size: 1.75rem; line-height: 1; color: var(--ink); min-width: 1ch; text-align: right; }
 [data-row="auto"] .hours__n { background: var(--yellow); padding: 2px 6px; border-radius: 2px; }
+.hours__foot { display: flex; gap: 8px; margin-top: clamp(12px, 1.6vw, 18px); }
+.hours__ctl {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px;
+  border: 1.5px solid var(--rule-2); border-radius: 3px; background: transparent; color: var(--ink-2);
+  font-family: var(--mono); font-size: 0.8125rem; cursor: pointer;
+  transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+}
+.hours__ctl:hover { border-color: var(--ink); color: var(--ink); }
+.hours__ctl > span { display: inline-flex; align-items: center; gap: 8px; }
+.hours__ctl[data-playing="true"] .hours__ctl-play, .hours__ctl[data-playing="false"] .hours__ctl-pause { display: none; }
 
 .hf-svg { width: 100%; height: auto; overflow: visible; }
 .hf-svg--v { display: none; max-width: 340px; margin-inline: auto; }
