@@ -104,8 +104,22 @@ const ROWS: Row[] = [
   },
 ];
 
+const HAND = ROWS.find((r) => r.id === "hand")!;
+const AUTO = ROWS.find((r) => r.id === "auto")!;
+
 /** Rough minutes of your time the first n stops of a row take. */
 const minutes = (r: Row, n = r.stops.length) => r.stops.slice(0, n).reduce((sum, s) => sum + s.min, 0);
+
+/** Quote requests a week for the weekly line. A rough figure for a busy
+ *  small business, footnoted on the page. */
+const WEEK = 20;
+
+/** 500 → "over 8 hours", 480 → "8 hours", 20 → "20 minutes". */
+function spell(m: number): string {
+  if (m < 60) return `${m} minute${m === 1 ? "" : "s"}`;
+  const h = Math.floor(m / 60);
+  return `${m % 60 ? "over " : ""}${h} hour${h === 1 ? "" : "s"}`;
+}
 
 // ---------- Path model: orthogonal lines with rounded corners ----------
 
@@ -232,7 +246,7 @@ function stateAt(p: Plan, t: number): State {
 const LEAD = 0.5;
 const HOLD = 2.8;
 /** Seconds until the automated run is done. Timings don't depend on layout. */
-const AUTO_DONE = plan(ROWS.find((r) => r.id === "auto")!, WIDE).duration;
+const AUTO_DONE = plan(AUTO, WIDE).duration;
 const MARK_TEXT = "automated: done";
 
 // ---------- Drawing ----------
@@ -524,20 +538,29 @@ export default function HoursFlow() {
         </figure>
       ))}
       <div className="hours__foot">
-        <button type="button" className="hours__ctl" data-ctl="toggle" data-playing="true" onClick={() => ctl.current?.toggle()}>
-          <span className="hours__ctl-pause">
-            <Icon name="pause" size={16} />
-            Pause<span className="sr-only"> animation</span>
-          </span>
-          <span className="hours__ctl-play">
-            <Icon name="play" size={16} />
-            Play<span className="sr-only"> animation</span>
-          </span>
-        </button>
-        <button type="button" className="hours__ctl" onClick={() => ctl.current?.replay()}>
-          <Icon name="replay" size={16} />
-          Replay
-        </button>
+        <div>
+          <p className="hours__sum">
+            {WEEK} quote requests a week. By hand, <strong>{spell(minutes(HAND) * WEEK)}</strong>. Automated,{" "}
+            <strong className="hours__hl">{spell(minutes(AUTO) * WEEK)}</strong>.*
+          </p>
+          <p className="hours__note">*Rough estimates for a typical small business. Yours will vary.</p>
+        </div>
+        <div className="hours__ctls">
+          <button type="button" className="hours__ctl" data-ctl="toggle" data-playing="true" onClick={() => ctl.current?.toggle()}>
+            <span className="hours__ctl-pause">
+              <Icon name="pause" size={16} />
+              Pause<span className="sr-only"> animation</span>
+            </span>
+            <span className="hours__ctl-play">
+              <Icon name="play" size={16} />
+              Play<span className="sr-only"> animation</span>
+            </span>
+          </button>
+          <button type="button" className="hours__ctl" onClick={() => ctl.current?.replay()}>
+            <Icon name="replay" size={16} />
+            Replay
+          </button>
+        </div>
       </div>
     </div>
   );
