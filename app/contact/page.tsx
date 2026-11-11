@@ -36,7 +36,7 @@ export default function ContactPage() {
               <h2>What happens next</h2>
               <ol>
                 <li>We read your message and reply by email, often with a few questions.</li>
-                <li>We have a call about how your business runs and where the time goes.</li>
+                <li>We talk about how your business runs and where the time goes, in person anywhere in {site.inPerson} or on a video call.</li>
                 <li>You get a written proposal with scope, price and timeline. No work starts until you agree to it.</li>
               </ol>
             </div>

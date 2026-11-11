@@ -129,7 +129,7 @@ export default async function IndustryPage({ params }: Params) {
                 <Link href={`/areas/${a.slug}`}>{a.name}</Link>
               </span>
             ))}
-            .
+            . We meet in person anywhere in {site.inPerson}, or on a video call.
           </p>
           <p style={{ marginTop: 16 }}>
             Other industries:{" "}

@@ -1,3 +1,5 @@
+import { site } from "./site";
+
 export const process = [
   {
     step: "Call",
@@ -30,6 +32,10 @@ export const faq = [
   {
     q: "What kind of businesses do you work with?",
     a: "Mostly US small businesses: contractors, home services, retail, wholesale, fitness, hospitality and real estate. We are based in St. Louis, Missouri, where many of our clients are, and we work with businesses anywhere in the US.",
+  },
+  {
+    q: "Can we meet in person?",
+    a: `Yes, if you prefer. We meet clients in person anywhere in ${site.inPerson}, or on a video call. Whichever suits you.`,
   },
   {
     q: "How much does a website cost?",
