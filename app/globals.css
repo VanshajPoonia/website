@@ -662,6 +662,7 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .numbered li { display: grid; grid-template-columns: 54px 1fr; gap: 0 12px; padding: 20px 20px 20px 0; border-bottom: 1px solid var(--rule); }
 .numbered li:nth-child(odd) { border-right: 1px solid var(--rule); }
 .numbered li:nth-child(even) { padding-left: 20px; }
+.numbered li:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: 0; }
 @media (max-width: 760px) { .numbered li:nth-child(odd) { border-right: 0; } .numbered li:nth-child(even) { padding-left: 0; } }
 .numbered__n { font-family: var(--mono); font-size: 0.8125rem; color: var(--tab-deep, var(--ink-3)); padding-top: 4px; }
 .numbered h3 { font-size: 1.1875rem; font-stretch: 104%; letter-spacing: -0.015em; }
