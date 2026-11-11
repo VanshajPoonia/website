@@ -6,9 +6,9 @@ import { iconPaths, type IconName } from "./Icon";
 // One quote request, run two ways on two lanes: your tools on top, you
 // underneath. By hand, the request drops into your lane four times. With
 // automation it runs straight along the tools, through AI, and reaches you
-// once. Dashed is done by hand, solid runs on its own. Both rows start
-// together, so the automated one finishes while the manual one is still on
-// its first trip.
+// once. The same four jobs still happen there, done by the tools, and each
+// one lights up as the request passes. Dashed is done by hand, solid runs on
+// its own. Both rows start together, so the automated one finishes first.
 
 type Lane = "tools" | "you";
 type Pt = [number, number];
@@ -27,6 +27,8 @@ const TOOLS: { label: string; icon: IconName; f: number }[] = [
 ];
 const AI_F = 320;
 const YOU_F = 36;
+const NODE_W = { tool: 120, ai: 76 };
+const NODE_H = 40;
 /** Where the "you" lane stops drawing. */
 const wideEnd = (o: Orient) => (o.key === "h" ? 1010 : 985);
 
@@ -35,6 +37,8 @@ type Row = {
   name: string;
   path: [number, Lane][];
   stops: { f: number; label: string }[];
+  /** Work the tools do on their own, labelled at the tool that does it. */
+  jobs: { f: number; label: string }[];
   ai: boolean;
   /** Seconds the token spends moving, whatever the layout. */
   move: number;
@@ -68,6 +72,7 @@ const ROWS: Row[] = [
       { f: 611, label: "write back" },
       { f: 851, label: "call to book" },
     ],
+    jobs: [],
     ai: false,
     move: 4.2,
     pause: 0.7,
@@ -82,6 +87,12 @@ const ROWS: Row[] = [
       [966, "you"],
     ],
     stops: [{ f: 966, label: "read summary" }],
+    jobs: [
+      { f: AI_F, label: "reads it" },
+      { f: 490, label: "logs it" },
+      { f: 730, label: "replies" },
+      { f: 966, label: "books it" },
+    ],
     ai: true,
     move: 1.7,
     pause: 0.45,
@@ -150,14 +161,26 @@ function pointAt(m: Model, L: number): Pt {
   return m.pieces[m.pieces.length - 1].b;
 }
 
-/** Distance along the path to the straight stretch that passes through q. */
+/** Distance along the path to the point nearest q. Exact on straight
+ *  stretches, sampled on corners (a tool sitting on a turn lands there). */
 function lengthTo(m: Model, q: Pt): number {
+  let best = m.total;
+  let gap = Infinity;
   for (const p of m.pieces) {
-    if (p.c) continue;
-    const d = dist(p.a, q) + dist(q, p.b) - p.len;
-    if (Math.abs(d) < 0.01) return p.start + dist(p.a, q);
+    if (p.c) {
+      for (let i = 0; i <= 16; i++) {
+        const d = dist(quad(p.a, p.c, p.b, i / 16), q);
+        if (d < gap) [gap, best] = [d, p.start + (p.len * i) / 16];
+      }
+    } else if (p.len) {
+      const ux = (p.b[0] - p.a[0]) / p.len;
+      const uy = (p.b[1] - p.a[1]) / p.len;
+      const s = Math.max(0, Math.min(p.len, (q[0] - p.a[0]) * ux + (q[1] - p.a[1]) * uy));
+      const d = dist([p.a[0] + ux * s, p.a[1] + uy * s], q);
+      if (d < gap) [gap, best] = [d, p.start + s];
+    }
   }
-  return m.total;
+  return best;
 }
 
 // ---------- Timeline ----------
@@ -206,11 +229,11 @@ const HOLD = 2.8;
 
 function Node({ o, f, label, icon, kind = "tool" }: { o: Orient; f: number; label: string; icon: IconName; kind?: "tool" | "ai" }) {
   const [x, y] = o.at(f, "tools");
-  const w = kind === "ai" ? 76 : 120;
+  const w = NODE_W[kind];
   return (
-    <g className={`hf-node hf-node--${kind}`} transform={`translate(${x} ${y})`} data-ai={kind === "ai" || undefined}>
+    <g className={`hf-node hf-node--${kind}`} transform={`translate(${x} ${y})`} data-f={f} data-ai={kind === "ai" || undefined}>
       <g className="hf-node__body">
-        <rect x={-w / 2} y={-20} width={w} height={40} rx={3} />
+        <rect x={-w / 2} y={-NODE_H / 2} width={w} height={NODE_H} rx={3} />
         <g transform={`translate(${-w / 2 + 12} -9) scale(0.75)`} className="hf-icon">
           {iconPaths[icon]}
         </g>
@@ -257,6 +280,24 @@ function Diagram({ row, o }: { row: Row; o: Orient }) {
         <Node key={t.label} o={o} f={t.f} label={t.label} icon={t.icon} />
       ))}
       {row.ai ? <Node o={o} f={AI_F} label="AI" icon="spark" kind="ai" /> : null}
+      {row.jobs.map((j, i) => {
+        // Wide: above the tool. Tall: beside it, high enough to clear the
+        // line that leaves the last tool sideways.
+        const [x, y] = o.at(j.f, "tools");
+        const half = (j.f === AI_F ? NODE_W.ai : NODE_W.tool) / 2;
+        return (
+          <text
+            key={j.label}
+            className="hf-label hf-job"
+            data-job={i}
+            x={wide ? x : x + half + 8}
+            y={wide ? y - NODE_H / 2 - 10 : y - 8}
+            textAnchor={wide ? "middle" : "start"}
+          >
+            {j.label}
+          </text>
+        );
+      })}
       <g className="hf-you" transform={`translate(${you[0]} ${you[1]})`}>
         <g className="hf-you__body">
           <rect x={-31} y={-16} width={62} height={32} rx={3} />
@@ -279,13 +320,26 @@ export default function HoursFlow() {
     const views = ROWS.flatMap((row) =>
       [WIDE, TALL].map((o) => {
         const svg = root.querySelector<SVGSVGElement>(`[data-row="${row.id}"] svg[data-orient="${o.key}"]`)!;
+        const p = plan(row, o);
+        const ai = svg.querySelector<SVGGElement>("[data-ai]");
         return {
           row,
-          plan: plan(row, o),
+          plan: p,
           token: svg.querySelector<SVGGElement>("[data-token]")!,
           stops: Array.from(svg.querySelectorAll<SVGGElement>(".hf-stop")),
           you: svg.querySelector<SVGGElement>(".hf-you")!,
-          ai: svg.querySelector<SVGGElement>("[data-ai]"),
+          ai,
+          jobs: row.jobs.map((j, i) => {
+            const node = svg.querySelector<SVGGElement>(`.hf-node[data-f="${j.f}"]`)!;
+            const w = j.f === AI_F ? NODE_W.ai : NODE_W.tool;
+            return {
+              L: lengthTo(p.model, o.at(j.f, "tools")),
+              /** How far either side of the tool's centre the token is inside it. */
+              reach: (o.key === "h" ? w : NODE_H) / 2,
+              label: svg.querySelector<SVGTextElement>(`[data-job="${i}"]`)!,
+              node: node === ai ? null : node,
+            };
+          }),
         };
       }),
     );
@@ -306,6 +360,10 @@ export default function HoursFlow() {
         });
         v.you.dataset.active = String(s.active?.kind === "touch");
         if (v.ai) v.ai.dataset.active = String(s.active?.kind === "ai");
+        v.jobs.forEach((j) => {
+          j.label.dataset.on = String(started && s.L >= j.L);
+          if (j.node) j.node.dataset.active = String(started && !s.done && Math.abs(s.L - j.L) < j.reach);
+        });
         tallies[v.row.id].textContent = String(s.touches);
       });
     };
@@ -367,7 +425,7 @@ export default function HoursFlow() {
               <span className="sr-only">
                 {row.id === "hand"
                   ? "By hand, the request goes through you four times: you check email, type it into the CRM, write back, and call to book."
-                  : "Automated, the website, AI, CRM, inbox and calendar handle it, and it reaches you once, as a summary."}
+                  : "Automated, the AI reads it, the CRM logs it, the inbox replies and the calendar books it. It reaches you once, as a summary."}
               </span>
             </span>
           </figcaption>
