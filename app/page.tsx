@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CtaPanel, Faq, HandoverDoc, PriceList } from "@/components/Blocks";
 import Decode from "@/components/Decode";
+import Est from "@/components/Est";
 import Hero3D from "@/components/Hero3D";
 import HoursFlow from "@/components/HoursFlow";
 import Icon from "@/components/Icon";
@@ -8,6 +9,7 @@ import JsonLd from "@/components/JsonLd";
 import PreparedFor from "@/components/PreparedFor";
 import { AutomationRecords, CaseFile, WorkStrip } from "@/components/Work";
 import { faq, process } from "@/lib/faq";
+import { HOURS_BACK } from "@/lib/hours";
 import { faqLd, pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
@@ -34,6 +36,10 @@ export default function Home() {
             <Decode as="h1" id="cover-h" text="AI that does the busywork." trigger="mount" duration={1150} className="cover__h" />
             <p className="cover__lede">
               AI automation and websites for small businesses. Leads, orders and bookings, filed on their own.
+            </p>
+            <p className="cover__stat">
+              About <strong>{HOURS_BACK} hours a week</strong> back for a typical small business.
+              <Est />
             </p>
             <div className="cover__actions">
               <Link href="/contact" className="btn btn--ink">

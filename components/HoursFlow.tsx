@@ -112,9 +112,9 @@ const AUTO = ROWS.find((r) => r.id === "auto")!;
 /** Rough minutes of your time the first n stops of a row take. */
 const minutes = (r: Row, n = r.stops.length) => r.stops.slice(0, n).reduce((sum, s) => sum + s.min, 0);
 
-/** Quote requests a week for the weekly line. A rough figure for a busy
- *  small business, footnoted on the page. */
-const WEEK = 20;
+/** Quote requests a week for the weekly line. 25 requests saving 24
+ *  minutes each is the 10 hours a week the cover leads with (HOURS_BACK). */
+const WEEK = 25;
 
 /** 500 → "over 8 hours", 480 → "8 hours", 20 → "20 minutes". */
 function spell(m: number): string {
