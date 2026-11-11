@@ -74,7 +74,8 @@ Added 2026-11-11 to rank around St. Louis. The user picked Fenton and Jefferson 
 
 - Area pages (`lib/areas.ts`, `/areas/*`): St. Louis, Fenton, Jefferson County, South County, West County.
 - Industry pages (`lib/industries.ts`, `/industries/*`): contractors, retail and wholesale, restaurants, fitness, clubs. Each is backed by a case file.
-- Rules: every page needs facts only true of its area or industry. No town-swapped copies, no doorway pages, no invented visits, offices or clients. Don't claim in-person meetings until the user confirms them.
+- Rules: every page needs facts only true of its area or industry. No town-swapped copies, no doorway pages, no invented visits, offices or clients.
+- Meetings: in person anywhere in Missouri and Illinois, or by video, depending on the client (confirmed 2026-11-11). Source of truth is `site.inPerson`.
 - Google Business Profile: listed as "Kreativ Vantage", Website designer, 2 reviews (checked 2026-11-11). Its service area was the whole US, which put the map pin in the Pacific. The owner was told to set local service areas. The Maps link is `site.googleMaps`.
 
 ## Accessibility & Inclusion
