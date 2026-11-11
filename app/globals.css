@@ -351,6 +351,13 @@ html.menu-open { overflow: hidden; }
 .hf-label { font-family: var(--mono); font-size: 14px; fill: var(--ink-3); transition: fill 0.3s var(--ease); }
 .hf-svg--v .hf-label { font-size: 13px; }
 .hf-stop[data-on="true"] .hf-label, .hf-job[data-on="true"] { fill: var(--ink); }
+.hf-mark { opacity: 0; transition: opacity 0.3s var(--ease); }
+.hf-mark[data-on="true"] { opacity: 1; }
+.hf-mark__pin { fill: var(--yellow); stroke: var(--ink); stroke-width: 1.5; }
+.hf-mark__tag { transform-box: fill-box; transform-origin: center; transform: scale(0.85); transition: transform 0.4s var(--ease); }
+.hf-mark[data-on="true"] .hf-mark__tag { transform: scale(1); }
+.hf-mark__tag rect { fill: var(--yellow); stroke: var(--ink); stroke-width: 1.2; }
+.hf-mark__tag text { font-family: var(--mono); fill: var(--ink); }
 .hf-token { opacity: 0; transition: opacity 0.25s var(--ease); }
 .hf-token[data-on="true"] { opacity: 1; }
 .hf-token rect { fill: var(--paper); stroke: var(--ink); stroke-width: 1.8; transition: fill 0.25s var(--ease); }

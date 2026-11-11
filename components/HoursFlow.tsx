@@ -8,7 +8,8 @@ import { iconPaths, type IconName } from "./Icon";
 // automation it runs straight along the tools, through AI, and reaches you
 // once. The same four jobs still happen there, done by the tools, and each
 // one lights up as the request passes. Dashed is done by hand, solid runs on
-// its own. Both rows start together, so the automated one finishes first.
+// its own. Both rows start together. When the automated run is done, the
+// hand row pins a lime tag where its own request has got to.
 
 type Lane = "tools" | "you";
 type Pt = [number, number];
@@ -224,6 +225,9 @@ function stateAt(p: Plan, t: number): State {
 
 const LEAD = 0.5;
 const HOLD = 2.8;
+/** Seconds until the automated run is done. Timings don't depend on layout. */
+const AUTO_DONE = plan(ROWS.find((r) => r.id === "auto")!, WIDE).duration;
+const MARK_TEXT = "automated: done";
 
 // ---------- Drawing ----------
 
@@ -239,6 +243,34 @@ function Node({ o, f, label, icon, kind = "tool" }: { o: Orient; f: number; labe
         </g>
         <text x={-w / 2 + 38} y={6}>
           {label}
+        </text>
+      </g>
+    </g>
+  );
+}
+
+/** A lime tag on the hand row at the spot its request had reached when the
+ *  automated run finished. */
+function DoneMark({ o, p }: { o: Orient; p: Plan }) {
+  const [x, y] = pointAt(p.model, stateAt(p, AUTO_DONE).L);
+  const wide = o.key === "h";
+  const size = wide ? 13 : 12;
+  const w = Math.round(MARK_TEXT.length * size * 0.6) + 16;
+  const h = wide ? 26 : 24;
+  // Wide: the request is climbing back up to a tool, so the tag sits beside
+  // it. Tall: the climb runs sideways, so the tag sits above, kept between
+  // the lanes.
+  const [toolsX] = o.at(0, "tools");
+  const [youX] = o.at(0, "you");
+  const tx = wide ? x + 14 : Math.min(Math.max(x - w / 2, toolsX + 6), youX - 6 - w);
+  const ty = wide ? y - h / 2 : y - 14 - h;
+  return (
+    <g className="hf-mark" data-mark>
+      <circle className="hf-mark__pin" cx={x} cy={y} r={6} />
+      <g className="hf-mark__tag">
+        <rect x={tx} y={ty} width={w} height={h} rx={2} />
+        <text x={tx + 8} y={ty + h / 2 + size * 0.36} fontSize={size}>
+          {MARK_TEXT}
         </text>
       </g>
     </g>
@@ -272,6 +304,7 @@ function Diagram({ row, o }: { row: Row; o: Orient }) {
           </g>
         );
       })}
+      {row.id === "hand" ? <DoneMark o={o} p={p} /> : null}
       <g className="hf-token" data-token>
         <rect x={-10} y={-7} width={20} height={14} rx={2} />
         <path d="M-6 -2.5h12M-6 1.5h7" />
@@ -329,6 +362,7 @@ export default function HoursFlow() {
           stops: Array.from(svg.querySelectorAll<SVGGElement>(".hf-stop")),
           you: svg.querySelector<SVGGElement>(".hf-you")!,
           ai,
+          mark: svg.querySelector<SVGGElement>("[data-mark]"),
           jobs: row.jobs.map((j, i) => {
             const node = svg.querySelector<SVGGElement>(`.hf-node[data-f="${j.f}"]`)!;
             const w = j.f === AI_F ? NODE_W.ai : NODE_W.tool;
@@ -364,6 +398,7 @@ export default function HoursFlow() {
           j.label.dataset.on = String(started && s.L >= j.L);
           if (j.node) j.node.dataset.active = String(started && !s.done && Math.abs(s.L - j.L) < j.reach);
         });
+        if (v.mark) v.mark.dataset.on = String(t >= AUTO_DONE);
         tallies[v.row.id].textContent = String(s.touches);
       });
     };
@@ -424,7 +459,7 @@ export default function HoursFlow() {
               <span aria-hidden="true">× through you</span>
               <span className="sr-only">
                 {row.id === "hand"
-                  ? "By hand, the request goes through you four times: you check email, type it into the CRM, write back, and call to book."
+                  ? "By hand, the request goes through you four times: you check email, type it into the CRM, write back, and call to book. The automated run is done before this one reaches the CRM."
                   : "Automated, the AI reads it, the CRM logs it, the inbox replies and the calendar books it. It reaches you once, as a summary."}
               </span>
             </span>
