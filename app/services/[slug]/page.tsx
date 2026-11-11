@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CtaPanel, Faq } from "@/components/Blocks";
+import Est from "@/components/Est";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PageHead from "@/components/PageHead";
@@ -90,6 +91,13 @@ export default async function ServicePage({ params }: Params) {
           </div>
           <div>
             <ul className="changes">
+              <li>
+                <Icon name="check" size={20} />
+                <span>
+                  About <strong>{s.hoursBack} hours a week</strong> back.
+                  <Est />
+                </span>
+              </li>
               {s.changes.map((c) => (
                 <li key={c}>
                   <Icon name="check" size={20} />

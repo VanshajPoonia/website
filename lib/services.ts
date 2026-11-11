@@ -19,6 +19,9 @@ export type Service = {
   priceNote: string;
   /** Lowest starting price in USD, for structured data. Monthly for care. */
   fromPrice: number;
+  /** Rough hours a week this chapter gives back a typical small business.
+   *  An estimate, always shown with an asterisk (see lib/hours.ts). */
+  hoursBack: number;
   faq: { q: string; a: string }[];
   metaTitle: string;
   metaDescription: string;
@@ -55,6 +58,7 @@ export const services: Service[] = [
     work: ["restaurant-group-pos-sync", "comic-production-pipeline", "atlas-general-contracting"],
     priceNote: startingAt.automation,
     fromPrice: 399,
+    hoursBack: 10,
     faq: [
       {
         q: "Which tools can you connect?",
@@ -103,6 +107,7 @@ export const services: Service[] = [
     work: ["atlas-general-contracting", "healthy-mechanical", "charla-wewers", "oddball-ink"],
     priceNote: startingAt.websites,
     fromPrice: 599,
+    hoursBack: 3,
     faq: [
       {
         q: "Do you use templates or website builders?",
@@ -151,6 +156,7 @@ export const services: Service[] = [
     work: ["viro-design-and-finishes", "adventure-unknown"],
     priceNote: startingAt.stores,
     fromPrice: 2499,
+    hoursBack: 6,
     faq: [
       {
         q: "Which payment processors do you work with?",
@@ -199,6 +205,7 @@ export const services: Service[] = [
     work: ["viro-design-and-finishes", "adventure-unknown"],
     priceNote: startingAt.care,
     fromPrice: 99,
+    hoursBack: 2,
     faq: [
       {
         q: "Do I have to be on a care plan?",

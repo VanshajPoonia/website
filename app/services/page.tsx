@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CtaPanel } from "@/components/Blocks";
+import { TimeBack } from "@/components/Est";
 import Icon from "@/components/Icon";
 import PageHead from "@/components/PageHead";
 import { pageMetadata } from "@/lib/seo";
@@ -33,6 +34,9 @@ export default function ServicesPage() {
               </div>
               <div>
                 <p>{s.summary}</p>
+                <p className="svcrow__time mono">
+                  <TimeBack hours={s.hoursBack} />
+                </p>
                 <span className="textlink">
                   Read chapter {s.chapter} <Icon name="arrow" size={16} />
                 </span>

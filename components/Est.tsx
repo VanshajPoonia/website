@@ -9,3 +9,14 @@ export default function Est() {
     </>
   );
 }
+
+/** A compact time-back figure for spec lines: "~6 h a week back*". Screen
+ *  readers get it in words. */
+export function TimeBack({ hours }: { hours: number }) {
+  return (
+    <>
+      <span aria-hidden="true">~{hours} h a week back*</span>
+      <span className="sr-only">About {hours} hours a week back (rough estimate)</span>
+    </>
+  );
+}

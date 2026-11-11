@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { CtaPanel, Faq, HandoverDoc, PriceList } from "@/components/Blocks";
 import Decode from "@/components/Decode";
-import Est from "@/components/Est";
+import Est, { TimeBack } from "@/components/Est";
 import Hero3D from "@/components/Hero3D";
 import HoursFlow from "@/components/HoursFlow";
 import Icon from "@/components/Icon";
@@ -88,7 +88,12 @@ export default function Home() {
                   </span>
                   <span className="toc__title">{s.title}</span>
                   <span className="toc__leader" aria-hidden="true" />
-                  <span className="toc__summary">{s.keywords.join(" · ")}</span>
+                  <span className="toc__summary">
+                    {s.keywords.join(" · ")}
+                    <span className="toc__time mono">
+                      <TimeBack hours={s.hoursBack} />
+                    </span>
+                  </span>
                   <Icon name="arrow" size={20} className="toc__arrow" />
                 </Link>
               </li>
@@ -140,6 +145,9 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                <p className="divider__time mono">
+                  <TimeBack hours={s.hoursBack} />
+                </p>
                 <p className="divider__price mono">{s.priceNote}</p>
               </div>
             </div>
