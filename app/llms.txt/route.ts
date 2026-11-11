@@ -1,5 +1,6 @@
 // A plain-text summary for AI assistants and answer engines (llmstxt.org).
 import { areas } from "@/lib/areas";
+import { industries } from "@/lib/industries";
 import { automation, builds, carePlans } from "@/lib/pricing";
 import { services } from "@/lib/services";
 import { absoluteUrl, site } from "@/lib/site";
@@ -20,6 +21,9 @@ export function GET() {
     "",
     "## Work",
     ...work.map((w) => `- [${w.client}](${absoluteUrl(`/work/${w.slug}`)}): ${w.summary}`),
+    "",
+    "## Industries",
+    ...industries.map((i) => `- [${i.name}](${absoluteUrl(`/industries/${i.slug}`)}): ${i.lede}`),
     "",
     "## Areas served",
     ...areas.map((a) => `- [${a.name}](${absoluteUrl(`/areas/${a.slug}`)}): ${a.places.join(", ")}`),
