@@ -479,7 +479,10 @@ export default function HoursFlow() {
         <figure key={row.id} className="hours__row" data-row={row.id}>
           <figcaption className="hours__head">
             <span className="hours__name">
-              <span className={`hours__key hours__key--${row.id}`} aria-hidden="true" />
+              {/* Same stroke as the row's path, so the key always matches it. */}
+              <svg className="hours__key" viewBox="0 0 34 4" aria-hidden="true" focusable="false">
+                <line className={`hf-path hf-path--${row.id}`} x1={1.5} y1={2} x2={32.5} y2={2} />
+              </svg>
               {row.name}
             </span>
             <span className="hours__tally">

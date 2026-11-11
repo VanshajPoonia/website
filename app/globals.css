@@ -319,8 +319,7 @@ html.menu-open { overflow: hidden; }
 .hours__row + .hours__row { border-top: 1px solid var(--rule); margin-top: clamp(14px, 2vw, 24px); padding-top: clamp(18px, 2.4vw, 28px); }
 .hours__head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; margin-bottom: 6px; }
 .hours__name { display: inline-flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 650; font-stretch: 108%; font-size: 1.25rem; letter-spacing: -0.02em; }
-.hours__key { display: inline-block; width: 34px; border-top: 2.5px solid var(--ink); }
-.hours__key--hand { border-top-style: dashed; }
+.hours__key { display: block; width: 34px; height: 4px; overflow: visible; }
 .hours__tally { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink-2); font-size: 0.9375rem; }
 .hours__n { font-size: 1.75rem; line-height: 1; color: var(--ink); min-width: 1ch; text-align: right; }
 [data-row="auto"] .hours__n { background: var(--yellow); padding: 2px 6px; border-radius: 2px; }
