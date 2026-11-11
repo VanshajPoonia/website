@@ -50,7 +50,7 @@ export default function AboutPage() {
             <p>
               Most of our clients are US small businesses: contractors, home services, retail and wholesale, fitness,
               hospitality and real estate. We are based in <Link href="/areas/st-louis">St. Louis</Link>, and many of our
-              clients are nearby. Others are across the country.
+              clients are nearby. Others are across the country, and we work with businesses anywhere in the Midwest.
             </p>
             <p>
               The thread through all of it is time. A good site brings in work. A connected one stops you re-typing it. A

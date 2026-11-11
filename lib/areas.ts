@@ -100,7 +100,7 @@ export const areas: Area[] = [
       },
       {
         q: "Do you only work with St. Louis businesses?",
-        a: "No. We are based here, but we build for businesses anywhere in the US. One of our websites is for an HVAC company in Charlotte, North Carolina.",
+        a: "No. We are based here, but we build for businesses across the Midwest and anywhere in the US. One of our websites is for an HVAC company in Charlotte, North Carolina.",
       },
     ],
     metaTitle: "Web design and AI automation in St. Louis, MO",

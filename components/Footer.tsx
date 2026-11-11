@@ -21,7 +21,7 @@ export default function Footer() {
           </Link>
           <p>
             Websites, online stores and automations for small businesses. Based in{" "}
-            <Link href="/areas/st-louis">St. Louis, Missouri</Link>, working across the US.
+            <Link href="/areas/st-louis">St. Louis, Missouri</Link>, working across the Midwest and the US.
           </p>
           <ul className="footer__contact">
             <li>

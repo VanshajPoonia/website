@@ -14,7 +14,7 @@ export function GET() {
     "",
     `> ${site.description}`,
     "",
-    `${site.legalName}, a website and automation development agency in ${site.location.city}, ${site.location.regionName}, for US small businesses. Focused on AI and saving time. Phone ${site.phone.display}, email ${site.email}.`,
+    `${site.legalName}, a website and automation development agency in ${site.location.city}, ${site.location.regionName}, for small businesses in the Midwest and across the US. Focused on AI and saving time. Phone ${site.phone.display}, email ${site.email}.`,
     "",
     "## Services",
     ...services.map((s) => `- [${s.title}](${absoluteUrl(`/services/${s.slug}`)}): ${s.summary}`),

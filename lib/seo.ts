@@ -68,6 +68,9 @@ export function organizationLd() {
         sameAs: [site.googleMaps],
         areaServed: [
           ...areas.flatMap((a) => a.served.map((p) => ({ "@type": p.type, name: `${p.name}, ${a.state}` }))),
+          { "@type": "State", name: "Missouri" },
+          { "@type": "State", name: "Illinois" },
+          { "@type": "Place", name: "Midwestern United States" },
           { "@type": "Country", name: site.areaServed },
         ],
         contactPoint: {
@@ -85,6 +88,10 @@ export function organizationLd() {
           "E-commerce development",
           "Business process automation",
           "AI integration",
+          "AI automation",
+          "Workflow automation",
+          "CRM integration",
+          "Small business websites",
         ],
         makesOffer: services.map((s) => ({
           "@type": "Offer",

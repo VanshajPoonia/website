@@ -31,7 +31,7 @@ export const process = [
 export const faq = [
   {
     q: "What kind of businesses do you work with?",
-    a: "Mostly US small businesses: contractors, home services, retail, wholesale, fitness, hospitality and real estate. We are based in St. Louis, Missouri, where many of our clients are, and we work with businesses anywhere in the US.",
+    a: "Mostly US small businesses: contractors, home services, retail, wholesale, fitness, hospitality and real estate. We are based in St. Louis, Missouri, where many of our clients are, and we work with businesses across the Midwest and anywhere in the US.",
   },
   {
     q: "Can we meet in person?",
