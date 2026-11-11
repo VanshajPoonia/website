@@ -72,7 +72,8 @@ Absent, never fabricate: testimonials, client metrics (hours saved, revenue, ran
 
 Added 2026-11-11 to rank around St. Louis. The user picked Fenton and Jefferson County first, plus nearby areas.
 
-- Area pages (`lib/areas.ts`, `/areas/*`): St. Louis, Fenton, Jefferson County, South County, West County.
+- Area pages (`lib/areas.ts`, `/areas/*`): St. Louis, Fenton, Jefferson County, South County, West County, Metro East, and central and southern Illinois (Illinois within about 100 miles of St. Louis, per the user).
+- Wider reach: the site says it works across the Midwest and the US (user asked to use "Midwest" as a keyword, 2026-11-11). Don't claim Midwest clients beyond the case files.
 - Industry pages (`lib/industries.ts`, `/industries/*`): contractors, retail and wholesale, restaurants, fitness, clubs. Each is backed by a case file.
 - Rules: every page needs facts only true of its area or industry. No town-swapped copies, no doorway pages, no invented visits, offices or clients.
 - Meetings: in person anywhere in Missouri and Illinois, or by video, depending on the client (confirmed 2026-11-11). Source of truth is `site.inPerson`.
