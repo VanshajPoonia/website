@@ -14,6 +14,8 @@ export const site = {
   location: { city: "St. Louis", region: "MO", regionName: "Missouri", country: "US" },
   jurisdiction: "the State of Missouri",
   areaServed: "United States",
+  // Google Business Profile, listed as "Kreativ Vantage". Confirmed live 2026-11-11.
+  googleMaps: "https://maps.google.com/?cid=1054968527674761563",
   // The manual's revision stamp. Bumped by hand when the content changes.
   revision: "2026.11",
   updated: "2026-11-11",

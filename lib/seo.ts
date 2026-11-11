@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { areas } from "./areas";
 import { absoluteUrl, site } from "./site";
 import { services, type Service } from "./services";
 import type { WorkItem } from "./work";
@@ -46,7 +47,8 @@ export function organizationLd() {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "Organization",
+        // A local business type, so the St. Louis service area reads as a place, not just a mailing city.
+        "@type": "ProfessionalService",
         "@id": orgId,
         name: site.name,
         alternateName: site.alternateName,
@@ -62,7 +64,12 @@ export function organizationLd() {
         description: site.description,
         telephone: site.phone.e164,
         email: site.email,
-        areaServed: { "@type": "Country", name: site.areaServed },
+        hasMap: site.googleMaps,
+        sameAs: [site.googleMaps],
+        areaServed: [
+          ...areas.flatMap((a) => a.served).map((p) => ({ "@type": p.type, name: `${p.name}, Missouri` })),
+          { "@type": "Country", name: site.areaServed },
+        ],
         contactPoint: {
           "@type": "ContactPoint",
           telephone: site.phone.e164,
