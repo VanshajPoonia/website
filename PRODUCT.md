@@ -68,6 +68,15 @@ Absent, never fabricate: testimonials, client metrics (hours saved, revenue, ran
 3. The client owns it. Documentation, training and no lock-in are part of every build.
 4. Fast and findable by default. The agency's own site is the first proof.
 
+## Local Search
+
+Added 2026-11-11 to rank around St. Louis. The user picked Fenton and Jefferson County first, plus nearby areas.
+
+- Area pages (`lib/areas.ts`, `/areas/*`): St. Louis, Fenton, Jefferson County, South County, West County.
+- Industry pages (`lib/industries.ts`, `/industries/*`): contractors, retail and wholesale, restaurants, fitness, clubs. Each is backed by a case file.
+- Rules: every page needs facts only true of its area or industry. No town-swapped copies, no doorway pages, no invented visits, offices or clients. Don't claim in-person meetings until the user confirms them.
+- Google Business Profile: listed as "Kreativ Vantage", Website designer, 2 reviews (checked 2026-11-11). Its service area was the whole US, which put the map pin in the Pacific. The owner was told to set local service areas. The Maps link is `site.googleMaps`.
+
 ## Accessibility & Inclusion
 
 WCAG 2.2 AA. Respect reduced motion. Every effect has a static fallback.
