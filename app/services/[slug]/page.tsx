@@ -34,6 +34,8 @@ export default async function ServicePage({ params }: Params) {
   const s = getService((await params).slug);
   if (!s) notFound();
   const next = services[(services.indexOf(s) + 1) % services.length];
+  // Mid-sentence title. Only the first letter drops, so "AI" stays "AI".
+  const inline = s.title.charAt(0).toLowerCase() + s.title.slice(1);
   const items = s.work.map(getWork).filter((w): w is WorkItem => Boolean(w));
   const shown = items.filter((w) => !w.anonymised);
   const records = items.filter((w) => w.anonymised);
@@ -147,7 +149,7 @@ export default async function ServicePage({ params }: Params) {
       <section className="band" aria-labelledby="sfaq-h">
         <div className="frame faqsec__grid">
           <h2 className="cols__h" id="sfaq-h">
-            Questions about {s.title.toLowerCase()}
+            Questions about {inline}
           </h2>
           <Faq items={s.faq} />
         </div>
@@ -165,7 +167,7 @@ export default async function ServicePage({ params }: Params) {
         </div>
       </section>
 
-      <CtaPanel title={`Start with ${s.title.toLowerCase()}.`} />
+      <CtaPanel title={`Start with ${inline}.`} />
       <JsonLd data={serviceLd(s)} />
       <JsonLd data={faqLd(s.faq)} />
     </>
