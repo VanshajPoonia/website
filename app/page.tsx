@@ -16,7 +16,7 @@ import { site } from "@/lib/site";
 import { namedWork, work } from "@/lib/work";
 
 export const metadata = pageMetadata({
-  title: `${site.name} | AI automation and websites for small businesses`,
+  title: `${site.name} | AI automation and web design in St. Louis`,
   description: site.description,
   path: "/",
   absoluteTitle: true,

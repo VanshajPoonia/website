@@ -6,7 +6,7 @@ export const site = {
   url: "https://www.kreativvantage.com",
   locale: "en_US",
   description:
-    "KreativVantage builds AI automations, websites and online stores for small businesses. Leads, orders and bookings go where they need to go without anyone re-typing them.",
+    "KreativVantage builds AI automations, websites and online stores for small businesses in St. Louis and across the US. Leads, orders and bookings go where they need to go without anyone re-typing them.",
   phone: { display: "(314) 780-2331", href: "tel:+13147802331", e164: "+1-314-780-2331" },
   email: "hello@kreativvantage.com",
   legalName: "KreativVantage LLC",
