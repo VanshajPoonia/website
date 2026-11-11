@@ -55,8 +55,10 @@ export default function PrivacyPage() {
               </p>
               <h3>Cookies and tracking</h3>
               <p>
-                We do not set advertising or tracking cookies, and we do not run third-party analytics or ad scripts on this site.
-                If that changes, we will update this policy first.
+                We do not set advertising or tracking cookies, and we do not run ad scripts on this site. We use Vercel Web
+                Analytics, from our hosting provider, to count visits and see which pages people read. It uses no cookies, does
+                not identify you and does not follow you across other sites. We only see totals. If that changes, we will update
+                this policy first.
               </p>
             </>
           ),
@@ -80,7 +82,7 @@ export default function PrivacyPage() {
             <>
               <p>We share information only with service providers that help us run the site and the business, and only for that purpose:</p>
               <ul>
-                <li>Website hosting and delivery.</li>
+                <li>Website hosting, delivery and privacy-friendly visit counts.</li>
                 <li>Email delivery for form submissions, and our email inbox provider.</li>
               </ul>
               <p>
