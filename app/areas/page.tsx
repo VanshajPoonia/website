@@ -8,7 +8,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata = pageMetadata({
   title: "Areas we serve around St. Louis",
   description:
-    "KreativVantage builds websites and automations for businesses in St. Louis, Fenton, Jefferson County, South County and West County. Based in St. Louis.",
+    "Websites and automation for St. Louis, Fenton, Jefferson County, South County, West County, the Metro East and central and southern Illinois. Serving the Midwest from St. Louis.",
   path: "/areas",
 });
 
@@ -17,7 +17,7 @@ export default function AreasPage() {
     <>
       <PageHead
         title="Based in St. Louis. Building for the whole area."
-        lede="Most of our clients are in St. Louis city and county and Jefferson County. Pick your area to see the work nearby."
+        lede="Most of our clients are in St. Louis city and county and Jefferson County. We also work across the river in Illinois. Pick your area to see the work nearby."
         trail={[{ name: "Areas", path: "/areas" }]}
       />
       <section className="band">
