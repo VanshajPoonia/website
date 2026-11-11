@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ESTIMATE_NOTE } from "@/lib/hours";
 import { legalNav, site } from "@/lib/site";
 import { services } from "@/lib/services";
 import Icon from "./Icon";
@@ -70,6 +71,9 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
+      <p id="estimates" className="frame footer__note">
+        * {ESTIMATE_NOTE}
+      </p>
       <div className="frame footer__base mono">
         <span>
           © {year} {site.legalName}. All rights reserved.

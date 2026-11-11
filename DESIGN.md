@@ -221,6 +221,9 @@ Square-shouldered paper: 2 to 4px corners on sheets, inputs and buttons. The onl
 ### Hours lanes
 - "Where the hours go" draws one quote request twice, on two lanes: tools on top, You underneath. By hand is a dotted square wave that drops into your lane four times (check email, type it in, write back, call to book). Automated is one solid line through Website, AI, CRM, Inbox and Calendar with a single drop to read the summary. The same four jobs sit on the tools there (reads it, logs it, replies, books it) and turn ink as the request passes. Both tokens start together. When the automated run is done, the hand row pins a lime "automated: done" tag where its own request has got to. Tool boxes are neutral paper; only the AI node and that tag are lime. Each row's key in its heading is drawn with the same stroke as its path. The tally counts up as "2/4" with the total faded, then settles on the total in the same spot (lime on the automated row). Each stop carries rough minutes under its label (2, 5, 8 and 10 by hand, 1 to read the summary) and a running total of your minutes sits under the You box (beside it on phones). The row headings keep only the trip count. Below 640px the lanes turn vertical. Under the lanes, a weekly line works it out for 20 quote requests: over 8 hours by hand, 20 minutes automated (lime). It carries an asterisk, and a footnote says the times are rough estimates. Pause and Replay sit beside it. Reduced motion opens paused on the finished state, and Play still runs it.
 
+### Time estimates
+- Time figures (minutes per step, hours a week) are rough estimates for a typical small business, not measured results. Each one carries an asterisk (`components/Est.tsx`), and a note in the footer (`#estimates`) explains them on every page. Shared figures live in `lib/hours.ts`. Case studies are real clients, so they never get made-up time figures.
+
 ## Do's and Don'ts
 
 ### Do:

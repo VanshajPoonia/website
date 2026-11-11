@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { ESTIMATE_NOTE } from "@/lib/hours";
+import Est from "./Est";
 import Icon, { iconPaths, type IconName } from "./Icon";
 
 // One quote request, run two ways on two lanes: your tools on top, you
@@ -542,9 +544,10 @@ export default function HoursFlow() {
         <div>
           <p className="hours__sum">
             {WEEK} quote requests a week. By hand, <strong>{spell(minutes(HAND) * WEEK)}</strong>. Automated,{" "}
-            <strong className="hours__hl">{spell(minutes(AUTO) * WEEK)}</strong>.*
+            <strong className="hours__hl">{spell(minutes(AUTO) * WEEK)}</strong>.
+            <Est />
           </p>
-          <p className="hours__note">*Rough estimates for a typical small business. Yours will vary.</p>
+          <p className="hours__note">* {ESTIMATE_NOTE}</p>
         </div>
         <div className="hours__ctls">
           <button type="button" className="hours__ctl" data-ctl="toggle" data-playing="true" onClick={() => ctl.current?.toggle()}>

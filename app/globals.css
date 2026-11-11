@@ -622,8 +622,9 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .footer__col a { text-decoration: none; color: var(--ink-2); font-size: 0.9688rem; display: inline-flex; align-items: center; gap: 10px; }
 .footer__col a:hover { color: var(--ink); text-decoration: underline; }
 .footer__n { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 3px 3px 0 0; background: var(--tab); font-family: var(--display); font-weight: 750; font-stretch: 125%; font-size: 0.75rem; color: var(--ink); }
+.footer__note { padding-bottom: 16px; color: var(--ink-3); font-size: 0.8125rem; }
 .footer__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 20px 28px; border-top: 1px solid var(--rule-2); color: var(--ink-3); font-size: 0.75rem; }
-@media (min-width: 1280px) { .footer__base, .footer__grid { padding-right: calc(var(--gutter) + 24px); } }
+@media (min-width: 1280px) { .footer__base, .footer__grid, .footer__note { padding-right: calc(var(--gutter) + 24px); } }
 
 /* ---------- Subpage head ---------- */
 .pagehead { border-bottom: 1px solid var(--rule); padding: clamp(28px, 4vw, 48px) 0 clamp(40px, 5vw, 72px); }
