@@ -322,6 +322,7 @@ html.menu-open { overflow: hidden; }
 .hours__key { display: block; width: 34px; height: 4px; overflow: visible; }
 .hours__tally { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink-2); font-size: 0.9375rem; }
 .hours__n { font-size: 1.75rem; line-height: 1; color: var(--ink); min-width: 1ch; text-align: right; }
+.hours__mins [data-mins] { color: var(--ink); font-size: 0.9375rem; }
 .hours__of, .hours__total { color: var(--ink-3); transition: color 0.3s var(--ease), background-color 0.3s var(--ease); }
 .hours__n[data-done="true"] .hours__now, .hours__n[data-done="true"] .hours__of { display: none; }
 .hours__n[data-done="true"] .hours__total { color: var(--ink); }
@@ -364,6 +365,8 @@ html.menu-open { overflow: hidden; }
 @keyframes hf-ping { from { opacity: 0.7; transform: scale(1); } to { opacity: 0; transform: scale(2.6); } }
 .hf-label { font-family: var(--mono); font-size: 14px; fill: var(--ink-3); transition: fill 0.3s var(--ease); }
 .hf-svg--v .hf-label { font-size: 13px; }
+.hf-min { font-family: var(--mono); font-size: 12px; fill: var(--ink-3); transition: fill 0.3s var(--ease); }
+.hf-stop[data-on="true"] .hf-min { fill: var(--ink-2); }
 .hf-stop[data-on="true"] .hf-label, .hf-job[data-on="true"] { fill: var(--ink); }
 .hf-mark { opacity: 0; transition: opacity 0.3s var(--ease); }
 .hf-mark[data-on="true"] { opacity: 1; }

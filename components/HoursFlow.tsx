@@ -37,7 +37,8 @@ type Row = {
   id: "hand" | "auto";
   name: string;
   path: [number, Lane][];
-  stops: { f: number; label: string }[];
+  /** Where the request drops into your lane, and rough minutes each one takes. */
+  stops: { f: number; label: string; min: number }[];
   /** Work the tools do on their own, labelled at the tool that does it. */
   jobs: { f: number; label: string }[];
   ai: boolean;
@@ -68,10 +69,12 @@ const ROWS: Row[] = [
       [966, "tools"],
     ],
     stops: [
-      { f: 262, label: "check email" },
-      { f: 380, label: "type it in" },
-      { f: 611, label: "write back" },
-      { f: 851, label: "call to book" },
+      // Rough minutes for a typical small business. Calling allows for
+      // phone tag.
+      { f: 262, label: "check email", min: 2 },
+      { f: 380, label: "type it in", min: 5 },
+      { f: 611, label: "write back", min: 8 },
+      { f: 851, label: "call to book", min: 10 },
     ],
     jobs: [],
     ai: false,
@@ -87,7 +90,7 @@ const ROWS: Row[] = [
       [966, "tools"],
       [966, "you"],
     ],
-    stops: [{ f: 966, label: "read summary" }],
+    stops: [{ f: 966, label: "read summary", min: 1 }],
     jobs: [
       { f: AI_F, label: "reads it" },
       { f: 490, label: "logs it" },
@@ -100,6 +103,9 @@ const ROWS: Row[] = [
     tally: 1,
   },
 ];
+
+/** Rough minutes of your time the first n stops of a row take. */
+const minutes = (r: Row, n = r.stops.length) => r.stops.slice(0, n).reduce((sum, s) => sum + s.min, 0);
 
 // ---------- Path model: orthogonal lines with rounded corners ----------
 
@@ -301,6 +307,9 @@ function Diagram({ row, o }: { row: Row; o: Orient }) {
             <text className="hf-label" x={wide ? 0 : 16} y={wide ? 32 : 5} textAnchor={wide ? "middle" : "start"}>
               {s.label}
             </text>
+            <text className="hf-min" x={wide ? 0 : 16} y={wide ? 49 : 20} textAnchor={wide ? "middle" : "start"}>
+              {s.min} min
+            </text>
           </g>
         );
       })}
@@ -381,6 +390,7 @@ export default function HoursFlow() {
       }),
     );
     const tallies = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-tally]`)!]));
+    const mins = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-mins]`)!]));
     const counters = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-n]`)!]));
     const toggleBtn = root.querySelector<HTMLButtonElement>("[data-ctl='toggle']")!;
     const longest = Math.max(...views.map((v) => v.plan.duration));
@@ -407,6 +417,7 @@ export default function HoursFlow() {
         if (v.mark) v.mark.dataset.on = String(t >= AUTO_DONE);
         tallies[v.row.id].textContent = String(s.touches);
         counters[v.row.id].dataset.done = String(s.touches >= v.row.tally);
+        mins[v.row.id].textContent = String(minutes(v.row, s.touches));
       });
     };
 
@@ -498,10 +509,13 @@ export default function HoursFlow() {
                 <span className="hours__total">{row.tally}</span>
               </span>
               <span aria-hidden="true">× through you</span>
+              <span className="hours__mins" aria-hidden="true">
+                · <span className="mono" data-mins>{minutes(row)}</span> min
+              </span>
               <span className="sr-only">
                 {row.id === "hand"
-                  ? "By hand, the request goes through you four times: you check email, type it into the CRM, write back, and call to book. The automated run is done before this one reaches the CRM."
-                  : "Automated, the AI reads it, the CRM logs it, the inbox replies and the calendar books it. It reaches you once, as a summary."}
+                  ? `By hand, the request goes through you four times, about ${minutes(row)} minutes in all: you check email, type it into the CRM, write back, and call to book. The automated run is done before this one reaches the CRM.`
+                  : `Automated, the AI reads it, the CRM logs it, the inbox replies and the calendar books it. It reaches you once, as a summary that takes about ${minutes(row)} minute to read.`}
               </span>
             </span>
           </figcaption>
