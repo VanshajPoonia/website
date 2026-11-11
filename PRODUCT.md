@@ -77,7 +77,9 @@ Added 2026-11-11 to rank around St. Louis. The user picked Fenton and Jefferson 
 - Industry pages (`lib/industries.ts`, `/industries/*`): contractors, retail and wholesale, restaurants, fitness, clubs. Each is backed by a case file.
 - Rules: every page needs facts only true of its area or industry. No town-swapped copies, no doorway pages, no invented visits, offices or clients.
 - Meetings: in person anywhere in Missouri and Illinois, or by video, depending on the client (confirmed 2026-11-11). Source of truth is `site.inPerson`.
-- Google Business Profile: listed as "Kreativ Vantage", Website designer, 2 reviews (checked 2026-11-11). Its service area was the whole US, which put the map pin in the Pacific. The owner was told to set local service areas. The Maps link is `site.googleMaps`.
+- Google Business Profile: listed as "Kreativ Vantage", Website designer, 2 reviews (checked 2026-11-11). Its service area was the whole US, which put the map pin in the Pacific. The owner was told to set local service areas. The Maps link is `site.googleMaps`. The site maintainer does not manage this profile.
+- Search Console: domain property owned by the maintainer's Google account. Sitemap resubmitted and indexing requested for the home page and the St. Louis, Fenton, Jefferson County, Metro East and Illinois pages on 2026-11-11.
+- Analytics: Vercel Web Analytics (no cookies), on since 2026-11-11. The privacy page says so. Use it to see which area and industry pages bring visits.
 
 ## Accessibility & Inclusion
 
