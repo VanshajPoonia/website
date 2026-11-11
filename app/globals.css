@@ -322,7 +322,12 @@ html.menu-open { overflow: hidden; }
 .hours__key { display: block; width: 34px; height: 4px; overflow: visible; }
 .hours__tally { display: inline-flex; align-items: baseline; gap: 6px; color: var(--ink-2); font-size: 0.9375rem; }
 .hours__n { font-size: 1.75rem; line-height: 1; color: var(--ink); min-width: 1ch; text-align: right; }
-[data-row="auto"] .hours__n { background: var(--yellow); padding: 2px 6px; border-radius: 2px; }
+.hours__of, .hours__total { color: var(--ink-3); transition: color 0.3s var(--ease), background-color 0.3s var(--ease); }
+.hours__n[data-done="true"] .hours__now, .hours__n[data-done="true"] .hours__of { display: none; }
+.hours__n[data-done="true"] .hours__total { color: var(--ink); }
+/* The lime box reaches left over the slash, so the digit never moves when it lands. */
+[data-row="auto"] .hours__total { margin-left: -6px; padding: 2px 6px; border-radius: 2px; }
+[data-row="auto"] .hours__n[data-done="true"] .hours__total { background: var(--yellow); }
 .hours__foot { display: flex; gap: 8px; margin-top: clamp(12px, 1.6vw, 18px); }
 .hours__ctl {
   display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px;

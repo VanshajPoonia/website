@@ -381,6 +381,7 @@ export default function HoursFlow() {
       }),
     );
     const tallies = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-tally]`)!]));
+    const counters = Object.fromEntries(ROWS.map((r) => [r.id, root.querySelector<HTMLElement>(`[data-row="${r.id}"] [data-n]`)!]));
     const toggleBtn = root.querySelector<HTMLButtonElement>("[data-ctl='toggle']")!;
     const longest = Math.max(...views.map((v) => v.plan.duration));
     const cycle = LEAD + longest + HOLD;
@@ -405,6 +406,7 @@ export default function HoursFlow() {
         });
         if (v.mark) v.mark.dataset.on = String(t >= AUTO_DONE);
         tallies[v.row.id].textContent = String(s.touches);
+        counters[v.row.id].dataset.done = String(s.touches >= v.row.tally);
       });
     };
 
@@ -486,8 +488,14 @@ export default function HoursFlow() {
               {row.name}
             </span>
             <span className="hours__tally">
-              <span className="hours__n mono" data-tally aria-hidden="true">
-                {row.tally}
+              {/* Counting: the live count, then the total faded. Done: only
+                  the total, now in ink, in the same spot. */}
+              <span className="hours__n mono" data-n data-done="true" aria-hidden="true">
+                <span className="hours__now" data-tally>
+                  {row.tally}
+                </span>
+                <span className="hours__of">/</span>
+                <span className="hours__total">{row.tally}</span>
               </span>
               <span aria-hidden="true">× through you</span>
               <span className="sr-only">
