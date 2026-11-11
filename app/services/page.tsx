@@ -3,6 +3,7 @@ import { CtaPanel } from "@/components/Blocks";
 import { TimeBack } from "@/components/Est";
 import Icon from "@/components/Icon";
 import PageHead from "@/components/PageHead";
+import { industries } from "@/lib/industries";
 import { pageMetadata } from "@/lib/seo";
 import { services } from "@/lib/services";
 
@@ -43,6 +44,23 @@ export default function ServicesPage() {
               </div>
             </Link>
           ))}
+        </div>
+      </section>
+      <section className="band" aria-labelledby="by-industry-h">
+        <div className="frame cols">
+          <h2 className="cols__h" id="by-industry-h">
+            By industry
+          </h2>
+          <ul className="ticklist">
+            {industries.map((ind) => (
+              <li key={ind.slug}>
+                <Icon name="arrow" size={16} />
+                <span>
+                  <Link href={`/industries/${ind.slug}`}>{ind.name}</Link>. {ind.lede}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <CtaPanel />

@@ -57,6 +57,7 @@ export default function Footer() {
           <h2 className="footer__h">Company</h2>
           <ul>
             <li><Link href="/work">Work</Link></li>
+            <li><Link href="/industries">Industries</Link></li>
             <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>

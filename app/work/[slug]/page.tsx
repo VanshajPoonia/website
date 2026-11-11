@@ -7,6 +7,7 @@ import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PageHead from "@/components/PageHead";
 import { ChapterChips } from "@/components/Work";
+import { industryFor } from "@/lib/industries";
 import { pageMetadata, workLd } from "@/lib/seo";
 import { getWork, work } from "@/lib/work";
 
@@ -29,6 +30,7 @@ export default async function WorkDetail({ params }: Params) {
   const w = getWork((await params).slug);
   if (!w) notFound();
   const i = work.indexOf(w);
+  const industry = industryFor(w.slug);
   const prev = work[(i - 1 + work.length) % work.length];
   const next = work[(i + 1) % work.length];
 
@@ -76,7 +78,7 @@ export default async function WorkDetail({ params }: Params) {
             <dl className="spec">
               <div>
                 <dt>Industry</dt>
-                <dd>{w.industry}</dd>
+                <dd>{industry ? <Link href={`/industries/${industry.slug}`}>{w.industry}</Link> : w.industry}</dd>
               </div>
               <div>
                 <dt>Location</dt>
