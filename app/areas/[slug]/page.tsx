@@ -6,7 +6,7 @@ import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PageHead from "@/components/PageHead";
 import { CaseFile } from "@/components/Work";
-import { areas, getArea } from "@/lib/areas";
+import { areas, getArea, whereOf } from "@/lib/areas";
 import { faqLd, pageMetadata } from "@/lib/seo";
 import { absoluteUrl, site } from "@/lib/site";
 import { getWork, type WorkItem } from "@/lib/work";
@@ -35,6 +35,7 @@ export default async function AreaPage({ params }: Params) {
   if (!a) notFound();
   const items = a.work.map(getWork).filter((w): w is WorkItem => Boolean(w));
   const others = areas.filter((x) => x.slug !== a.slug);
+  const where = whereOf(a);
 
   return (
     <>
@@ -51,7 +52,7 @@ export default async function AreaPage({ params }: Params) {
         <div className="frame cols">
           <div>
             <h2 className="cols__h">{a.name}</h2>
-            <ul className="taglist" style={{ marginTop: 20 }} aria-label={`Places we cover in ${a.name}`}>
+            <ul className="taglist" style={{ marginTop: 20 }} aria-label={`Places we cover in ${where}`}>
               {a.places.map((p) => (
                 <li key={p}>{p}</li>
               ))}
@@ -61,7 +62,7 @@ export default async function AreaPage({ params }: Params) {
             {a.intro.map((p) => (
               <p key={p}>{p}</p>
             ))}
-            <p>We can meet at your business in {a.name} or on a video call, whichever suits you.</p>
+            <p>We can meet at your business in {where} or on a video call, whichever suits you.</p>
           </div>
         </div>
       </section>
@@ -70,7 +71,7 @@ export default async function AreaPage({ params }: Params) {
         <div className="frame">
           <div className="sechead">
             <h2 id="focus-h">What we build here</h2>
-            <p>The work {a.name} businesses ask us for most.</p>
+            <p>What matters most for businesses in {where}.</p>
           </div>
           <ol className="numbered">
             {a.focus.map((f, i) => (
@@ -117,7 +118,7 @@ export default async function AreaPage({ params }: Params) {
       <section className="band band--desk" aria-labelledby="afaq-h">
         <div className="frame faqsec__grid">
           <h2 className="cols__h" id="afaq-h">
-            Questions from {a.name}
+            Questions from {where}
           </h2>
           <Faq items={a.faq} />
         </div>
@@ -144,7 +145,7 @@ export default async function AreaPage({ params }: Params) {
         </div>
       </section>
 
-      <CtaPanel title={`Start a project in ${a.name}.`} />
+      <CtaPanel title={`Start a project in ${where}.`} />
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -156,7 +157,7 @@ export default async function AreaPage({ params }: Params) {
           provider: { "@id": `${site.url}/#organization` },
           areaServed: a.served.map((p) => ({
             "@type": p.type,
-            name: `${p.name}, Missouri`,
+            name: `${p.name}, ${a.state}`,
           })),
         }}
       />

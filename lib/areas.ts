@@ -11,6 +11,9 @@ export type Place = { name: string; type: "City" | "AdministrativeArea" };
 export type Area = {
   slug: string;
   name: string;
+  /** The name as it reads mid-sentence, when that differs ("the Metro East"). */
+  where?: string;
+  state: "Missouri" | "Illinois";
   /** Where it sits, for the page head and the areas index. */
   region: string;
   headline: string;
@@ -45,6 +48,7 @@ export const areas: Area[] = [
   {
     slug: "st-louis",
     name: "St. Louis",
+    state: "Missouri",
     region: "St. Louis city and county, Missouri",
     headline: "Websites and automation for St. Louis businesses.",
     lede: "KreativVantage is based in St. Louis. Most of our clients are here, from a flooring showroom and a private club to a roofer in Imperial.",
@@ -109,6 +113,7 @@ export const areas: Area[] = [
   {
     slug: "fenton",
     name: "Fenton",
+    state: "Missouri",
     region: "St. Louis County, Missouri",
     headline: "Websites and automation for Fenton businesses.",
     lede: "Fenton sits between I-44, Highway 141, Gravois Road and the Meramec River. We build websites and automations for the shops, trades and service businesses around it.",
@@ -156,6 +161,7 @@ export const areas: Area[] = [
   {
     slug: "jefferson-county",
     name: "Jefferson County",
+    state: "Missouri",
     region: "Jefferson County, Missouri",
     headline: "Websites and automation for Jefferson County businesses.",
     lede: "From Arnold and Imperial down to Festus and Hillsboro. Two of our clients are in Jefferson County already.",
@@ -224,6 +230,7 @@ export const areas: Area[] = [
   {
     slug: "south-county",
     name: "South County",
+    state: "Missouri",
     region: "South St. Louis County, Missouri",
     headline: "Websites and automation for South County businesses.",
     lede: "Oakville, Mehlville, Affton, Crestwood, Sunset Hills and the rest of South St. Louis County. Sites and automations for the businesses along Lindbergh, Gravois, Tesson Ferry and Lemay Ferry.",
@@ -276,6 +283,7 @@ export const areas: Area[] = [
   {
     slug: "west-county",
     name: "West County",
+    state: "Missouri",
     region: "West St. Louis County, Missouri",
     headline: "Websites and automation for West County businesses.",
     lede: "Chesterfield, Ballwin, Manchester, Des Peres, Valley Park and the rest of West St. Louis County. Sites, stores and automations for the businesses along I-64 and Manchester Road.",
@@ -330,6 +338,11 @@ export const areas: Area[] = [
     ],
   },
 ];
+
+/** How an area reads mid-sentence. */
+export function whereOf(a: Area) {
+  return a.where ?? a.name;
+}
 
 export function getArea(slug: string) {
   return areas.find((a) => a.slug === slug);

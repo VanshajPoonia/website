@@ -67,7 +67,7 @@ export function organizationLd() {
         hasMap: site.googleMaps,
         sameAs: [site.googleMaps],
         areaServed: [
-          ...areas.flatMap((a) => a.served).map((p) => ({ "@type": p.type, name: `${p.name}, Missouri` })),
+          ...areas.flatMap((a) => a.served.map((p) => ({ "@type": p.type, name: `${p.name}, ${a.state}` }))),
           { "@type": "Country", name: site.areaServed },
         ],
         contactPoint: {
