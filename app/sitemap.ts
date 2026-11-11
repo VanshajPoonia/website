@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { areas } from "@/lib/areas";
 import { services } from "@/lib/services";
 import { absoluteUrl, site } from "@/lib/site";
 import { work } from "@/lib/work";
@@ -17,6 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...services.map((s) => page(`/services/${s.slug}`, 0.9)),
     page("/work", 0.8),
     ...work.map((w) => page(`/work/${w.slug}`, 0.7)),
+    page("/areas", 0.8),
+    ...areas.map((a) => page(`/areas/${a.slug}`, 0.8)),
     page("/pricing", 0.8),
     page("/about", 0.6),
     page("/contact", 0.7),
