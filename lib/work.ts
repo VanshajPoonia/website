@@ -8,6 +8,8 @@ export type WorkItem = {
   anonymised?: boolean;
   industry: string;
   location: string;
+  /** Area page for this client's location (lib/areas.ts), when we have one. */
+  area?: string;
   year: string;
   url?: string;
   urlLabel?: string;
@@ -28,6 +30,7 @@ export const work: WorkItem[] = [
     client: "VIRO Design & Finishes",
     industry: "Cabinetry and flooring, wholesale and retail",
     location: "St. Louis, MO",
+    area: "st-louis",
     year: "2026",
     url: "https://virodesignandfinishes.com",
     urlLabel: "virodesignandfinishes.com",
@@ -59,6 +62,7 @@ export const work: WorkItem[] = [
     client: "Adventure Unknown",
     industry: "Private members club",
     location: "St. Louis, MO",
+    area: "st-louis",
     year: "2026",
     url: "https://www.adventure-unknown.com",
     urlLabel: "adventure-unknown.com",
@@ -89,6 +93,7 @@ export const work: WorkItem[] = [
     client: "ATLAS General Contracting",
     industry: "Roofing and construction",
     location: "Imperial, MO",
+    area: "jefferson-county",
     year: "2025",
     url: "https://goatlasgo.us",
     urlLabel: "goatlasgo.us",
@@ -149,6 +154,7 @@ export const work: WorkItem[] = [
     client: "Charla Wewers Personal Training",
     industry: "Personal training",
     location: "St. Louis, MO",
+    area: "st-louis",
     year: "2025",
     url: "https://charlawewers.com",
     urlLabel: "charlawewers.com",
@@ -177,6 +183,7 @@ export const work: WorkItem[] = [
     client: "Oddball Ink",
     industry: "Screen printing, embroidery and signs",
     location: "Arnold, MO",
+    area: "jefferson-county",
     year: "2026",
     url: "https://oddballink.vercel.app",
     urlLabel: "oddballink.vercel.app",

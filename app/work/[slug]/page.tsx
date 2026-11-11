@@ -80,7 +80,7 @@ export default async function WorkDetail({ params }: Params) {
               </div>
               <div>
                 <dt>Location</dt>
-                <dd>{w.location}</dd>
+                <dd>{w.area ? <Link href={`/areas/${w.area}`}>{w.location}</Link> : w.location}</dd>
               </div>
               <div>
                 <dt>Year</dt>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ESTIMATE_NOTE } from "@/lib/hours";
+import { areas } from "@/lib/areas";
 import { legalNav, site } from "@/lib/site";
 import { services } from "@/lib/services";
 import Icon from "./Icon";
@@ -18,7 +19,10 @@ export default function Footer() {
             </span>
             <span className="sr-only"> home</span>
           </Link>
-          <p>Websites, online stores and automations for small businesses. Based in St. Louis, Missouri, working across the US.</p>
+          <p>
+            Websites, online stores and automations for small businesses. Based in{" "}
+            <Link href="/areas/st-louis">St. Louis, Missouri</Link>, working across the US.
+          </p>
           <ul className="footer__contact">
             <li>
               <a href={site.phone.href}>
@@ -56,6 +60,16 @@ export default function Footer() {
             <li><Link href="/pricing">Pricing</Link></li>
             <li><Link href="/about">About</Link></li>
             <li><Link href="/contact">Contact</Link></li>
+          </ul>
+        </nav>
+        <nav className="footer__col" aria-label="Areas">
+          <h2 className="footer__h">Areas</h2>
+          <ul>
+            {areas.map((a) => (
+              <li key={a.slug}>
+                <Link href={`/areas/${a.slug}`}>{a.name}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         <nav className="footer__col" aria-label="Legal">
