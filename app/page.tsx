@@ -5,7 +5,6 @@ import Hero3D from "@/components/Hero3D";
 import HoursFlow from "@/components/HoursFlow";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
-import PreparedFor from "@/components/PreparedFor";
 import { AutomationRecords, CaseFile, WorkStrip } from "@/components/Work";
 import { faq, process } from "@/lib/faq";
 import { HOURS_BACK } from "@/lib/hours";
@@ -51,7 +50,6 @@ export default function Home() {
                 {site.phone.display}
               </a>
             </div>
-            <PreparedFor revision={site.revision} />
           </div>
           <div className="cover__stage">
             <Hero3D />

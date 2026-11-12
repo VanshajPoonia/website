@@ -219,24 +219,6 @@ html.menu-open { overflow: hidden; }
   .cover__stage { min-height: 0; }
 }
 
-/* Title block */
-.titleblock {
-  margin-top: 36px; display: grid; grid-template-columns: 1fr auto;
-  border: 1.5px solid var(--ink); border-radius: 2px; max-width: 460px; background: var(--paper);
-}
-.titleblock__cell { padding: 10px 14px 12px; display: grid; gap: 2px; }
-.titleblock__cell + .titleblock__cell { border-left: 1.5px solid var(--ink); }
-.titleblock__k { color: var(--ink-3); font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.titleblock__v { font-size: 0.9375rem; color: var(--ink); }
-.titleblock__input {
-  border: 0; padding: 2px 0 0; background: transparent; width: 100%;
-  font-family: var(--display); font-weight: 600; font-size: 1.125rem; font-stretch: 106%;
-  border-bottom: 1px dashed var(--rule-2); outline: none;
-}
-.titleblock__input::placeholder { color: var(--ink-3); opacity: 1; font-weight: 450; }
-.titleblock__input:focus { border-bottom: 1px solid var(--ink); }
-.titleblock:focus-within { box-shadow: 0 0 0 3px color-mix(in oklab, var(--focus) 25%, transparent); }
-
 /* 3D stage: a poster frame first, the live scene fades in over it */
 .scene { position: relative; width: 100%; aspect-ratio: 16 / 10; margin: 0; }
 .scene__poster, .scene__canvas { position: absolute; inset: 0; width: 100%; height: 100%; }

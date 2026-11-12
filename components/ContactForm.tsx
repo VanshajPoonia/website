@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { readPrepared } from "./PreparedFor";
+import { useState } from "react";
 import Icon from "./Icon";
 
 type Status = { kind: "idle" } | { kind: "sending" } | { kind: "ok" } | { kind: "err"; message: string };
@@ -18,10 +17,7 @@ const BUDGETS = ["Not sure yet", "Under $1,000", "$1,000 to $3,000", "$3,000 to 
 export default function ContactForm({ email, phone }: { email: string; phone: { display: string; href: string } }) {
   const [status, setStatus] = useState<Status>({ kind: "idle" });
   const [errors, setErrors] = useState<Errors>({});
-  const [business, setBusiness] = useState("");
   const [startedAt] = useState(() => Date.now());
-
-  useEffect(() => setBusiness(readPrepared()), []);
 
   const validate = (data: FormData): Errors => {
     const e: Errors = {};
@@ -90,7 +86,7 @@ export default function ContactForm({ email, phone }: { email: string; phone: { 
           <label htmlFor="business">
             Business <span className="opt">(optional)</span>
           </label>
-          <input id="business" name="business" autoComplete="organization" value={business} onChange={(e) => setBusiness(e.target.value)} />
+          <input id="business" name="business" autoComplete="organization" />
         </div>
       </div>
       <div className="form__row">
