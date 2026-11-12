@@ -200,7 +200,7 @@ html.menu-open { overflow: hidden; }
 
 /* ---------- Section heads ---------- */
 /* A numbered label, the heading, one line under it. Stacked, as on CPP. */
-.sechead { display: grid; gap: 14px; max-width: 780px; margin-bottom: clamp(32px, 4vw, 56px); }
+.sechead { display: grid; align-content: start; gap: 14px; max-width: 780px; margin-bottom: clamp(32px, 4vw, 56px); }
 .sechead h2 { font-size: clamp(1.875rem, 1.35rem + 1.7vw, 2.75rem); font-weight: 600; letter-spacing: -0.025em; line-height: 1.08; }
 .sechead p { color: var(--ink-2); max-width: 56ch; }
 .sechead .sechead__idx { color: var(--ink-3); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
@@ -438,7 +438,7 @@ html.menu-open { overflow: hidden; }
 .steps__item { padding: 22px 22px 8px 0; position: relative; }
 .steps__item + .steps__item { padding-left: 22px; border-left: 1px solid var(--rule); }
 .steps__n { color: var(--ink-3); }
-.steps__h { margin: 10px 0 8px; font-size: 1.25rem; letter-spacing: -0.02em; }
+.steps__h { margin: 10px 0 8px; font-size: 1.125rem; letter-spacing: -0.015em; }
 .steps p { color: var(--ink-2); font-size: 0.9375rem; line-height: 1.5; }
 @media (max-width: 1000px) {
   .steps { grid-template-columns: 1fr; }
@@ -501,7 +501,7 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .faq__item { border-bottom: 1px solid var(--rule); }
 .faq__item summary {
   display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 2px;
-  cursor: pointer; list-style: none; font-family: var(--display); font-weight: 600; font-size: 1.125rem;
+  cursor: pointer; list-style: none; font-family: var(--display); font-weight: 500; font-size: 1.0625rem;
 }
 .faq__item summary::-webkit-details-marker { display: none; }
 .faq__icon { flex-shrink: 0; transition: transform 0.4s var(--ease); }
