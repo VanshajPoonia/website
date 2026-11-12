@@ -37,12 +37,11 @@ export const viewport: Viewport = {
 };
 
 const CONTRACT = `<!--
-THESIS: KreativVantage as a small business's operating manual. Chapters are the services, led by Automation and AI, and the cover shows AI sorting the work. Refuses the agency default of gradient hero, device mockup and three icon cards.
-OWN-WORLD: paper-white pages on a cool grey desk; index-tab stock in blue, green, yellow, purple, one colour per service chapter, never decoration; ink-black actions; Archivo expanded display, Public Sans text, Fragment Mono for data; title blocks, dotted-leader contents; solid lines automated, dashed lines by hand.
-STORY: watch AI sort the requests; see where the hours go; scan the chapters; check real client work and prices; start a project.
-FIRST VIEWPORT: left, H1 assembling from letters, offer, Start a project (ink) and phone, title block "Operating manual for ___". Right, the 3D sorting line: requests drop onto a belt, pass the AI gate as tagged records, and a robot arm files them into CRM, Calendar and Replies trays. Tab rail on the right edge.
-FORM: grounded candidate 4 of 7, operations manual with index dividers; raised by Bauhaus colour-by-role, jackfield line state, six-pack damped motion, alphabet-storm assembling type; seed bcf81bbf.
-FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+THESIS: KreativVantage as a small business's operating manual, set plainly. Services are numbered chapters, led by Automation and AI, and the cover shows AI sorting the work. Refuses the agency default of gradient hero, device mockup and three icon cards.
+OWN-WORLD: a light cool grey page with darker desk bands and two hairlines down the container edges; Archivo at normal width for everything, Fragment Mono caps for labels; chapter colours (blue, green, lime, plum) only as small square markers; lime as the one accent for time saved; ink actions; 1px rules and flat bordered panels; solid lines automated, dashed lines by hand.
+REFERENCES (2026-11-12): covingtonplacepartners.com, vanshajpoonia.com, explee.com, for the simplicity of their elements.
+STORY: watch AI sort the requests; scan the four services; see where the hours go; check real client work and prices; start a project.
+FIRST VIEWPORT: left, H1, offer, the hours-back line, Start a project (ink) and phone. Right, the 3D sorting line: requests pass the AI gate as tagged records and a robot arm files them into CRM, Calendar and Replies trays.
 -->`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

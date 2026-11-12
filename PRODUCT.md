@@ -46,6 +46,7 @@ Every build is documented and AI-ready, so the client owns and controls it: orga
 
 - Name: KreativVantage, one word, as on the legal entity and domain. The signed Viro proposal spelled it "Kreativ Vantage"; that spelling is only an alternate name.
 - User-pinned direction for this rebuild (2026-11-10): light, professional theme. Reference: covingtonplacepartners.com. Craft reference: oddballink.vercel.app (rich motion, a character-built face that morphs, embedded 3D), but not its dark neon theme.
+- Simplicity pass (2026-11-12): the user asked to follow the element-level simplicity of covingtonplacepartners.com, vanshajpoonia.com and explee.com. One type family, small mono caps labels, hairline rules, flat bordered panels, chapter colour only as small markers, no type effects or side chrome. DESIGN.md has the rules.
 - Performance- and SEO-first. Custom 404, privacy policy, terms of service and the rest of a professional site's legal and technical SEO set.
 
 ## Evidence on Hand
