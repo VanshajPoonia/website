@@ -207,7 +207,6 @@ export function HandoverDoc() {
           ))}
         </ol>
       </div>
-      <div className="doc__page doc__page--under" aria-hidden="true" />
       <figcaption className="doc__cap mono">Sample contents. Every build ships with its own.</figcaption>
     </figure>
   );
