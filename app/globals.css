@@ -3,14 +3,15 @@
 
 /* ---------- Tokens ---------- */
 :root {
-  --paper: #fcfcfd;
-  --desk: #e9ebef;
-  --desk-2: #dfe2e7;
+  --paper: #f3f4f6;
+  --sheet: #fbfbfc;
+  --desk: #e8eaed;
+  --desk-2: #dee1e5;
   --ink: #15171c;
   --ink-2: #444a55;
   --ink-3: #626873;
-  --rule: #dcdfe4;
-  --rule-2: #c7ccd3;
+  --rule: #d8dbe0;
+  --rule-2: #c4c9d0;
 
   /* Index-tab stock, one per chapter. Deep variants carry text on paper. */
   /* Tints of the logo's own colours: cyan-blue, leaf green, lime and plum. */
@@ -269,7 +270,7 @@ html.menu-open { overflow: hidden; }
 /* ---------- Where the hours go: two lanes, two runs ---------- */
 .where { padding-block: var(--space-section); background: var(--desk); }
 
-.hours { background: var(--paper); border: 1px solid var(--rule-2); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 34px) clamp(16px, 2.8vw, 40px); }
+.hours { background: var(--sheet); border: 1px solid var(--rule-2); border-radius: var(--radius); padding: clamp(18px, 2.6vw, 34px) clamp(16px, 2.8vw, 40px); }
 .hours__row { margin: 0; }
 .hours__row + .hours__row { border-top: 1px solid var(--rule); margin-top: clamp(14px, 2vw, 24px); padding-top: clamp(18px, 2.4vw, 28px); }
 .hours__head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px 20px; flex-wrap: wrap; margin-bottom: 6px; }
@@ -407,7 +408,7 @@ html.menu-open { overflow: hidden; }
 .own__list strong { color: var(--ink); }
 
 .doc { position: relative; }
-.doc__page { background: #fff; border: 1px solid var(--rule-2); border-radius: 2px; padding: clamp(22px, 3vw, 40px); }
+.doc__page { background: var(--sheet); border: 1px solid var(--rule-2); border-radius: 2px; padding: clamp(22px, 3vw, 40px); }
 .doc__top { display: flex; justify-content: space-between; color: var(--ink-3); border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 28px; }
 .doc__title { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); letter-spacing: -0.025em; line-height: 1.05; }
 .doc__sub { color: var(--ink-3); margin: 6px 0 26px; }
@@ -435,7 +436,7 @@ html.menu-open { overflow: hidden; }
 /* ---------- Price list ---------- */
 .pricesec { padding-block: var(--space-section); background: var(--desk); }
 .prices { margin-bottom: 32px; }
-.prices__table { width: 100%; border-collapse: collapse; background: var(--paper); border: 1px solid var(--rule-2); }
+.prices__table { width: 100%; border-collapse: collapse; background: var(--sheet); border: 1px solid var(--rule-2); }
 .prices__table th, .prices__table td { text-align: left; vertical-align: top; padding: 20px 22px; border-bottom: 1px solid var(--rule); }
 .prices__table thead th { font-family: var(--mono); font-weight: 400; font-size: 0.75rem; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.06em; padding-block: 14px; border-bottom: 1px solid var(--ink); }
 .prices__table tbody th { font-family: var(--display); font-weight: 600; font-size: 1.25rem; letter-spacing: -0.02em; white-space: nowrap; }
@@ -463,7 +464,7 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .addons__name { font-family: var(--display); font-weight: 600; font-size: 1.125rem; }
 
 /* Care plans: a comparison sheet in the care chapter's colour */
-.care { overflow-x: auto; background: var(--paper); border: 1px solid var(--rule-2); -webkit-overflow-scrolling: touch; }
+.care { overflow-x: auto; background: var(--sheet); border: 1px solid var(--rule-2); -webkit-overflow-scrolling: touch; }
 .care__table { width: 100%; min-width: 680px; border-collapse: collapse; }
 .care__table th, .care__table td { padding: 14px 20px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.9688rem; }
 .care__table thead th { vertical-align: bottom; padding-block: 24px 18px; border-bottom: 1px solid var(--ink); width: 23%; }
