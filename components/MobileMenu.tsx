@@ -52,12 +52,13 @@ export default function MobileMenu({ links, chapters, phone }: Props) {
       </button>
       <div id="mobile-menu" ref={panel} className="menu" data-open={open} hidden={!open}>
         <nav aria-label="Mobile">
-          <p className="menu__label mono">Chapters</p>
+          <p className="menu__label mono">Services</p>
           <ul className="menu__chapters">
             {chapters.map((c) => (
               <li key={c.href}>
                 <Link href={c.href} className="menu__chapter" data-color={c.color}>
-                  <span className="menu__n">{c.n}</span>
+                  <span className="marker" aria-hidden="true" />
+                  <span className="menu__n mono">{String(c.n).padStart(2, "0")}</span>
                   {c.label}
                 </Link>
               </li>

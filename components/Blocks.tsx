@@ -24,7 +24,7 @@ function PlanTable({ plans, detailed, caption }: { plans: Plan[]; detailed?: boo
         {plans.map((t) => (
           <tr key={t.name} data-color={colorOf(t.chapter)}>
             <th scope="row">
-              <span className="prices__tab" aria-hidden="true" />
+              <span className="marker" aria-hidden="true" />
               {t.name}
             </th>
             <td>{t.for}</td>

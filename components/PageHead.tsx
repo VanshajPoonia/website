@@ -35,14 +35,13 @@ export default function PageHead({
             ))}
           </ol>
         </nav>
-        <div className="pagehead__title">
-          {chapter ? (
-            <span className="pagehead__chapter" aria-hidden="true">
-              {chapter}
-            </span>
-          ) : null}
-          <h1 className="pagehead__h1">{title}</h1>
-        </div>
+        {chapter ? (
+          <p className="pagehead__idx mono">
+            <span className="marker" aria-hidden="true" />
+            Chapter {String(chapter).padStart(2, "0")}
+          </p>
+        ) : null}
+        <h1 className="pagehead__h1">{title}</h1>
         {lede ? <p className="pagehead__lede">{lede}</p> : null}
         {children}
       </div>

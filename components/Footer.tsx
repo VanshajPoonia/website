@@ -44,9 +44,7 @@ export default function Footer() {
             {services.map((s) => (
               <li key={s.slug}>
                 <Link href={`/services/${s.slug}`}>
-                  <span className="footer__n" data-color={s.color}>
-                    {s.chapter}
-                  </span>
+                  <span className="marker" data-color={s.color} aria-hidden="true" />
                   {s.title}
                 </Link>
               </li>

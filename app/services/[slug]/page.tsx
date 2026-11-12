@@ -161,7 +161,9 @@ export default async function ServicePage({ params }: Params) {
             Next chapter
           </p>
           <Link href={`/services/${next.slug}`}>
-            <small>Chapter {next.chapter}</small>
+            <small>
+              <span className="marker" aria-hidden="true" /> Chapter {String(next.chapter).padStart(2, "0")}
+            </small>
             <strong>{next.title}</strong>
           </Link>
         </div>

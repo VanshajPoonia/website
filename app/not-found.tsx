@@ -40,19 +40,15 @@ export default function NotFound() {
           <p>Chapters</p>
           {services.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} data-color={s.color}>
-              <span className="lost__tab">{s.chapter}</span>
+              <span className="marker" aria-hidden="true" />
               {s.title}
-              <span className="toc__leader" aria-hidden="true" />
             </Link>
           ))}
           <p>Also in this manual</p>
           {other.map((o) => (
             <Link key={o.href} href={o.href}>
-              <span className="lost__tab" aria-hidden="true">
-                <Icon name="arrow" size={14} />
-              </span>
+              <Icon name="arrow" size={14} />
               {o.label}
-              <span className="toc__leader" aria-hidden="true" />
             </Link>
           ))}
         </nav>

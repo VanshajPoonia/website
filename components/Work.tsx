@@ -13,7 +13,7 @@ export function ChapterChips({ chapters }: { chapters: number[] }) {
         const s = services.find((x) => x.chapter === n)!;
         return (
           <li key={n} className="chip" data-color={colorOf(n)}>
-            <span className="chip__n">{n}</span>
+            <span className="marker" aria-hidden="true" />
             {s.tab}
           </li>
         );

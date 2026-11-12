@@ -22,12 +22,13 @@ export default function ServicesPage() {
         lede="Each service is a chapter of the same manual. Start with the one you need now. Add the next when it pays for itself."
         trail={[{ name: "Services", path: "/services" }]}
       />
-      <section className="band band--desk">
+      <section className="band">
         <div className="frame svcindex">
           {services.map((s) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="svcrow" data-color={s.color} data-tab={s.tab}>
-              <span className="svcrow__n" aria-hidden="true">
-                {s.chapter}
+            <Link key={s.slug} href={`/services/${s.slug}`} className="svcrow" data-color={s.color}>
+              <span className="svcrow__n mono" aria-hidden="true">
+                <span className="marker" />
+                {String(s.chapter).padStart(2, "0")}
               </span>
               <div>
                 <h2>{s.title}</h2>
