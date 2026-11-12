@@ -104,34 +104,29 @@ html { scrollbar-color: var(--rule-2) transparent; scrollbar-width: thin; }
 /* ---------- Buttons and links ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-  min-height: 50px; padding: 0 22px;
-  font-family: var(--display); font-weight: 600; font-size: 1rem; letter-spacing: -0.005em;
-  border-radius: 3px; border: 1.5px solid transparent; text-decoration: none; white-space: nowrap;
-  transition: background-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease), border-color 0.25s var(--ease);
+  min-height: 48px; padding: 0 22px;
+  font-family: var(--mono); font-weight: 400; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;
+  border-radius: 2px; border: 1px solid transparent; text-decoration: none; white-space: nowrap;
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
-.btn svg { transition: transform 0.35s var(--ease); }
-.btn:hover svg:last-child:not(:first-child) { transform: translateX(3px); }
+.btn svg { width: 16px; height: 16px; }
 .btn--ink { background: var(--ink); color: var(--paper); }
-.btn--ink:hover { background: #000; transform: translateY(-1px); box-shadow: 0 10px 20px -12px rgb(21 23 28 / 0.6); }
+.btn--ink:hover { background: #000; }
 .btn--line { border-color: var(--ink); color: var(--ink); background: transparent; }
 .btn--line:hover { background: color-mix(in oklab, var(--ink) 6%, transparent); }
 .btn--paper { background: var(--paper); color: var(--ink); }
-.btn--paper:hover { background: #fff; transform: translateY(-1px); }
-.btn--sm { min-height: 40px; padding: 0 16px; font-size: 0.9375rem; }
-.btn:active { transform: translateY(0); }
+.btn--paper:hover { background: #fff; }
+.btn--sm { min-height: 38px; padding: 0 14px; font-size: 0.75rem; }
 
 .textlink {
   display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--display); font-weight: 600; font-size: 1rem;
-  text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 6px;
-  text-decoration-color: color-mix(in oklab, var(--ink) 35%, transparent);
-  transition: text-decoration-color 0.25s var(--ease);
+  font-family: var(--mono); font-weight: 400; font-size: 0.8125rem; text-transform: uppercase; letter-spacing: 0.05em;
+  text-decoration: none; color: var(--ink);
 }
-.textlink svg { transition: transform 0.35s var(--ease); }
-.textlink:hover { text-decoration-color: var(--ink); }
-.textlink:hover svg { transform: translateX(3px); }
-.textlink--quiet { color: var(--ink-2); font-weight: 500; }
-.textlink--quiet:hover svg { transform: translate(2px, -2px); }
+.textlink svg { width: 15px; height: 15px; transition: transform 0.3s var(--ease); }
+.textlink:hover { text-decoration: underline; text-underline-offset: 5px; }
+.textlink:hover svg { transform: translateX(2px); }
+.textlink--quiet { color: var(--ink-2); }
 
 /* ---------- Header ---------- */
 .header {
@@ -144,20 +139,21 @@ html { scrollbar-color: var(--rule-2) transparent; scrollbar-width: thin; }
 .brand__name { font-family: var(--display); font-weight: 600; font-size: 1.0625rem; letter-spacing: -0.015em; }
 .brand__name span { font-weight: 400; }
 .header__nav { margin-left: 12px; }
-.header__nav ul { display: flex; gap: 4px; }
+.header__nav ul { display: flex; gap: 6px; }
 .navlink {
-  display: inline-block; padding: 8px 12px; font-weight: 500; font-size: 0.9688rem; text-decoration: none; color: var(--ink-2);
-  border-radius: 3px; transition: color 0.2s, background-color 0.2s;
+  display: inline-block; padding: 8px 10px; text-decoration: none; color: var(--ink-2);
+  font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+  transition: color 0.2s;
 }
-.navlink:hover { color: var(--ink); background: color-mix(in oklab, var(--ink) 5%, transparent); }
-.navlink[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 8px; }
+.navlink:hover { color: var(--ink); }
+.navlink[aria-current="page"] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 6px; }
 .header__actions { margin-left: auto; display: flex; align-items: center; gap: 18px; }
 .header__phone { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink-2); }
 .header__phone:hover { color: var(--ink); }
-.header__phone .mono { font-size: 0.875rem; }
+.header__phone .mono { font-size: 0.8125rem; }
 .menu-btn {
   display: none; width: 44px; height: 44px; align-items: center; justify-content: center;
-  border: 1.5px solid var(--ink); border-radius: 3px; background: transparent;
+  border: 1px solid var(--ink); border-radius: 2px; background: transparent;
 }
 @media (max-width: 1060px) { .header__phone { display: none; } }
 @media (max-width: 900px) {
@@ -188,7 +184,7 @@ html.menu-open { overflow: hidden; }
 .menu__links { display: grid; border-top: 1px solid var(--rule); margin-bottom: 28px; }
 .menu__links a {
   display: block; padding: 14px 2px; border-bottom: 1px solid var(--rule); text-decoration: none;
-  font-family: var(--display); font-size: 1.375rem; font-weight: 600;
+  font-family: var(--display); font-size: 1.25rem; font-weight: 500;
 }
 .menu__call { width: 100%; }
 
@@ -304,8 +300,8 @@ html.menu-open { overflow: hidden; }
 .hours__ctls { display: flex; gap: 8px; }
 .hours__ctl {
   display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 12px;
-  border: 1.5px solid var(--rule-2); border-radius: 3px; background: transparent; color: var(--ink-2);
-  font-family: var(--mono); font-size: 0.8125rem; cursor: pointer;
+  border: 1px solid var(--rule-2); border-radius: 2px; background: transparent; color: var(--ink-2);
+  font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer;
   transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
 }
 .hours__ctl:hover { border-color: var(--ink); color: var(--ink); }
