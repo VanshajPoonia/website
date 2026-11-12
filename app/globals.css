@@ -100,6 +100,18 @@ html { scrollbar-color: var(--rule-2) transparent; scrollbar-width: thin; }
 
 .frame { width: 100%; max-width: calc(var(--container) + var(--gutter) * 2); margin-inline: auto; padding-inline: var(--gutter); }
 
+/* Two hairlines run down the page at the container's outer edges, as on
+   Covington Place Partners. Only on screens wide enough to show margin. */
+@media (min-width: 1400px) {
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 1; pointer-events: none;
+    --edge: calc(50% - (var(--container) / 2 + var(--gutter)));
+    background:
+      linear-gradient(rgb(21 23 28 / 0.1), rgb(21 23 28 / 0.1)) var(--edge) 0 / 1px 100% no-repeat,
+      linear-gradient(rgb(21 23 28 / 0.1), rgb(21 23 28 / 0.1)) calc(100% - var(--edge)) 0 / 1px 100% no-repeat;
+  }
+}
+
 /* ---------- Buttons and links ---------- */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
