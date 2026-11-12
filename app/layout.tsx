@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Archivo, Fragment_Mono, Public_Sans } from "next/font/google";
+import { Archivo, Fragment_Mono } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
@@ -8,8 +8,7 @@ import { organizationLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const display = Archivo({ subsets: ["latin"], axes: ["wdth"], variable: "--font-display", display: "swap" });
-const text = Public_Sans({ subsets: ["latin"], variable: "--font-text", display: "swap" });
+const display = Archivo({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 const mono = Fragment_Mono({ subsets: ["latin"], weight: "400", variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
@@ -48,7 +47,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-US" className={`${display.variable} ${text.variable} ${mono.variable}`}>
+    <html lang="en-US" className={`${display.variable} ${mono.variable}`}>
       <body>
         <div hidden data-direction-contract dangerouslySetInnerHTML={{ __html: CONTRACT }} />
         <a className="skip" href="#main">
