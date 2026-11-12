@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ChapterColor } from "@/lib/site";
 import { breadcrumbLd } from "@/lib/seo";
-import Decode from "./Decode";
 import JsonLd from "./JsonLd";
 
 type Crumb = { name: string; path: string };
@@ -42,7 +41,7 @@ export default function PageHead({
               {chapter}
             </span>
           ) : null}
-          <Decode as="h1" text={title} trigger="mount" className="pagehead__h1" />
+          <h1 className="pagehead__h1">{title}</h1>
         </div>
         {lede ? <p className="pagehead__lede">{lede}</p> : null}
         {children}

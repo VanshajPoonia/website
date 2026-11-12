@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Decode from "@/components/Decode";
 import Icon from "@/components/Icon";
 import { services } from "@/lib/services";
 
@@ -22,7 +21,7 @@ export default function NotFound() {
     <section className="lost" aria-labelledby="lost-h">
       <div className="frame lost__grid">
         <div>
-          <Decode as="p" text="404" trigger="mount" duration={1300} className="lost__code" />
+          <p className="lost__code">404</p>
           <h1 className="lost__h" id="lost-h">
             This page is not in the manual.
           </h1>

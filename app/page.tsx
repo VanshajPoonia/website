@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { CtaPanel, Faq, HandoverDoc, PriceList } from "@/components/Blocks";
-import Decode from "@/components/Decode";
 import Est, { TimeBack } from "@/components/Est";
 import Hero3D from "@/components/Hero3D";
 import HoursFlow from "@/components/HoursFlow";
@@ -33,7 +32,9 @@ export default function Home() {
       <section className="cover" aria-labelledby="cover-h">
         <div className="frame cover__grid">
           <div className="cover__copy">
-            <Decode as="h1" id="cover-h" text="AI that does the busywork." trigger="mount" duration={1150} className="cover__h" />
+            <h1 id="cover-h" className="cover__h">
+              AI that does the busywork.
+            </h1>
             <p className="cover__lede">
               AI automation and websites for small businesses. Leads, orders and bookings, filed on their own.
             </p>
@@ -76,7 +77,7 @@ export default function Home() {
       <section className="contents" aria-labelledby="contents-h">
         <div className="frame">
           <div className="sechead">
-            <Decode as="h2" id="contents-h" text="Four ways we give you hours back." />
+            <h2 id="contents-h">Four ways we give you hours back.</h2>
             <p>Start with one. Add the next when it pays off.</p>
           </div>
           <ol className="toc">
@@ -105,7 +106,7 @@ export default function Home() {
       <section className="where" aria-labelledby="where-h">
         <div className="frame">
           <div className="sechead">
-            <Decode as="h2" id="where-h" text="Where the hours go." />
+            <h2 id="where-h">Where the hours go.</h2>
             <p>One quote request. By hand, it runs through you four times. Automated, once.</p>
           </div>
           <HoursFlow />
@@ -158,7 +159,7 @@ export default function Home() {
       <section className="worksec" aria-labelledby="work-h">
         <div className="frame">
           <div className="sechead">
-            <Decode as="h2" id="work-h" text="Work you can visit." />
+            <h2 id="work-h">Work you can visit.</h2>
             <p>Live sites for real businesses. Click around.</p>
           </div>
           <div className="cases">
@@ -183,7 +184,7 @@ export default function Home() {
       <section className="own" aria-labelledby="own-h">
         <div className="frame own__grid">
           <div className="sechead sechead--stack">
-            <Decode as="h2" id="own-h" text="You own it. All of it." />
+            <h2 id="own-h">You own it. All of it.</h2>
             <p>Once it is paid, it is yours. Stay with us, hire someone else, or hand it to an AI coding agent.</p>
             <ul className="own__list">
               <li>
@@ -204,7 +205,7 @@ export default function Home() {
       <section className="process" aria-labelledby="process-h">
         <div className="frame">
           <div className="sechead">
-            <Decode as="h2" id="process-h" text="How a project runs." />
+            <h2 id="process-h">How a project runs.</h2>
             <p>Five steps, every time.</p>
           </div>
           <ol className="steps">
@@ -222,7 +223,7 @@ export default function Home() {
       <section className="pricesec" aria-labelledby="prices-h">
         <div className="frame">
           <div className="sechead">
-            <Decode as="h2" id="prices-h" text="Prices start here." />
+            <h2 id="prices-h">Prices start here.</h2>
             <p>A fixed-scope proposal comes first. These are starting prices.</p>
           </div>
           <PriceList />
@@ -235,7 +236,7 @@ export default function Home() {
       <section className="faqsec" aria-labelledby="faq-h">
         <div className="frame faqsec__grid">
           <div className="sechead sechead--stack">
-            <Decode as="h2" id="faq-h" text="Questions owners ask." />
+            <h2 id="faq-h">Questions owners ask.</h2>
             <p>
               Something else? Call <a href={site.phone.href}>{site.phone.display}</a>.
             </p>

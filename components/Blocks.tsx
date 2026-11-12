@@ -2,7 +2,6 @@ import Link from "next/link";
 import { automation, builds, carePlans, careRows, training, type Plan } from "@/lib/pricing";
 import { services } from "@/lib/services";
 import { site } from "@/lib/site";
-import Decode from "./Decode";
 import Icon from "./Icon";
 
 const colorOf = (n: number) => services.find((s) => s.chapter === n)?.color ?? "blue";
@@ -157,7 +156,9 @@ export function CtaPanel({
   return (
     <section className="cta" aria-labelledby="cta-h">
       <div className="frame cta__inner">
-        <Decode as="h2" text={title} id="cta-h" className="cta__h" />
+        <h2 id="cta-h" className="cta__h">
+          {title}
+        </h2>
         <div className="cta__side">
           <p>{body}</p>
           <div className="cta__actions">
