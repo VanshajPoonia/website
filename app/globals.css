@@ -480,6 +480,7 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .care__table { width: 100%; min-width: 680px; border-collapse: collapse; }
 .care__table th, .care__table td { padding: 14px 20px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.9688rem; }
 .care__table thead th { vertical-align: bottom; padding-block: 24px 18px; border-bottom: 1px solid var(--ink); width: 23%; }
+.care__table thead td { border-bottom: 1px solid var(--ink); }
 .care__table tbody th { font-weight: 500; color: var(--ink); }
 .care__table tbody td { color: var(--ink-2); }
 .care__table tbody tr:last-child > * { border-bottom: 0; }
