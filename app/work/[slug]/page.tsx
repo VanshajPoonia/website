@@ -6,7 +6,7 @@ import { CtaPanel } from "@/components/Blocks";
 import Icon from "@/components/Icon";
 import JsonLd from "@/components/JsonLd";
 import PageHead from "@/components/PageHead";
-import { ChapterChips } from "@/components/Work";
+import { ChapterChips, State } from "@/components/Work";
 import { industryFor } from "@/lib/industries";
 import { pageMetadata, workLd } from "@/lib/seo";
 import { getWork, work } from "@/lib/work";
@@ -90,7 +90,9 @@ export default async function WorkDetail({ params }: Params) {
               </div>
               <div>
                 <dt>Status</dt>
-                <dd>{w.status}</dd>
+                <dd>
+                  <State status={w.status} />
+                </dd>
               </div>
             </dl>
             <ChapterChips chapters={w.services} />

@@ -22,7 +22,17 @@ export function ChapterChips({ chapters }: { chapters: number[] }) {
   );
 }
 
-/** A full case file: screenshot pinned to a spec sheet. */
+/** Where a project stands: a filled dot when it is live, a ring otherwise. */
+export function State({ status }: { status: string }) {
+  return (
+    <span className="state mono" data-live={status === "Live" || undefined}>
+      <span className="state__dot" aria-hidden="true" />
+      {status}
+    </span>
+  );
+}
+
+/** A full case file: screenshot beside a spec sheet. */
 export function CaseFile({ item, priority = false, headingLevel = 3 }: { item: WorkItem; priority?: boolean; headingLevel?: 2 | 3 }) {
   const H = headingLevel === 2 ? "h2" : "h3";
   return (
@@ -38,7 +48,6 @@ export function CaseFile({ item, priority = false, headingLevel = 3 }: { item: W
             priority={priority}
           />
         ) : null}
-        <span className="case__status mono">{item.status}</span>
       </Link>
       <div className="case__sheet">
         <H className="case__h">
@@ -46,6 +55,12 @@ export function CaseFile({ item, priority = false, headingLevel = 3 }: { item: W
         </H>
         <p className="case__summary">{item.summary}</p>
         <dl className="spec">
+          <div>
+            <dt>Status</dt>
+            <dd>
+              <State status={item.status} />
+            </dd>
+          </div>
           <div>
             <dt>Industry</dt>
             <dd>{item.industry}</dd>
