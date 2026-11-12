@@ -1,6 +1,9 @@
 // Project enquiries. Delivered by email through Resend when the environment
 // is configured; otherwise the visitor is told to email or call instead, so
-// nothing is silently dropped.
+// nothing is silently dropped. Each enquiry is also filed in the CRM
+// (crm.kreativvantage.com) after the response is sent.
+
+import { after } from "next/server";
 
 const MAX = { name: 120, business: 160, email: 200, phone: 40, website: 300, budget: 60, message: 5000 };
 const hits = new Map<string, number[]>();
@@ -54,6 +57,26 @@ export async function POST(req: Request) {
     Needs: Array.isArray(body.needs) ? body.needs.map((n) => clean(n, 60)).filter(Boolean).join(", ") : "",
     Budget: clean(body.budget, MAX.budget),
   };
+
+  // Best effort: a CRM outage must never cost us the enquiry email.
+  const crmUrl = process.env.CRM_INBOUND_URL;
+  const crmKey = process.env.CRM_INBOUND_KEY;
+  if (crmUrl && crmKey) {
+    after(async () => {
+      try {
+        await fetch(crmUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "x-crm-key": crmKey },
+          body: JSON.stringify({
+            name, email, message,
+            business: fields.Business, phone: fields.Phone, website: fields.Website,
+            needs: fields.Needs, budget: fields.Budget,
+          }),
+          signal: AbortSignal.timeout(8000),
+        });
+      } catch {}
+    });
+  }
 
   const key = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO_EMAIL;
