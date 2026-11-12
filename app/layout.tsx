@@ -4,7 +4,6 @@ import { Archivo, Fragment_Mono, Public_Sans } from "next/font/google";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import JsonLd from "@/components/JsonLd";
-import TabRail from "@/components/TabRail";
 import { organizationLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import "./globals.css";
@@ -56,7 +55,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <Header />
-        <TabRail />
         <main id="main" tabIndex={-1}>
           {children}
         </main>

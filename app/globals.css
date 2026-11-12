@@ -191,23 +191,6 @@ html.menu-open { overflow: hidden; }
 }
 .menu__call { width: 100%; }
 
-/* ---------- Chapter tab rail ---------- */
-.rail { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 30; display: none; }
-@media (min-width: 1280px) { .rail { display: block; } }
-.rail ol { display: grid; gap: 5px; }
-.rail__tab {
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  writing-mode: vertical-rl; transform: rotate(180deg) translateX(-12px);
-  background: var(--tab); color: var(--ink); text-decoration: none;
-  padding: 16px 9px 16px 22px; border-radius: 0 var(--tab-radius) var(--tab-radius) 0;
-  font-family: var(--display); font-weight: 600; font-size: 0.8125rem; letter-spacing: 0.01em;
-  box-shadow: 2px 0 10px -4px rgb(21 23 28 / 0.25);
-  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
-}
-.rail__n { font-stretch: 125%; font-weight: 750; font-size: 0.9375rem; writing-mode: horizontal-tb; transform: rotate(180deg); }
-.rail__tab:hover { transform: rotate(180deg) translateX(-6px); }
-.rail__tab[aria-current="true"] { transform: rotate(180deg) translateX(0); box-shadow: 4px 0 16px -4px rgb(21 23 28 / 0.35); }
-
 /* ---------- Section heads ---------- */
 .sechead { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 24px 48px; align-items: end; margin-bottom: clamp(36px, 5vw, 64px); }
 .sechead h2 { font-size: clamp(2.125rem, 1.25rem + 2.7vw, 3.5rem); font-stretch: 108%; font-weight: 680; letter-spacing: -0.032em; line-height: 0.98; }
@@ -623,7 +606,6 @@ td.prices__num { font-size: 1.375rem; color: var(--ink); }
 .footer__n { display: grid; place-items: center; width: 20px; height: 20px; border-radius: 3px 3px 0 0; background: var(--tab); font-family: var(--display); font-weight: 750; font-stretch: 125%; font-size: 0.75rem; color: var(--ink); }
 .footer__note { padding-bottom: 16px; color: var(--ink-3); font-size: 0.8125rem; }
 .footer__base { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 20px 28px; border-top: 1px solid var(--rule-2); color: var(--ink-3); font-size: 0.75rem; }
-@media (min-width: 1280px) { .footer__base, .footer__grid, .footer__note { padding-right: calc(var(--gutter) + 24px); } }
 
 /* ---------- Subpage head ---------- */
 .pagehead { border-bottom: 1px solid var(--rule); padding: clamp(28px, 4vw, 48px) 0 clamp(40px, 5vw, 72px); }
@@ -814,7 +796,7 @@ fieldset.field { border: 0; padding: 0; margin: 0; }
 
 /* ---------- Print: it is a manual, after all ---------- */
 @media print {
-  .header, .rail, .footer, .cover__stage, .cta, .menu-btn, .skip { display: none !important; }
+  .header, .footer, .cover__stage, .cta, .menu-btn, .skip { display: none !important; }
   body { background: #fff; }
   .divider { position: static !important; box-shadow: none; }
 }
