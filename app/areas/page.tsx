@@ -22,17 +22,14 @@ export default function AreasPage() {
       />
       <section className="band">
         <div className="frame">
-          <ol className="toc">
+          <ol className="toc toc--plain">
             {areas.map((a, i) => (
               <li key={a.slug} className="toc__row">
                 <Link href={`/areas/${a.slug}`} className="toc__link">
-                  <span className="toc__tab" aria-hidden="true">
-                    {i + 1}
-                  </span>
+                  <span className="toc__n mono">{String(i + 1).padStart(2, "0")}</span>
                   <span className="toc__title">{a.name}</span>
-                  <span className="toc__leader" aria-hidden="true" />
                   <span className="toc__summary">{a.places.slice(0, 5).join(" · ")}</span>
-                  <Icon name="arrow" size={20} className="toc__arrow" />
+                  <Icon name="arrow" size={18} className="toc__arrow" />
                 </Link>
               </li>
             ))}

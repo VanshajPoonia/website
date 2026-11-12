@@ -22,17 +22,14 @@ export default function IndustriesPage() {
       />
       <section className="band">
         <div className="frame">
-          <ol className="toc">
+          <ol className="toc toc--plain">
             {industries.map((ind, i) => (
               <li key={ind.slug} className="toc__row">
                 <Link href={`/industries/${ind.slug}`} className="toc__link">
-                  <span className="toc__tab" aria-hidden="true">
-                    {i + 1}
-                  </span>
+                  <span className="toc__n mono">{String(i + 1).padStart(2, "0")}</span>
                   <span className="toc__title">{ind.name}</span>
-                  <span className="toc__leader" aria-hidden="true" />
                   <span className="toc__summary">{ind.who.slice(0, 4).join(" · ")}</span>
-                  <Icon name="arrow" size={20} className="toc__arrow" />
+                  <Icon name="arrow" size={18} className="toc__arrow" />
                 </Link>
               </li>
             ))}

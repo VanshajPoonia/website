@@ -24,7 +24,6 @@ export default function Home() {
   const featured = work.filter((w) => w.featured);
   const more = namedWork.filter((w) => !w.featured);
   const automations = work.filter((w) => w.anonymised);
-  const workBySlug = Object.fromEntries(work.map((w) => [w.slug, w]));
 
   return (
     <>
@@ -82,18 +81,25 @@ export default function Home() {
             {services.map((s) => (
               <li key={s.slug} className="toc__row" data-color={s.color}>
                 <Link href={`/services/${s.slug}`} className="toc__link">
-                  <span className="toc__tab" aria-hidden="true">
-                    {s.chapter}
+                  <span className="toc__n mono">
+                    <span className="marker" aria-hidden="true" />
+                    {String(s.chapter).padStart(2, "0")}
                   </span>
-                  <span className="toc__title">{s.title}</span>
-                  <span className="toc__leader" aria-hidden="true" />
-                  <span className="toc__summary">
-                    {s.keywords.join(" · ")}
-                    <span className="toc__time mono">
+                  <span className="toc__main">
+                    <span className="toc__title">{s.title}</span>
+                    <span className="toc__lead">{s.headline}</span>
+                  </span>
+                  <span className="toc__summary">{s.keywords.join(" · ")}</span>
+                  <span className="toc__meta mono">
+                    <span>
                       <TimeBack hours={s.hoursBack} />
                     </span>
+                    <span>
+                      From ${s.fromPrice.toLocaleString("en-US")}
+                      {s.slug === "care-and-training" ? " a month" : ""}
+                    </span>
                   </span>
-                  <Icon name="arrow" size={20} className="toc__arrow" />
+                  <Icon name="arrow" size={18} className="toc__arrow" />
                 </Link>
               </li>
             ))}
@@ -109,49 +115,6 @@ export default function Home() {
           </div>
           <HoursFlow />
         </div>
-      </section>
-
-      <section className="chapters" aria-label="Service chapters">
-        {services.map((s, i) => (
-          <article key={s.slug} id={`chapter-${s.slug}`} className="divider" data-color={s.color} style={{ ["--i" as string]: i }}>
-            <div className="divider__tab" aria-hidden="true">
-              <span className="divider__tabn">{s.chapter}</span>
-              {s.tab}
-            </div>
-            <div className="frame divider__body">
-              <div className="divider__main">
-                <h2 className="divider__h">{s.title}</h2>
-                <p className="divider__lead">{s.headline}</p>
-                <Link href={`/services/${s.slug}`} className="btn btn--ink">
-                  Read chapter {s.chapter} <Icon name="arrow" size={18} />
-                </Link>
-              </div>
-              <div className="divider__side">
-                <h3 className="divider__k">Includes</h3>
-                <ul className="divider__list">
-                  {s.included.slice(0, 4).map((x) => (
-                    <li key={x.title}>
-                      <Icon name="check" size={16} />
-                      {x.title}
-                    </li>
-                  ))}
-                </ul>
-                <h3 className="divider__k">Seen in</h3>
-                <ul className="divider__work">
-                  {s.work.map((slug) => (
-                    <li key={slug}>
-                      <Link href={`/work/${slug}`}>{workBySlug[slug]?.client}</Link>
-                    </li>
-                  ))}
-                </ul>
-                <p className="divider__time mono">
-                  <TimeBack hours={s.hoursBack} />
-                </p>
-                <p className="divider__price mono">{s.priceNote}</p>
-              </div>
-            </div>
-          </article>
-        ))}
       </section>
 
       <section className="worksec" aria-labelledby="work-h">
